@@ -13,17 +13,46 @@ function DigitalCounter({ value, label, icon, color = 'cyan' }: DigitalCounterPr
   const [displayValue, setDisplayValue] = useState<number>(0);
 
   useEffect(() => {
-    let start: number | null = null;
-    const duration = 2000;
-    const step = (timestamp: number): void => {
-      if (!start) start = timestamp;
-      const progress = Math.min((timestamp - start) / duration, 1);
-      setDisplayValue(Math.floor(progress * value));
-      if (progress < 1) {
-        requestAnimationFrame(step);
+    // Reset to 0 when value changes
+    setDisplayValue(0);
+    
+    let rafId: number | null = null;
+    let timeoutId: NodeJS.Timeout;
+    
+    // Use setTimeout to batch the animation start and avoid blocking initial render
+    timeoutId = setTimeout(() => {
+      let start: number | null = null;
+      const duration = 2000;
+      
+      const step = (timestamp: number): void => {
+        if (!start) start = timestamp;
+        const elapsed = timestamp - start;
+        const progress = Math.min(elapsed / duration, 1);
+        
+        // Use easing function for smoother animation
+        const eased = progress < 0.5 
+          ? 2 * progress * progress 
+          : 1 - Math.pow(-2 * progress + 2, 2) / 2;
+        
+        const newValue = Math.floor(eased * value);
+        setDisplayValue(newValue);
+        
+        if (progress < 1) {
+          rafId = requestAnimationFrame(step);
+        } else {
+          rafId = null;
+        }
+      };
+      
+      rafId = requestAnimationFrame(step);
+    }, 50); // Small delay to avoid blocking initial render
+    
+    return () => {
+      clearTimeout(timeoutId);
+      if (rafId !== null) {
+        cancelAnimationFrame(rafId);
       }
     };
-    requestAnimationFrame(step);
   }, [value]);
 
   const colorClasses: Record<string, string> = {
