@@ -11,38 +11,64 @@ if (!rootElement) {
   throw new Error('Root element not found');
 }
 
-try {
-  // React 18's createRoot - works on modern browsers
-  // For older browsers, React 18 still supports the legacy render method
-  const root = ReactDOM.createRoot(rootElement);
-  root.render(
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  );
-} catch (error) {
-  console.error('Failed to render React app:', error);
-  // Fallback: Try legacy render method for very old browsers
+// Check browser compatibility before rendering
+function checkBrowserSupport(): boolean {
+  // React 18 requires Safari 14+ (iOS 14+)
+  // Check for required features
+  if (typeof Promise === 'undefined') return false;
+  if (typeof Symbol === 'undefined') return false;
+  if (typeof Map === 'undefined') return false;
+  if (typeof Set === 'undefined') return false;
+  
+  // Check for ES6 class support
   try {
-    // @ts-ignore - Legacy React render API
-    if (ReactDOM.render) {
-      // @ts-ignore
-      ReactDOM.render(
-        <React.StrictMode>
-          <App />
-        </React.StrictMode>,
-        rootElement
-      );
-    } else {
-      throw error;
-    }
-  } catch (fallbackError) {
+    eval('class Test {}');
+  } catch {
+    return false;
+  }
+  
+  // Check for arrow functions
+  try {
+    eval('const test = () => {}');
+  } catch {
+    return false;
+  }
+  
+  return true;
+}
+
+if (!checkBrowserSupport()) {
+  rootElement.innerHTML = `
+    <div style="padding: 20px; text-align: center; color: #fff; font-family: Arial, sans-serif; background: #0a0a0f; min-height: 100vh; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+      <h1 style="color: #00ffff; margin-bottom: 20px; font-size: 24px;">Browser Not Supported</h1>
+      <p style="color: #a0a0c0; margin-bottom: 10px; font-size: 16px;">Your browser does not meet the minimum requirements.</p>
+      <p style="color: #a0a0c0; margin-bottom: 20px; font-size: 16px;">This application requires modern browser features.</p>
+      <div style="color: #606080; font-size: 14px; line-height: 1.6;">
+        <p><strong>Minimum Requirements:</strong></p>
+        <p>iOS 14+ (Safari 14+)</p>
+        <p>Chrome 90+</p>
+        <p>Firefox 88+</p>
+        <p style="margin-top: 20px; color: #a0a0c0;">Please update your device or use a modern browser.</p>
+      </div>
+    </div>
+  `;
+} else {
+  try {
+    // React 18's createRoot - requires Safari 14+ (iOS 14+)
+    const root = ReactDOM.createRoot(rootElement);
+    root.render(
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    );
+  } catch (error) {
+    console.error('Failed to render React app:', error);
     rootElement.innerHTML = `
-      <div style="padding: 20px; color: red; font-family: monospace;">
-        <h2>Application Error</h2>
-        <p>Your browser is not supported. Please update to a modern browser.</p>
-        <p>Minimum requirements: iOS 13+ or Safari 13+</p>
-        <pre>${error instanceof Error ? error.message : String(error)}</pre>
+      <div style="padding: 20px; text-align: center; color: #fff; font-family: Arial, sans-serif; background: #0a0a0f; min-height: 100vh; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+        <h1 style="color: #ff0055; margin-bottom: 20px; font-size: 24px;">Application Error</h1>
+        <p style="color: #a0a0c0; margin-bottom: 10px; font-size: 16px;">Failed to initialize the application.</p>
+        <p style="color: #606080; font-size: 14px; margin-top: 20px;">${error instanceof Error ? error.message : String(error)}</p>
+        <p style="color: #606080; font-size: 12px; margin-top: 20px;">Please try refreshing the page or contact support.</p>
       </div>
     `;
   }

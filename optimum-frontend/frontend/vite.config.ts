@@ -38,7 +38,7 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     sourcemap: false,
-    target: 'es2015', // Support older browsers like iPhone 6 (iOS 12)
+    target: 'es2017', // Balance between compatibility and modern features (Safari 14+)
     minify: 'terser',
     terserOptions: {
       compress: {
