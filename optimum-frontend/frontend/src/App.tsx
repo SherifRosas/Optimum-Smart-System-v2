@@ -14,7 +14,7 @@ function DigitalCounter({ value, label, icon, color = 'cyan', delay = 0 }: Digit
   const [displayValue, setDisplayValue] = useState<number>(0);
 
   useEffect(() => {
-    // Reset to 0 when value changes
+    // Show initial value immediately, then animate
     setDisplayValue(0);
     
     let rafId: number | null = null;
@@ -49,6 +49,8 @@ function DigitalCounter({ value, label, icon, color = 'cyan', delay = 0 }: Digit
         if (progress < 1) {
           rafId = requestAnimationFrame(step);
         } else {
+          // Ensure final value is set
+          setDisplayValue(value);
           rafId = null;
         }
       };
