@@ -14,25 +14,31 @@ if (!rootElement) {
 // Check browser compatibility before rendering
 function checkBrowserSupport(): boolean {
   // React 18 requires Safari 14+ (iOS 14+)
-  // Check for required features
+  // Check for required features without using eval
   if (typeof Promise === 'undefined') return false;
   if (typeof Symbol === 'undefined') return false;
   if (typeof Map === 'undefined') return false;
   if (typeof Set === 'undefined') return false;
   
-  // Check for ES6 class support
+  // Check for ES6 class support (safe check)
   try {
-    eval('class Test {}');
+    // Use Function constructor instead of eval
+    const TestClass = new Function('return class Test {}')();
+    if (!TestClass) return false;
   } catch {
     return false;
   }
   
-  // Check for arrow functions
+  // Check for arrow functions (safe check)
   try {
-    eval('const test = () => {}');
+    const testArrow = new Function('return () => {}')();
+    if (typeof testArrow !== 'function') return false;
   } catch {
     return false;
   }
+  
+  // Check for Object.assign (required by React)
+  if (typeof Object.assign !== 'function') return false;
   
   return true;
 }
