@@ -1,4 +1,4 @@
-import { useState, useCallback, useMemo, ReactNode } from 'react';
+import React, { useState, useCallback, useMemo, ReactNode } from 'react';
 import Toast from '../components/Toast';
 
 type ToastType = 'success' | 'error' | 'warning' | 'info';
@@ -46,7 +46,7 @@ export const useToast = () => {
     if (toasts.length === 0) return null;
     return (
       <div className="toast-container">
-        {toasts.map(toastItem => (
+        {toasts.map((toastItem) => (
           <Toast
             key={toastItem.id}
             message={toastItem.message}
@@ -56,7 +56,7 @@ export const useToast = () => {
           />
         ))}
       </div>
-    );
+    ) as ReactNode;
   }, [toasts, removeToast]);
 
   // Memoize the return object to prevent unnecessary re-renders
