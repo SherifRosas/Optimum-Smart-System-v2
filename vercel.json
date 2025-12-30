@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "buildCommand": "cd optimum-frontend && npm install && npm run build",
-  "outputDirectory": "optimum-frontend/dist",
-  "installCommand": "cd optimum-frontend && npm install",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "installCommand": "npm install --legacy-peer-deps",
   "framework": "vite",
-  "rootDirectory": "optimum-frontend",
+  "rootDirectory": "optimum-frontend/frontend",
   "rewrites": [
     {
       "source": "/(.*)",
