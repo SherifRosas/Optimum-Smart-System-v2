@@ -38,6 +38,13 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     sourcemap: false,
+    target: 'es2015', // Support older browsers like iPhone 6 (iOS 12)
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: false, // Keep console for debugging
+      },
+    },
     rollupOptions: {
       output: {
         manualChunks: {

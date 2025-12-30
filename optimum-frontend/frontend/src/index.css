@@ -80,11 +80,14 @@
     padding: 0;
   }
 
-  /* Cyberpunk Grid Background */
+  /* Cyberpunk Grid Background - Use top/right/bottom/left instead of inset for older browsers */
   body::before {
     content: '';
     position: fixed;
-    inset: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     background:
       linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px),
       linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px);
@@ -93,11 +96,14 @@
     z-index: -2;
   }
 
-  /* Cyberpunk Orb Effects */
+  /* Cyberpunk Orb Effects - Use top/right/bottom/left instead of inset for older browsers */
   body::after {
     content: '';
     position: fixed;
-    inset: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     background:
       radial-gradient(circle at 20% 20%, rgba(0, 255, 255, 0.1) 0%, transparent 40%),
       radial-gradient(circle at 80% 80%, rgba(255, 0, 255, 0.1) 0%, transparent 40%);
