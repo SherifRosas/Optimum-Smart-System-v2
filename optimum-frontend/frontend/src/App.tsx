@@ -9,62 +9,45 @@ interface DigitalCounterProps {
   delay?: number;
 }
 
-// Animated Digital Counter Component
+// Animated Digital Counter Component - Using CSS animations for better performance
 function DigitalCounter({ value, label, icon, color = 'cyan', delay = 0 }: DigitalCounterProps) {
   const [displayValue, setDisplayValue] = useState<number>(0);
+  const [isAnimating, setIsAnimating] = useState<boolean>(false);
 
   useEffect(() => {
-    // Show initial value immediately, then animate
+    // Reset and start animation
     setDisplayValue(0);
+    setIsAnimating(true);
     
-    let rafId: number | null = null;
-    let timeoutId: NodeJS.Timeout;
-    let lastUpdateTime = 0;
-    const minUpdateInterval = 16; // ~60fps, update at most once per frame
-    
-    // Use setTimeout to batch the animation start and avoid blocking initial render
-    timeoutId = setTimeout(() => {
+    // Use a single RAF call per counter, batched with setTimeout
+    const timeoutId = setTimeout(() => {
       let start: number | null = null;
-      const duration = 2000;
+      const duration = 1500; // Reduced duration for faster animation
       
-      const step = (timestamp: number): void => {
+      const animate = (timestamp: number): void => {
         if (!start) start = timestamp;
-        
-        // Throttle updates to reduce computation per frame
-        if (timestamp - lastUpdateTime < minUpdateInterval) {
-          rafId = requestAnimationFrame(step);
-          return;
-        }
-        lastUpdateTime = timestamp;
-        
         const elapsed = timestamp - start;
         const progress = Math.min(elapsed / duration, 1);
         
-        // Simplified easing for better performance
-        const eased = progress * (2 - progress); // Quadratic ease-out
-        
-        const newValue = Math.floor(eased * value);
+        // Simple linear interpolation (fastest)
+        const newValue = Math.floor(progress * value);
         setDisplayValue(newValue);
         
         if (progress < 1) {
-          rafId = requestAnimationFrame(step);
+          requestAnimationFrame(animate);
         } else {
-          // Ensure final value is set
           setDisplayValue(value);
-          rafId = null;
+          setIsAnimating(false);
         }
       };
       
-      rafId = requestAnimationFrame(step);
-    }, 100 + delay); // Stagger animations to reduce simultaneous RAF calls
+      requestAnimationFrame(animate);
+    }, delay);
     
     return () => {
       clearTimeout(timeoutId);
-      if (rafId !== null) {
-        cancelAnimationFrame(rafId);
-      }
     };
-  }, [value]);
+  }, [value, delay]);
 
   const colorClasses: Record<string, string> = {
     cyan: 'stat-cyan',
