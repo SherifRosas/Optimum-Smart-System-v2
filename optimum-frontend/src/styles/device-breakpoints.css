@@ -1,0 +1,498 @@
+/* Comprehensive Device Breakpoints - All Device Versions */
+
+/* ============================================
+   DEVICE CATEGORIES & BREAKPOINTS
+   ============================================ */
+
+/* Extra Small Phones (iPhone SE, iPhone 5/5S, Small Android) */
+/* 320px - 374px */
+@media (max-width: 374px) {
+  :root {
+    --base-font-size: 14px;
+    --spacing-unit: 0.25rem;
+    --touch-target: 40px;
+  }
+}
+
+/* Small Phones (iPhone 6/7/8, iPhone SE 2nd gen, Small Android) */
+/* 375px - 413px */
+@media (min-width: 375px) and (max-width: 413px) {
+  :root {
+    --base-font-size: 15px;
+    --spacing-unit: 0.3rem;
+    --touch-target: 44px;
+  }
+}
+
+/* Medium Phones (iPhone 6/7/8 Plus, iPhone X/11/12/13/14, Standard Android) */
+/* 414px - 479px */
+@media (min-width: 414px) and (max-width: 479px) {
+  :root {
+    --base-font-size: 16px;
+    --spacing-unit: 0.35rem;
+    --touch-target: 44px;
+  }
+}
+
+/* Large Phones (iPhone Pro Max, Large Android) */
+/* 480px - 767px */
+@media (min-width: 480px) and (max-width: 767px) {
+  :root {
+    --base-font-size: 16px;
+    --spacing-unit: 0.4rem;
+    --touch-target: 48px;
+  }
+}
+
+/* Small Tablets (iPad Mini, Small Android Tablets) */
+/* 768px - 834px */
+@media (min-width: 768px) and (max-width: 834px) {
+  :root {
+    --base-font-size: 16px;
+    --spacing-unit: 0.5rem;
+    --touch-target: 48px;
+  }
+}
+
+/* Medium Tablets (iPad, Standard Android Tablets) */
+/* 835px - 1023px */
+@media (min-width: 835px) and (max-width: 1023px) {
+  :root {
+    --base-font-size: 17px;
+    --spacing-unit: 0.6rem;
+    --touch-target: 48px;
+  }
+}
+
+/* Large Tablets (iPad Pro 11", Large Android Tablets) */
+/* 1024px - 1199px */
+@media (min-width: 1024px) and (max-width: 1199px) {
+  :root {
+    --base-font-size: 18px;
+    --spacing-unit: 0.75rem;
+    --touch-target: 48px;
+  }
+}
+
+/* Small Laptops (13" MacBook, Small Windows Laptops) */
+/* 1200px - 1439px */
+@media (min-width: 1200px) and (max-width: 1439px) {
+  :root {
+    --base-font-size: 16px;
+    --spacing-unit: 1rem;
+    --touch-target: 44px;
+  }
+}
+
+/* Standard Desktops (15" MacBook, Standard Windows Desktops) */
+/* 1440px - 1919px */
+@media (min-width: 1440px) and (max-width: 1919px) {
+  :root {
+    --base-font-size: 16px;
+    --spacing-unit: 1rem;
+    --touch-target: 44px;
+  }
+}
+
+/* Large Desktops (4K Monitors, Large Displays) */
+/* 1920px - 2559px */
+@media (min-width: 1920px) and (max-width: 2559px) {
+  :root {
+    --base-font-size: 18px;
+    --spacing-unit: 1.25rem;
+    --touch-target: 48px;
+  }
+}
+
+/* Ultra-wide Monitors */
+/* 2560px+ */
+@media (min-width: 2560px) {
+  :root {
+    --base-font-size: 20px;
+    --spacing-unit: 1.5rem;
+    --touch-target: 48px;
+  }
+}
+
+/* ============================================
+   SPECIFIC DEVICE OPTIMIZATIONS
+   ============================================ */
+
+/* iPhone SE (1st & 2nd gen) - 375px */
+@media (width: 375px) and (height: 667px),
+       (width: 375px) and (height: 812px) {
+  :root {
+    --device-type: 'iphone-se';
+  }
+}
+
+/* iPhone 6/7/8 - 375px */
+@media (width: 375px) and (height: 667px) {
+  :root {
+    --device-type: 'iphone-6-7-8';
+  }
+}
+
+/* iPhone 6/7/8 Plus - 414px */
+@media (width: 414px) and (height: 736px) {
+  :root {
+    --device-type: 'iphone-6-7-8-plus';
+  }
+}
+
+/* iPhone X/11 Pro - 375px */
+@media (width: 375px) and (height: 812px) {
+  :root {
+    --device-type: 'iphone-x-11-pro';
+    --safe-area-top: env(safe-area-inset-top);
+    --safe-area-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* iPhone 11 Pro Max / 12/13/14 Pro Max - 414px */
+@media (width: 414px) and (height: 896px),
+       (width: 428px) and (height: 926px) {
+  :root {
+    --device-type: 'iphone-pro-max';
+    --safe-area-top: env(safe-area-inset-top);
+    --safe-area-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* iPhone 14/15 Pro Max - 430px */
+@media (width: 430px) and (height: 932px) {
+  :root {
+    --device-type: 'iphone-14-15-pro-max';
+    --safe-area-top: env(safe-area-inset-top);
+    --safe-area-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* iPad Mini - 768px */
+@media (width: 768px) and (height: 1024px) {
+  :root {
+    --device-type: 'ipad-mini';
+  }
+}
+
+/* iPad / iPad Air - 810px / 820px */
+@media (width: 810px) and (height: 1080px),
+       (width: 820px) and (height: 1180px) {
+  :root {
+    --device-type: 'ipad-air';
+  }
+}
+
+/* iPad Pro 11" - 834px */
+@media (width: 834px) and (height: 1194px) {
+  :root {
+    --device-type: 'ipad-pro-11';
+  }
+}
+
+/* iPad Pro 12.9" - 1024px */
+@media (width: 1024px) and (height: 1366px) {
+  :root {
+    --device-type: 'ipad-pro-12-9';
+  }
+}
+
+/* ============================================
+   ORIENTATION-SPECIFIC STYLES
+   ============================================ */
+
+/* Portrait Orientation */
+@media (orientation: portrait) {
+  :root {
+    --orientation: 'portrait';
+  }
+  
+  /* Mobile Portrait */
+  @media (max-width: 767px) {
+    .portrait-mobile {
+      display: block;
+    }
+    
+    .landscape-mobile {
+      display: none;
+    }
+  }
+}
+
+/* Landscape Orientation */
+@media (orientation: landscape) {
+  :root {
+    --orientation: 'landscape';
+  }
+  
+  /* Mobile Landscape */
+  @media (max-width: 767px) {
+    .portrait-mobile {
+      display: none;
+    }
+    
+    .landscape-mobile {
+      display: block;
+    }
+    
+    /* Adjust heights for landscape mobile */
+    .app-container {
+      height: calc(100dvh - var(--header-height-mobile));
+    }
+    
+    .main-content {
+      padding-bottom: calc(var(--content-padding-mobile) + 60px);
+    }
+  }
+  
+  /* Tablet Landscape */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .navigation {
+      width: 100%;
+      position: fixed;
+      top: var(--header-height-desktop);
+      left: 0;
+      height: auto;
+      border-right: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    
+    .app-container {
+      margin-left: 0;
+      margin-top: 60px;
+    }
+  }
+}
+
+/* ============================================
+   PIXEL DENSITY OPTIMIZATIONS
+   ============================================ */
+
+/* Retina / High DPI Displays */
+@media (-webkit-min-device-pixel-ratio: 2),
+       (min-resolution: 192dpi),
+       (min-resolution: 2dppx) {
+  :root {
+    --pixel-ratio: 2;
+  }
+  
+  /* Sharper borders and shadows */
+  .card,
+  .stat-card,
+  .chart-card {
+    border-width: 0.5px;
+  }
+}
+
+/* Ultra High DPI (Retina 3x, etc.) */
+@media (-webkit-min-device-pixel-ratio: 3),
+       (min-resolution: 288dpi),
+       (min-resolution: 3dppx) {
+  :root {
+    --pixel-ratio: 3;
+  }
+}
+
+/* ============================================
+   TOUCH DEVICE DETECTION
+   ============================================ */
+
+/* Touch Devices */
+@media (hover: none) and (pointer: coarse) {
+  :root {
+    --input-device: 'touch';
+  }
+  
+  /* Larger touch targets */
+  button,
+  a,
+  [role="button"],
+  input[type="button"],
+  input[type="submit"] {
+    min-height: var(--touch-target);
+    min-width: var(--touch-target);
+  }
+  
+  /* Remove hover effects */
+  .card:hover,
+  button:hover,
+  a:hover {
+    transform: none;
+  }
+  
+  /* Better active states */
+  button:active,
+  a:active {
+    opacity: 0.7;
+    transform: scale(0.98);
+  }
+}
+
+/* Mouse/Trackpad Devices */
+@media (hover: hover) and (pointer: fine) {
+  :root {
+    --input-device: 'mouse';
+  }
+  
+  /* Smaller click targets */
+  button,
+  a {
+    min-height: 32px;
+    min-width: 32px;
+  }
+  
+  /* Enable hover effects */
+  .card:hover {
+    transform: translateY(-2px);
+  }
+}
+
+/* ============================================
+   REDUCED MOTION PREFERENCE
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================
+   DARK MODE PREFERENCE
+   ============================================ */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color-scheme: light;
+  }
+}
+
+/* ============================================
+   CONTRAST PREFERENCE
+   ============================================ */
+
+@media (prefers-contrast: high) {
+  :root {
+    --color-primary: 0 0 255; /* High contrast blue */
+    --color-text: 0 0 0;
+    --color-background: 255 255 255;
+  }
+  
+  .card,
+  .stat-card {
+    border-width: 2px;
+  }
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+
+@media print {
+  * {
+    background: white !important;
+    color: black !important;
+    box-shadow: none !important;
+  }
+  
+  .navigation,
+  .header,
+  .chat-widget-button,
+  .no-print {
+    display: none !important;
+  }
+  
+  .app-container {
+    margin-left: 0;
+  }
+  
+  .main-content {
+    padding: 0;
+    overflow: visible;
+  }
+  
+  .page-break {
+    page-break-after: always;
+  }
+}
+
+/* ============================================
+   UTILITY CLASSES FOR DEVICE TYPES
+   ============================================ */
+
+/* Show/Hide based on device type */
+.show-mobile-only {
+  display: none;
+}
+
+.show-tablet-only {
+  display: none;
+}
+
+.show-desktop-only {
+  display: block;
+}
+
+@media (max-width: 767px) {
+  .show-mobile-only {
+    display: block;
+  }
+  
+  .show-tablet-only,
+  .show-desktop-only {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .show-tablet-only {
+    display: block;
+  }
+  
+  .show-mobile-only,
+  .show-desktop-only {
+    display: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .show-desktop-only {
+    display: block;
+  }
+  
+  .show-mobile-only,
+  .show-tablet-only {
+    display: none;
+  }
+}
+
+/* Device-specific spacing */
+.spacing-device {
+  padding: var(--spacing-unit);
+  margin: var(--spacing-unit);
+}
+
+/* Device-specific font sizes */
+.font-device {
+  font-size: var(--base-font-size);
+}
+
+/* Device-specific touch targets */
+.touch-device {
+  min-height: var(--touch-target);
+  min-width: var(--touch-target);
+}
+
+
+

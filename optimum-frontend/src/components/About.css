@@ -1,0 +1,362 @@
+.about-page {
+  min-height: 100%;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, rgba(12, 14, 26, 0.98), rgba(6, 6, 13, 0.95));
+  overflow-y: auto;
+}
+
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.about-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 2rem 0;
+}
+
+.about-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, rgba(74, 144, 226, 1), rgba(80, 201, 206, 1));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0 0 1rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.about-title-icon {
+  font-size: 2.5rem;
+  color: rgba(74, 144, 226, 1);
+  filter: drop-shadow(0 0 10px rgba(74, 144, 226, 0.5));
+}
+
+.about-subtitle {
+  font-size: 1.2rem;
+  color: rgba(236, 238, 246, 0.7);
+  margin: 0;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.about-section {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid rgba(74, 144, 226, 0.3);
+}
+
+.section-icon {
+  font-size: 2rem;
+  color: rgba(74, 144, 226, 1);
+  filter: drop-shadow(0 0 8px rgba(74, 144, 226, 0.5));
+}
+
+.section-header h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: rgba(236, 238, 246, 0.95);
+  margin: 0;
+}
+
+.section-content {
+  color: rgba(236, 238, 246, 0.85);
+}
+
+.info-card,
+.contact-card {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 16px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.info-card h3,
+.contact-name-large {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: rgba(74, 144, 226, 1);
+  margin: 0 0 0.5rem 0;
+}
+
+.company-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(236, 238, 246, 0.8);
+  margin: 0 0 1.5rem 0;
+}
+
+.company-details {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.copyright {
+  font-size: 0.875rem;
+  color: rgba(236, 238, 246, 0.6);
+  margin: 0;
+  text-align: center;
+}
+
+.contact-info {
+  margin-bottom: 2rem;
+}
+
+.contact-role-large {
+  font-size: 1.2rem;
+  color: rgba(80, 201, 206, 1);
+  margin: 0.5rem 0;
+  font-weight: 500;
+}
+
+.contact-company-large {
+  font-size: 1rem;
+  color: rgba(236, 238, 246, 0.7);
+  margin: 0.5rem 0 0 0;
+}
+
+.contact-actions {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.contact-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.contact-btn-icon {
+  font-size: 1.2rem;
+}
+
+.contact-btn-phone {
+  border-color: rgba(16, 185, 129, 0.5);
+  background: rgba(16, 185, 129, 0.2);
+}
+
+.contact-btn-phone:hover {
+  background: rgba(16, 185, 129, 0.4);
+  border-color: #10b981;
+  box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);
+}
+
+.contact-btn-whatsapp {
+  border-color: rgba(37, 211, 102, 0.5);
+  background: rgba(37, 211, 102, 0.2);
+}
+
+.contact-btn-whatsapp:hover {
+  background: rgba(37, 211, 102, 0.4);
+  border-color: #25d366;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+}
+
+.phone-display {
+  text-align: center;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.phone-label {
+  font-size: 0.875rem;
+  color: rgba(236, 238, 246, 0.6);
+  margin: 0 0 0.5rem 0;
+}
+
+.phone-link {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: rgba(74, 144, 226, 1);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.phone-link:hover {
+  color: rgba(80, 201, 206, 1);
+  text-decoration: underline;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.feature-item {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(74, 144, 226, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(74, 144, 226, 0.2);
+}
+
+.feature-item h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: rgba(74, 144, 226, 1);
+  margin: 0 0 0.5rem 0;
+}
+
+.feature-item p {
+  font-size: 0.95rem;
+  color: rgba(236, 238, 246, 0.7);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .about-page {
+    padding: 1rem;
+  }
+
+  .about-header {
+    margin-bottom: 2rem;
+    padding: 1.5rem 0;
+  }
+
+  .about-title {
+    font-size: 2rem;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .about-title-icon {
+    font-size: 2rem;
+  }
+
+  .about-subtitle {
+    font-size: 1rem;
+  }
+
+  .about-section {
+    padding: 1.5rem;
+  }
+
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .section-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .contact-actions {
+    flex-direction: column;
+  }
+
+  .contact-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-page {
+    padding: 0.75rem;
+  }
+
+  .about-title {
+    font-size: 1.75rem;
+  }
+
+  .about-section {
+    padding: 1rem;
+  }
+
+  .section-header h2 {
+    font-size: 1.3rem;
+  }
+
+  .info-card,
+  .contact-card {
+    padding: 1rem;
+  }
+}
+
+/* iPhone 6 and similar small devices (375px) */
+@media (max-width: 375px) {
+  .about-page {
+    padding: 0.5rem;
+  }
+
+  .about-title {
+    font-size: 1.5rem;
+  }
+
+  .about-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .about-section {
+    padding: 0.75rem;
+  }
+
+  .section-header h2 {
+    font-size: 1.2rem;
+  }
+
+  .contact-name-large {
+    font-size: 1.2rem;
+  }
+
+  .contact-role-large {
+    font-size: 1rem;
+  }
+
+  .contact-btn {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .phone-link {
+    font-size: 1.2rem;
+  }
+}
+

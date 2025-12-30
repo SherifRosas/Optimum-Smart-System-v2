@@ -1,0 +1,56 @@
+name: Uptime Monitoring
+
+on:
+  schedule:
+    # Run every 5 minutes
+    - cron: '*/5 * * * *'
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  health-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    
+    steps:
+      - name: Check Production Health
+        run: |
+          # Replace with your production URL
+          PROD_URL="${PROD_URL:-https://sherifrissas.pythonanywhere.com}"
+          
+          echo "Checking health endpoint: $PROD_URL/health/"
+          
+          # Basic health check
+          HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" --max-time 10 "$PROD_URL/health/" || echo "000")
+          
+          if [ "$HTTP_CODE" = "200" ]; then
+            echo "✅ Health check passed (HTTP $HTTP_CODE)"
+            exit 0
+          else
+            echo "❌ Health check failed (HTTP $HTTP_CODE)"
+            echo "::error::Production health check failed!"
+            exit 1
+          fi
+      
+      - name: Check Detailed Health
+        continue-on-error: true
+        run: |
+          PROD_URL="${PROD_URL:-https://sherifrissas.pythonanywhere.com}"
+          
+          echo "Checking detailed health: $PROD_URL/health/detailed/"
+          
+          RESPONSE=$(curl -s --max-time 10 "$PROD_URL/health/detailed/" || echo "{}")
+          
+          echo "Health status:"
+          echo "$RESPONSE" | jq -r '.status // "unknown"' || echo "unknown"
+          echo "$RESPONSE" | jq -r '.components // {}' || echo "{}"
+      
+      - name: Alert on Failure
+        if: failure()
+        run: |
+          echo "::error::Uptime check failed! System may be down."
+          # Add notification here (email, Slack, etc.)
+          # Example: curl -X POST $SLACK_WEBHOOK_URL -d '{"text":"System health check failed!"}'
+
+
+
+

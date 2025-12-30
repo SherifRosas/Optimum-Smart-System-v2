@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "buildCommand": "cd optimum-frontend && npm install && npm run build",
+  "outputDirectory": "optimum-frontend/dist",
+  "installCommand": "cd optimum-frontend && npm install",
+  "framework": "vite",
+  "rootDirectory": "optimum-frontend",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}

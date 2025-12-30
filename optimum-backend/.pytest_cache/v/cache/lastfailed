@@ -1,0 +1,6 @@
+{
+  "suppliers/tests/test_views.py": true,
+  "customers/tests.py": true,
+  "orders/tests.py": true,
+  "suppliers/tests.py": true
+}

@@ -1,0 +1,5102 @@
+# PostgreSQL-specific requirements
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+
+
+
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+# Install this only if you're using PostgreSQL in production
+# For development with SQLite, you don't need this file
+
+# Try psycopg2-binary first (pre-built wheels)
+psycopg2-binary>=2.9.9
+
+# If psycopg2-binary fails, you can try:
+# psycopg2>=2.9.9  # Requires PostgreSQL development libraries
+
+
+
+
+
+
+
+
