@@ -6,10 +6,11 @@ interface DigitalCounterProps {
   label: string;
   icon: string;
   color?: 'cyan' | 'magenta' | 'green' | 'orange';
+  delay?: number;
 }
 
 // Animated Digital Counter Component
-function DigitalCounter({ value, label, icon, color = 'cyan' }: DigitalCounterProps) {
+function DigitalCounter({ value, label, icon, color = 'cyan', delay = 0 }: DigitalCounterProps) {
   const [displayValue, setDisplayValue] = useState<number>(0);
 
   useEffect(() => {
@@ -18,6 +19,8 @@ function DigitalCounter({ value, label, icon, color = 'cyan' }: DigitalCounterPr
     
     let rafId: number | null = null;
     let timeoutId: NodeJS.Timeout;
+    let lastUpdateTime = 0;
+    const minUpdateInterval = 16; // ~60fps, update at most once per frame
     
     // Use setTimeout to batch the animation start and avoid blocking initial render
     timeoutId = setTimeout(() => {
@@ -26,13 +29,19 @@ function DigitalCounter({ value, label, icon, color = 'cyan' }: DigitalCounterPr
       
       const step = (timestamp: number): void => {
         if (!start) start = timestamp;
+        
+        // Throttle updates to reduce computation per frame
+        if (timestamp - lastUpdateTime < minUpdateInterval) {
+          rafId = requestAnimationFrame(step);
+          return;
+        }
+        lastUpdateTime = timestamp;
+        
         const elapsed = timestamp - start;
         const progress = Math.min(elapsed / duration, 1);
         
-        // Use easing function for smoother animation
-        const eased = progress < 0.5 
-          ? 2 * progress * progress 
-          : 1 - Math.pow(-2 * progress + 2, 2) / 2;
+        // Simplified easing for better performance
+        const eased = progress * (2 - progress); // Quadratic ease-out
         
         const newValue = Math.floor(eased * value);
         setDisplayValue(newValue);
@@ -45,7 +54,7 @@ function DigitalCounter({ value, label, icon, color = 'cyan' }: DigitalCounterPr
       };
       
       rafId = requestAnimationFrame(step);
-    }, 50); // Small delay to avoid blocking initial render
+    }, 100 + delay); // Stagger animations to reduce simultaneous RAF calls
     
     return () => {
       clearTimeout(timeoutId);
@@ -222,12 +231,12 @@ function App() {
     return () => clearInterval(timer);
   }, []);
 
-  // Sample data
+  // Sample data - stagger animation delays to reduce simultaneous RAF calls
   const stats = [
-    { value: 1247, label: 'Total Orders', icon: '📦', color: 'cyan' as const },
-    { value: 89, label: 'Active Now', icon: '⚡', color: 'green' as const },
-    { value: 156892, label: 'Revenue (EGP)', icon: '💰', color: 'orange' as const },
-    { value: 47, label: 'Suppliers', icon: '🏭', color: 'magenta' as const }
+    { value: 1247, label: 'Total Orders', icon: '📦', color: 'cyan' as const, delay: 0 },
+    { value: 89, label: 'Active Now', icon: '⚡', color: 'green' as const, delay: 200 },
+    { value: 156892, label: 'Revenue (EGP)', icon: '💰', color: 'orange' as const, delay: 400 },
+    { value: 47, label: 'Suppliers', icon: '🏭', color: 'magenta' as const, delay: 600 }
   ];
 
   const recentOrders: Order[] = [
