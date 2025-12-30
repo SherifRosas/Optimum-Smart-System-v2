@@ -128,3 +128,6 @@ jspm_packages/
 # Backup files
 *.backup
 settings.py.backup
+
+# Archive directory (keep in repo for reference, but can be excluded if needed)
+# archive/
