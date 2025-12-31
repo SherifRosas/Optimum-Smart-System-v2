@@ -451,7 +451,9 @@ function App() {
 
   const location = useLocation();
   const isAuthPage = location.pathname === '/login' || location.pathname === '/signup';
-  const isRoleSelection = location.pathname === '/';
+  // Check for root path - handle both exact '/' and empty pathname (Vercel edge case)
+  // Also check if currentView is null (initial state for root)
+  const isRoleSelection = location.pathname === '/' || location.pathname === '' || !location.pathname || currentView === null;
   
   // Handle route-based navigation for profile/settings
   useEffect(() => {
@@ -503,8 +505,63 @@ function App() {
   return (
     <ErrorBoundary>
       <Routes>
-        <Route path="/profile" element={<Navigate to="/" replace />} />
-        <Route path="/settings" element={<Navigate to="/" replace />} />
+        {/* Explicit root route - MUST be first to prevent catch-all from matching */}
+        <Route path="/" element={<RoleSelection />} />
+        
+        {/* Profile and Settings routes - protected and handled by MainApp with useEffect */}
+        <Route 
+          path="/profile" 
+          element={
+            <ProtectedRoute>
+              <MainApp
+                currentView={currentView}
+                setCurrentView={setCurrentView}
+                orders={orders}
+                loading={loading}
+                error={error}
+                handleNewOrder={handleNewOrder}
+                handleStatusUpdate={handleStatusUpdate}
+                renderView={renderView}
+              />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/settings" 
+          element={
+            <ProtectedRoute>
+              <MainApp
+                currentView={currentView}
+                setCurrentView={setCurrentView}
+                orders={orders}
+                loading={loading}
+                error={error}
+                handleNewOrder={handleNewOrder}
+                handleStatusUpdate={handleStatusUpdate}
+                renderView={renderView}
+              />
+            </ProtectedRoute>
+          } 
+        />
+        {/* Redirect /app to /dashboard */}
+        <Route path="/app" element={<Navigate to="/dashboard" replace />} />
+        {/* Dashboard route */}
+        <Route 
+          path="/dashboard" 
+          element={
+            <MainApp
+              currentView={currentView || 'dashboard'}
+              setCurrentView={setCurrentView}
+              orders={orders}
+              loading={loading}
+              error={error}
+              handleNewOrder={handleNewOrder}
+              handleStatusUpdate={handleStatusUpdate}
+              renderView={renderView}
+            />
+          } 
+        />
+        {/* Catch-all route - matches everything except root (which is handled above) */}
         <Route 
           path="/*" 
           element={
