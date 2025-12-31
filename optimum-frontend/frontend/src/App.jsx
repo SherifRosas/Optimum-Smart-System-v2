@@ -501,7 +501,8 @@ function App() {
 
   const location = useLocation();
   const isAuthPage = location.pathname === '/login' || location.pathname === '/signup';
-  const isRoleSelection = location.pathname === '/';
+  // Check for root path - handle both exact '/' and empty pathname (Vercel edge case)
+  const isRoleSelection = location.pathname === '/' || location.pathname === '' || !location.pathname;
   
   // Handle route-based navigation for profile/settings and dashboard
   useEffect(() => {
@@ -550,6 +551,9 @@ function App() {
   return (
     <ErrorBoundary>
       <Routes>
+        {/* Explicit root route - should not match if isRoleSelection is true, but added for safety */}
+        <Route path="/" element={<RoleSelection />} />
+        
         {/* Profile and Settings routes - protected and handled by MainApp with useEffect */}
         <Route 
           path="/profile" 
