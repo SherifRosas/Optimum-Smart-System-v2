@@ -39,8 +39,10 @@ const AdminUserManagement = lazy(() => import('./components/AdminUserManagement'
 
 // Main App Content Component (separated for routing) - Memoized for performance
 const MainApp = memo(({ currentView, setCurrentView, orders, loading, error, handleNewOrder, handleStatusUpdate, renderView }) => {
-  // CommandCenter has its own header/sidebar, so don't show the default ones
+  // CommandCenter has its own header/sidebar, so hide default header/navigation
+  // ModernDashboard (analytics) needs the default header/navigation
   const isCommandCenter = currentView === 'dashboard';
+  const isFullPageView = currentView === 'dashboard'; // Only CommandCenter is full-page
   
   return (
     <div className="App">
@@ -101,6 +103,7 @@ function App() {
     // Don't fetch orders if user is not authenticated or auth is still loading
     if (auth.loading || !auth.isAuthenticated) {
       setLoading(false);
+      setOrders([]); // Clear orders on logout
       return;
     }
 
@@ -240,7 +243,7 @@ function App() {
         }
       }
     };
-  }, [auth.isAuthenticated, auth.loading, auth.user, auth.getUserRole]); // Re-fetch when auth state changes
+  }, [auth.user, auth.getUserRole, auth.isAuthenticated, auth.loading]); // Re-fetch when auth state changes
 
   const handleNewOrder = useCallback(async (orderData) => {
     try {
@@ -411,6 +414,32 @@ function App() {
           </Suspense>
         );
       
+      case 'analytics':
+      case 'modern-dashboard':
+        // ModernDashboard with charts and analytics (admin/sub-admin only)
+        // Note: isAdmin() already checks for both 'ADMIN' and 'SUB_ADMIN' roles
+        if (auth.isAdmin()) {
+          return (
+            <Suspense fallback={<ListSkeleton count={6} />}>
+              <ModernDashboard orders={orders} onNavigate={setCurrentView} />
+            </Suspense>
+          );
+        } else if (auth.isSupplier()) {
+          // Fallback to supplier dashboard for non-admin users
+          return (
+            <Suspense fallback={<ListSkeleton count={6} />}>
+              <SupplierDashboard orders={orders} />
+            </Suspense>
+          );
+        } else {
+          // Fallback to customer dashboard for other users
+          return (
+            <Suspense fallback={<ListSkeleton count={6} />}>
+              <CustomerDashboard orders={orders} />
+            </Suspense>
+          );
+        }
+      
       case 'chat':
         return (
           <Suspense fallback={<ListSkeleton count={3} />}>
@@ -471,6 +500,8 @@ function App() {
   }, [loading, error, currentView, orders, handleNewOrder, handleStatusUpdate, auth]);
 
   const location = useLocation();
+  const isAuthPage = location.pathname === '/login' || location.pathname === '/signup';
+  const isRoleSelection = location.pathname === '/';
   
   // Handle route-based navigation for profile/settings and dashboard
   useEffect(() => {
@@ -487,25 +518,75 @@ function App() {
     }
   }, [location.pathname]);
 
-  // Main routing - Role Selection is always the first page at "/"
+  // Show role selection page on home page (always show, even if authenticated)
+  // Users can still access it to switch roles or see the landing page
+  if (isRoleSelection) {
+    // If authenticated, allow access but show role selection
+    // If not authenticated, show role selection (required)
+    return (
+      <ErrorBoundary>
+        <Routes>
+          <Route path="/" element={<RoleSelection />} />
+        </Routes>
+        <ToastContainer />
+      </ErrorBoundary>
+    );
+  }
+
+  // If on auth page, show only auth component
+  if (isAuthPage) {
+    return (
+      <ErrorBoundary>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+        </Routes>
+        <ToastContainer />
+      </ErrorBoundary>
+    );
+  }
+
+  // Main app (authentication optional for now)
   return (
     <ErrorBoundary>
       <Routes>
-        {/* Root route - Role Selection is always the first/landing page */}
-        <Route path="/" element={<RoleSelection />} />
-        
-        {/* Auth pages */}
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        
-        {/* Redirect legacy routes to root (Role Selection) */}
-        <Route path="/profile" element={<Navigate to="/" replace />} />
-        <Route path="/settings" element={<Navigate to="/" replace />} />
-        
+        {/* Profile and Settings routes - protected and handled by MainApp with useEffect */}
+        <Route 
+          path="/profile" 
+          element={
+            <ProtectedRoute>
+              <MainApp
+                currentView={currentView}
+                setCurrentView={setCurrentView}
+                orders={orders}
+                loading={loading}
+                error={error}
+                handleNewOrder={handleNewOrder}
+                handleStatusUpdate={handleStatusUpdate}
+                renderView={renderView}
+              />
+            </ProtectedRoute>
+          } 
+        />
+        <Route 
+          path="/settings" 
+          element={
+            <ProtectedRoute>
+              <MainApp
+                currentView={currentView}
+                setCurrentView={setCurrentView}
+                orders={orders}
+                loading={loading}
+                error={error}
+                handleNewOrder={handleNewOrder}
+                handleStatusUpdate={handleStatusUpdate}
+                renderView={renderView}
+              />
+            </ProtectedRoute>
+          } 
+        />
         {/* Redirect /app to /dashboard */}
         <Route path="/app" element={<Navigate to="/dashboard" replace />} />
-        
-        {/* All other routes go to MainApp (dashboard, orders, etc.) */}
         <Route 
           path="/*" 
           element={

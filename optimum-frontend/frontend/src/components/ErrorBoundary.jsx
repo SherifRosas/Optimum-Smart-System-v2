@@ -17,6 +17,11 @@ class ErrorBoundary extends React.Component {
       errorInfo
     });
     console.error('Error caught by boundary:', error, errorInfo);
+    
+    // Handle chunk loading errors specifically
+    if (error?.name === 'ChunkLoadError' || error?.message?.includes('Chunk not found') || error?.message?.includes('Loading chunk')) {
+      console.warn('Chunk loading error detected - this usually means the app needs to be rebuilt or cache needs to be cleared');
+    }
   }
 
   handleReset = () => {
@@ -43,11 +48,20 @@ class ErrorBoundary extends React.Component {
               </ul>
             </div>
             
-            {import.meta.env.DEV && this.state.error && (
+            {this.state.error && import.meta.env.DEV && (
               <details className="error-details" open>
                 <summary>Error Details (Development Only)</summary>
                 <pre className="error-stack">
                   <strong>Error:</strong> {this.state.error.toString()}
+                  {(this.state.error.name === 'ChunkLoadError' || this.state.error.message?.includes('Chunk not found')) && (
+                    <>
+                      {'\n\n'}
+                      <strong>⚠️ Chunk Loading Error:</strong>
+                      {'\n'}
+                      This error usually means the application build is out of sync. 
+                      Try clearing your browser cache and refreshing the page.
+                    </>
+                  )}
                   {'\n\n'}
                   <strong>Stack:</strong>
                   {this.state.error.stack}

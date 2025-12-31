@@ -68,6 +68,10 @@ export default defineConfig({
           data: ['@tanstack/react-query', 'zustand', 'axios'],
           charts: ['recharts'],
         },
+        // Use deterministic chunk names to prevent chunk not found errors
+        chunkFileNames: 'assets/[name]-[hash].js',
+        entryFileNames: 'assets/[name]-[hash].js',
+        assetFileNames: 'assets/[name]-[hash].[ext]',
       },
       onwarn(warning, warn) {
         // Suppress TypeScript warnings during build
@@ -75,6 +79,8 @@ export default defineConfig({
         warn(warning);
       },
     },
+    // Increase chunk size warning limit
+    chunkSizeWarningLimit: 1000,
   },
   resolve: {
     alias: {

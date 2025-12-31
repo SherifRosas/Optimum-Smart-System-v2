@@ -287,6 +287,7 @@ function CommandCenter({ orders = [], onNavigate }: CommandCenterProps) {
         'customers': 'customers',
         'suppliers': 'suppliers',
         'ai': 'ai-dashboard',
+        'analytics-dashboard': 'analytics',
         'analytics': 'accounting',
         'accounting': 'accounting',
         'settings': 'settings'
@@ -379,6 +380,12 @@ function CommandCenter({ orders = [], onNavigate }: CommandCenterProps) {
               label="AI Assistant"
               active={activeNav === 'ai'}
               onClick={() => handleNavClick('ai')}
+            />
+            <NavItem
+              icon="📊"
+              label="Analytics Dashboard"
+              active={activeNav === 'analytics-dashboard'}
+              onClick={() => handleNavClick('analytics-dashboard')}
             />
             <NavItem
               icon="📈"

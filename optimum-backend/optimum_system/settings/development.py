@@ -24,10 +24,19 @@ else:
     ]
 
 # CORS settings for development
+# Allow common development ports (Vite default: 5173, React default: 3000, etc.)
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
+    "http://localhost:3001",
+    "http://127.0.0.1:3001",
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+    "http://localhost:5174",
+    "http://127.0.0.1:5174",
 ]
+# For development, also allow any localhost origin (more permissive)
+CORS_ALLOW_ALL_ORIGINS = False  # Set to True if you want to allow all origins in dev
 CORS_ALLOW_CREDENTIALS = True
 
 # Database - SQLite for development
@@ -46,7 +55,17 @@ SESSION_COOKIE_SAMESITE = 'Lax'
 # CSRF Protection (relaxed for development)
 CSRF_COOKIE_SECURE = False
 CSRF_COOKIE_HTTPONLY = True
-CSRF_TRUSTED_ORIGINS = CORS_ALLOWED_ORIGINS
+# Include all CORS allowed origins in CSRF trusted origins
+CSRF_TRUSTED_ORIGINS = CORS_ALLOWED_ORIGINS + [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+    "http://localhost:3001",
+    "http://127.0.0.1:3001",
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+    "http://localhost:5174",
+    "http://127.0.0.1:5174",
+]
 
 # JWT Settings - use base SECRET_KEY
 SIMPLE_JWT['SIGNING_KEY'] = SECRET_KEY

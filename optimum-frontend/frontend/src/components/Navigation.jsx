@@ -2,7 +2,8 @@ import React, { useEffect, useRef, memo, useMemo, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { 
   HiChartBar, HiPlus, HiClipboardList, HiOfficeBuilding, 
-  HiCurrencyDollar, HiSparkles, HiInformationCircle, HiShoppingCart, HiInbox, HiUserAdd
+  HiCurrencyDollar, HiSparkles, HiInformationCircle, HiShoppingCart, HiInbox, HiUserAdd,
+  HiPresentationChartLine
 } from 'react-icons/hi';
 import { useAuth } from '../contexts/AuthContext';
 import './Navigation.css';
@@ -14,7 +15,8 @@ const Navigation = ({ currentView, onNavigate }) => {
   // All possible menu items with role permissions
   const allMenuItems = useMemo(() => [
     // Admin-only items
-    { id: 'dashboard', label: 'Dashboard', icon: HiChartBar, shortcut: '1', roles: ['ADMIN', 'SUB_ADMIN', 'SUPPLIER', 'PRODUCT_REQUESTER'] },
+    { id: 'dashboard', label: 'Command Center', icon: HiChartBar, shortcut: '1', roles: ['ADMIN', 'SUB_ADMIN', 'SUPPLIER', 'PRODUCT_REQUESTER'] },
+    { id: 'analytics', label: 'Analytics Dashboard', icon: HiPresentationChartLine, shortcut: '9', roles: ['ADMIN', 'SUB_ADMIN'] },
     { id: 'user-management', label: 'User Management', icon: HiUserAdd, shortcut: '8', roles: ['ADMIN', 'SUB_ADMIN'] },
     { id: 'new-order', label: 'New Order', icon: HiPlus, shortcut: '2', roles: ['ADMIN', 'SUB_ADMIN'] },
     { id: 'orders', label: 'Orders', icon: HiClipboardList, shortcut: '3', roles: ['ADMIN', 'SUB_ADMIN'] },

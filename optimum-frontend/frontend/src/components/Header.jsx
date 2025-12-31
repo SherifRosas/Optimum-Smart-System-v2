@@ -14,6 +14,22 @@ const Header = ({ onNavigate }) => {
   const toast = useToast();
   const [isHelpOpen, setIsHelpOpen] = useState(false);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
+  const [currentTime, setCurrentTime] = useState(new Date());
+
+  // Real-time clock update
+  useEffect(() => {
+    const updateTime = () => {
+      setCurrentTime(new Date());
+    };
+    
+    // Update immediately
+    updateTime();
+    
+    // Update every second
+    const interval = setInterval(updateTime, 1000);
+    
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     const handleKeyPress = (e) => {
@@ -57,6 +73,24 @@ const Header = ({ onNavigate }) => {
           <div className="logo-text">
             <h1>Optimum Smart System</h1>
             <p>AI-Powered Order Management</p>
+          </div>
+        </div>
+        <div className="header-clock">
+          <div className="clock-time">
+            {currentTime.toLocaleTimeString('en-US', { 
+              hour12: false, 
+              hour: '2-digit', 
+              minute: '2-digit', 
+              second: '2-digit' 
+            })}
+          </div>
+          <div className="clock-date">
+            {currentTime.toLocaleDateString('en-US', { 
+              weekday: 'short', 
+              year: 'numeric', 
+              month: 'short', 
+              day: 'numeric' 
+            })}
           </div>
         </div>
         <div className="header-actions">
