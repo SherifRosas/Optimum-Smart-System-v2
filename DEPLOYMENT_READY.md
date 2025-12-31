@@ -72,19 +72,21 @@ The following have been archived and should NOT be deployed:
 
 ### Frontend (.env)
 ```
-VITE_API_URL=https://sherifrosas.pythonanywhere.com/api
-VITE_WS_URL=wss://sherifrosas.pythonanywhere.com/ws
+VITE_API_URL=https://your-username.pythonanywhere.com/api
+VITE_WS_URL=wss://your-username.pythonanywhere.com/ws
 ```
+**Note:** Replace `your-username` with your actual PythonAnywhere username.
 
 ### Backend (.env)
 ```
 DJANGO_ENV=production
 DEBUG=False
 SECRET_KEY=[production-secret-key]
-ALLOWED_HOSTS=sherifrosas.pythonanywhere.com
+ALLOWED_HOSTS=your-username.pythonanywhere.com
 CORS_ALLOWED_ORIGINS=https://[vercel-url]
 DATABASE_URL=[postgresql-url]
 ```
+**Note:** Replace `your-username` with your actual PythonAnywhere username.
 
 ---
 

@@ -30,9 +30,10 @@ Frontend (Vercel) → Backend API (PythonAnywhere) → Database (SQLite/PostgreS
 
 2. **Configure Environment Variables**
    ```
-   VITE_API_URL=https://sherifrosas.pythonanywhere.com/api
-   VITE_WS_URL=wss://sherifrosas.pythonanywhere.com/ws
+   VITE_API_URL=https://your-username.pythonanywhere.com/api
+   VITE_WS_URL=wss://your-username.pythonanywhere.com/ws
    ```
+   **Note:** Replace `your-username` with your actual PythonAnywhere username.
 
 3. **Build Settings**
    - Framework Preset: Vite
@@ -79,10 +80,11 @@ Frontend (Vercel) → Backend API (PythonAnywhere) → Database (SQLite/PostgreS
    DJANGO_ENV=production
    DEBUG=False
    SECRET_KEY=your-production-secret-key
-   ALLOWED_HOSTS=sherifrosas.pythonanywhere.com
-   CORS_ALLOWED_ORIGINS=https://optimum-smart-system-navy.vercel.app
-   ADMIN_EMAIL=sherifrosas.ai@gmail.com
+   ALLOWED_HOSTS=your-username.pythonanywhere.com
+   CORS_ALLOWED_ORIGINS=https://your-vercel-url.vercel.app
+   ADMIN_EMAIL=your-email@example.com
    ```
+   **Note:** Replace `your-username` with your actual PythonAnywhere username and `your-vercel-url` with your Vercel deployment URL.
 
 4. **Database Setup**
    ```bash

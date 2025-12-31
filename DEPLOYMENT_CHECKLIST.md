@@ -53,7 +53,7 @@
   - [ ] `DATABASE_URL` (if applicable)
   - [ ] `CORS_ALLOWED_ORIGINS`
 - [ ] Reload web app in PythonAnywhere dashboard
-- [ ] Verify health endpoint: https://sherifrosas.pythonanywhere.com/health/
+- [ ] Verify health endpoint: https://your-username.pythonanywhere.com/health/
 
 ### Post-Deployment Verification
 - [ ] Backend API responds
@@ -83,8 +83,8 @@
 ### Environment Variables
 Set in Vercel Dashboard → Settings → Environment Variables:
 
-- [ ] `VITE_API_URL=https://sherifrosas.pythonanywhere.com/api`
-- [ ] `VITE_WS_URL=wss://sherifrosas.pythonanywhere.com/ws`
+- [ ] `VITE_API_URL=https://your-username.pythonanywhere.com/api`
+- [ ] `VITE_WS_URL=wss://your-username.pythonanywhere.com/ws`
 - [ ] Variables applied to: Production, Preview, Development
 
 ### Deployment
@@ -183,9 +183,9 @@ If deployment fails:
 **Status:** [ ] SUCCESS [ ] PARTIAL [ ] FAILED
 
 **Production URLs:**
-- Frontend: https://optimum-smart-system-navy.vercel.app
-- Backend: https://sherifrosas.pythonanywhere.com/api
-- Admin: https://sherifrosas.pythonanywhere.com/admin/
+- Frontend: https://your-project.vercel.app
+- Backend: https://your-username.pythonanywhere.com/api
+- Admin: https://your-username.pythonanywhere.com/admin/
 
 **Notes:**
 ```

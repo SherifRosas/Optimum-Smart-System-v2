@@ -40,9 +40,10 @@
 1. Go to Vercel Dashboard → Project Settings → Environment Variables
 2. Add:
    ```
-   VITE_API_URL=https://sherifrosas.pythonanywhere.com/api
-   VITE_WS_URL=wss://sherifrosas.pythonanywhere.com/ws
+   VITE_API_URL=https://your-username.pythonanywhere.com/api
+   VITE_WS_URL=wss://your-username.pythonanywhere.com/ws
    ```
+   **Note:** Replace `your-username` with your actual PythonAnywhere username.
 
 ### Backend (PythonAnywhere)
 1. Go to PythonAnywhere Dashboard → Web App → Environment Variables
@@ -51,10 +52,11 @@
    DJANGO_ENV=production
    DEBUG=False
    SECRET_KEY=[your-production-secret-key]
-   ALLOWED_HOSTS=sherifrosas.pythonanywhere.com
+   ALLOWED_HOSTS=your-username.pythonanywhere.com
    CORS_ALLOWED_ORIGINS=https://[your-vercel-url]
    DATABASE_URL=[your-postgresql-url]
    ```
+   **Note:** Replace `your-username` with your actual PythonAnywhere username.
 
 ---
 

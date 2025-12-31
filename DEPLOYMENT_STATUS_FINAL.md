@@ -69,9 +69,10 @@
 
 3. **Set Environment Variables:**
    ```
-   VITE_API_URL=https://sherifrosas.pythonanywhere.com/api
-   VITE_WS_URL=wss://sherifrosas.pythonanywhere.com/ws
+   VITE_API_URL=https://your-username.pythonanywhere.com/api
+   VITE_WS_URL=wss://your-username.pythonanywhere.com/ws
    ```
+   **Note:** Replace `your-username` with your actual PythonAnywhere username.
 
 4. **Deploy:**
    - Click "Deploy"
@@ -82,8 +83,9 @@
 
 1. **SSH into PythonAnywhere:**
    ```bash
-   ssh sherifrosas@ssh.pythonanywhere.com
+   ssh your-username@ssh.pythonanywhere.com
    ```
+   **Note:** Replace `your-username` with your actual PythonAnywhere username.
 
 2. **Update Code:**
    ```bash
@@ -188,7 +190,7 @@ Always use environment variables for:
 All code is committed, tagged, and pushed to GitHub.  
 You can now proceed with deployment to Vercel and PythonAnywhere.
 
-**Git Repository:** https://github.com/SherifRosas/Optimum-Smart-System  
+**Git Repository:** https://github.com/your-username/Optimum-Smart-System  
 **Version Tag:** v2.0.0  
 **Branch:** master
 
