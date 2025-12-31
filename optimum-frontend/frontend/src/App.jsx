@@ -1,418 +1,548 @@
-import { useState, useEffect } from 'react'
-import './App.css'
+import React, { useState, useEffect, Suspense, lazy, useMemo, useCallback, startTransition, memo } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
+import './App.css';
+import Header from './components/Header';
+import Navigation from './components/Navigation';
+import ErrorBoundary from './components/ErrorBoundary';
+import { ListSkeleton } from './components/LoadingSkeleton';
+import { ordersAPI } from './services/api';
+import { useToast } from './hooks/useToast';
+import { useAuth } from './contexts/AuthContext';
+import Login from './components/Login';
+import Signup from './components/Signup';
+import RoleSelection from './components/RoleSelection';
+import ProtectedRoute from './components/ProtectedRoute';
 
-// Animated Digital Counter Component
-function DigitalCounter({ value, label, icon, color = 'cyan' }) {
-    const [displayValue, setDisplayValue] = useState(0)
+// Lazy load heavy components for code splitting
+const CommandCenter = lazy(() => import('./components/CommandCenter'));
+const ModernDashboard = lazy(() => import('./components/ModernDashboard'));
+const OrderReception = lazy(() => import('./components/OrderReception'));
+const OrderList = lazy(() => import('./components/OrderList'));
+const SupplierCommunication = lazy(() => import('./components/SupplierCommunication'));
+const Accounting = lazy(() => import('./components/Accounting'));
+const AIDashboard = lazy(() => import('./components/AIDashboard'));
+const AIChatPage = lazy(() => import('./components/AIChatPage'));
+const AIChatWidget = lazy(() => import('./components/AIChatWidget'));
+const About = lazy(() => import('./components/About'));
+const UserProfile = lazy(() => import('./components/UserProfile'));
+const UserSettings = lazy(() => import('./components/UserSettings'));
+// Role-based components
+const CustomerDashboard = lazy(() => import('./components/CustomerDashboard'));
+const CustomerOrders = lazy(() => import('./components/CustomerOrders'));
+const NewOrderRequest = lazy(() => import('./components/NewOrderRequest'));
+const SupplierDashboard = lazy(() => import('./components/SupplierDashboard'));
+const OrderRequests = lazy(() => import('./components/OrderRequests'));
+const SupplierOrders = lazy(() => import('./components/SupplierOrders'));
+// Admin components
+const AdminUserManagement = lazy(() => import('./components/AdminUserManagement'));
 
-    useEffect(() => {
-        let start = 0
-        const duration = 2000
-        const step = (timestamp) => {
-            if (!start) start = timestamp
-            const progress = Math.min((timestamp - start) / duration, 1)
-            setDisplayValue(Math.floor(progress * value))
-            if (progress < 1) {
-                requestAnimationFrame(step)
-            }
-        }
-        requestAnimationFrame(step)
-    }, [value])
-
-    const colorClasses = {
-        cyan: 'stat-cyan',
-        magenta: 'stat-magenta',
-        green: 'stat-green',
-        orange: 'stat-orange'
-    }
-
-    return (
-        <div className={`stat-card ${colorClasses[color]}`}>
-            <div className="stat-icon">{icon}</div>
-            <div className="stat-content">
-                <div className="stat-value">{displayValue.toLocaleString()}</div>
-                <div className="stat-label">{label}</div>
+// Main App Content Component (separated for routing) - Memoized for performance
+const MainApp = memo(({ currentView, setCurrentView, orders, loading, error, handleNewOrder, handleStatusUpdate, renderView }) => {
+  // CommandCenter has its own header/sidebar, so don't show the default ones
+  const isCommandCenter = currentView === 'dashboard';
+  
+  return (
+    <div className="App">
+      {!isCommandCenter && <Header onNavigate={setCurrentView} />}
+      {!isCommandCenter && (
+        <div className="app-container">
+          <Navigation currentView={currentView} onNavigate={setCurrentView} />
+          <main className="main-content">
+            {/* Simplified animation for better performance */}
+            <div key={currentView} style={{ willChange: 'opacity' }}>
+              {renderView}
             </div>
-            <div className="stat-decoration"></div>
+          </main>
         </div>
-    )
-}
-
-// Robotic Navigation Item
-function NavItem({ icon, label, active, onClick, badge }) {
-    return (
-        <button
-            className={`nav-item ${active ? 'active' : ''}`}
-            onClick={onClick}
-        >
-            <span className="nav-icon">{icon}</span>
-            <span className="nav-label">{label}</span>
-            {badge && <span className="nav-badge">{badge}</span>}
-            <div className="nav-glow"></div>
-        </button>
-    )
-}
-
-// Order Card with Holographic Effect
-function OrderCard({ order }) {
-    const statusColors = {
-        pending: 'yellow',
-        processing: 'cyan',
-        completed: 'green',
-        cancelled: 'red'
-    }
-
-    return (
-        <div className="order-card">
-            <div className="order-header">
-                <span className="order-id font-mono">#{order.id}</span>
-                <span className={`order-status status-${statusColors[order.status]}`}>
-                    {order.status}
-                </span>
-            </div>
-            <div className="order-customer">{order.customer}</div>
-            <div className="order-details">
-                <div className="order-items">{order.items} items</div>
-                <div className="order-total">${order.total.toFixed(2)}</div>
-            </div>
-            <div className="order-time font-mono">{order.time}</div>
-            <div className="order-actions">
-                <button className="btn-icon" title="View Details">👁</button>
-                <button className="btn-icon" title="Edit">✏️</button>
-                <button className="btn-icon" title="Process">🚀</button>
-            </div>
-            <div className="order-scan-line"></div>
+      )}
+      {isCommandCenter && (
+        <div key={currentView} style={{ willChange: 'opacity' }}>
+          {renderView}
         </div>
-    )
-}
+      )}
+      {!isCommandCenter && (
+        <Suspense fallback={null}>
+          <AIChatWidget />
+        </Suspense>
+      )}
+    </div>
+  );
+});
 
-// Live Activity Feed Item
-function ActivityItem({ activity }) {
-    return (
-        <div className="activity-item">
-            <div className="activity-indicator"></div>
-            <div className="activity-content">
-                <div className="activity-message">{activity.message}</div>
-                <div className="activity-time font-mono">{activity.time}</div>
-            </div>
-        </div>
-    )
-}
+// Helper function to transform snake_case to camelCase
+const transformOrderData = (order) => {
+  return {
+    id: order.id,
+    customerName: order.customer_name,
+    phoneNumber: order.customer_phone,
+    supplierName: order.supplier_name,
+    productType: order.product_type,
+    quantity: order.quantity,
+    totalAmount: order.total_amount,
+    deliveryDate: order.delivery_date,
+    status: order.status,
+    createdAt: order.created_at,
+    updatedAt: order.updated_at
+  };
+};
 
-// AI Assistant Panel
-function AIAssistant() {
-    const [isTyping, setIsTyping] = useState(true)
-
-    return (
-        <div className="ai-panel">
-            <div className="ai-header">
-                <div className="ai-avatar">
-                    <div className="ai-eye"></div>
-                </div>
-                <div className="ai-info">
-                    <div className="ai-name">OPTIMUS AI</div>
-                    <div className="ai-status">
-                        <span className="status-dot"></span>
-                        {isTyping ? 'Analyzing...' : 'Online'}
-                    </div>
-                </div>
-            </div>
-            <div className="ai-messages">
-                <div className="ai-message">
-                    <span className="ai-text">
-                        📊 System operating at optimal efficiency.
-                        Today's orders are up 23% compared to last week.
-                        Supplier response time improved by 15%.
-                    </span>
-                </div>
-                <div className="ai-suggestion">
-                    <span className="suggestion-icon">💡</span>
-                    <span>Consider increasing inventory for Product SKU-2847 based on demand trends</span>
-                </div>
-            </div>
-            <div className="ai-input-area">
-                <input
-                    type="text"
-                    className="ai-input"
-                    placeholder="Ask OPTIMUS anything..."
-                />
-                <button className="ai-send-btn">
-                    <span>→</span>
-                </button>
-            </div>
-        </div>
-    )
-}
-
-// Main App
 function App() {
-    const [activeNav, setActiveNav] = useState('dashboard')
-    const [currentTime, setCurrentTime] = useState(new Date())
-    const [sidebarCollapsed, setSidebarCollapsed] = useState(false)
+  const auth = useAuth();
+  const [currentView, setCurrentView] = useState('dashboard');
+  const [orders, setOrders] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const toast = useToast();
+  const { ToastContainer } = toast;
 
-    // Update time every second
-    useEffect(() => {
-        const timer = setInterval(() => setCurrentTime(new Date()), 1000)
-        return () => clearInterval(timer)
-    }, [])
-
-    // Sample data
-    const stats = [
-        { value: 1247, label: 'Total Orders', icon: '📦', color: 'cyan' },
-        { value: 89, label: 'Active Now', icon: '⚡', color: 'green' },
-        { value: 156892, label: 'Revenue (EGP)', icon: '💰', color: 'orange' },
-        { value: 47, label: 'Suppliers', icon: '🏭', color: 'magenta' }
-    ]
-
-    const recentOrders = [
-        { id: 'ORD-7821', customer: 'Ahmed Hassan', items: 5, total: 2450.00, status: 'processing', time: '2 min ago' },
-        { id: 'ORD-7820', customer: 'Sara Mohamed', items: 3, total: 1890.50, status: 'pending', time: '5 min ago' },
-        { id: 'ORD-7819', customer: 'Omar Ali', items: 8, total: 5670.00, status: 'completed', time: '12 min ago' },
-        { id: 'ORD-7818', customer: 'Nour Ibrahim', items: 2, total: 890.00, status: 'processing', time: '18 min ago' },
-    ]
-
-    const activities = [
-        { message: 'New order received from Ahmed Hassan', time: '2 min ago' },
-        { message: 'Supplier "ElectroTech" confirmed shipment', time: '5 min ago' },
-        { message: 'Order #7815 marked as delivered', time: '15 min ago' },
-        { message: 'AI assigned optimal supplier for Order #7819', time: '18 min ago' },
-        { message: 'Payment received for Order #7812', time: '25 min ago' },
-    ]
-
-    const formatTime = (date) => {
-        return date.toLocaleTimeString('en-US', {
-            hour12: false,
-            hour: '2-digit',
-            minute: '2-digit',
-            second: '2-digit'
-        })
+  // Load orders from API with real-time polling (filtered by role)
+  useEffect(() => {
+    // Don't fetch orders if user is not authenticated or auth is still loading
+    if (auth.loading || !auth.isAuthenticated) {
+      setLoading(false);
+      return;
     }
 
-    const formatDate = (date) => {
-        return date.toLocaleDateString('en-US', {
-            weekday: 'short',
-            month: 'short',
-            day: 'numeric'
-        })
+    let isMounted = true;
+    let pollInterval = null;
+
+    const fetchOrders = async (showToast = false) => {
+      try {
+        if (showToast) {
+          setLoading(true);
+          setError(null);
+        }
+        
+        // Build API params based on user role
+        const params = {};
+        const userRole = auth.getUserRole();
+        
+        // Filter by role on backend if possible
+        if (userRole === 'PRODUCT_REQUESTER' && auth.user?.id) {
+          params.customer_id = auth.user.id;
+        } else if (userRole === 'SUPPLIER' && auth.user?.id) {
+          params.supplier_id = auth.user.id;
+        }
+        
+        const response = await ordersAPI.getOrders(params);
+        // Transform the data to match frontend expectations
+        const ordersData = response.data.results || response.data;
+        const transformedOrders = Array.isArray(ordersData) ? ordersData.map(transformOrderData) : [];
+        
+        if (isMounted) {
+          const prevCount = orders.length;
+          const hasSignificantChange = Math.abs(transformedOrders.length - prevCount) > 0;
+          
+          // Set loading to false immediately (outside transition) so UI updates right away
+          if (showToast) {
+            setLoading(false);
+          }
+          
+          // Use startTransition for non-urgent updates (React 18+)
+          startTransition(() => {
+            if (isMounted) {
+              setOrders(transformedOrders);
+            }
+          });
+          
+          // Show notifications outside of transition (use requestIdleCallback for non-critical toasts)
+          if (showToast) {
+            if (window.requestIdleCallback) {
+              window.requestIdleCallback(() => {
+                toast.success('Orders loaded successfully');
+              }, { timeout: 100 });
+            } else {
+              requestAnimationFrame(() => {
+                toast.success('Orders loaded successfully');
+              });
+            }
+          } else if (hasSignificantChange && prevCount > 0) {
+            const diff = transformedOrders.length - prevCount;
+            if (window.requestIdleCallback) {
+              window.requestIdleCallback(() => {
+                toast.success(`${diff > 0 ? '+' : ''}${diff} new order${Math.abs(diff) > 1 ? 's' : ''} available`);
+              }, { timeout: 100 });
+            } else {
+              requestAnimationFrame(() => {
+                toast.success(`${diff > 0 ? '+' : ''}${diff} new order${Math.abs(diff) > 1 ? 's' : ''} available`);
+              });
+            }
+          }
+        }
+      } catch (err) {
+        if (isMounted) {
+          setLoading(false); // Always set loading to false on error
+          if (showToast) {
+            setError('Failed to load orders');
+            toast.error('Failed to load orders. Please try again.');
+          }
+          console.error('Error fetching orders:', err);
+        }
+      } finally {
+        // Loading is already set to false in the try block
+        // This block is kept for any future cleanup needs
+      }
+    };
+
+    // Initial load (only if authenticated)
+    if (auth.isAuthenticated) {
+      fetchOrders(true);
     }
 
-    return (
-        <div className="app">
-            {/* Header */}
-            <header className="header">
-                <div className="header-left">
-                    <button
-                        className="menu-toggle"
-                        onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
-                    >
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
-                    <div className="logo">
-                        <span className="logo-icon">◈</span>
-                        <span className="logo-text">OPTIMUM</span>
-                        <span className="logo-version">v2.0</span>
-                    </div>
-                </div>
+    // Poll for updates every 90 seconds (further reduced for better performance)
+    // Use requestIdleCallback with longer timeout to avoid blocking
+    const scheduleNextPoll = () => {
+      if (!isMounted) return;
+      
+      if (window.requestIdleCallback) {
+        const idleCallbackId = window.requestIdleCallback(() => {
+          if (isMounted) {
+            // Use startTransition to mark as non-urgent
+            startTransition(() => {
+              requestAnimationFrame(() => {
+                fetchOrders(false);
+              });
+            });
+            pollInterval = setTimeout(scheduleNextPoll, 90000); // Increased to 90 seconds
+          }
+        }, { timeout: 5000 }); // Increased timeout to avoid blocking
+        // Store both for cleanup
+        pollInterval = { timeout: null, idle: idleCallbackId };
+      } else {
+        pollInterval = setTimeout(() => {
+          if (isMounted) {
+            startTransition(() => {
+              requestAnimationFrame(() => {
+                fetchOrders(false);
+              });
+            });
+            scheduleNextPoll();
+          }
+        }, 90000); // Increased to 90 seconds
+      }
+    };
+    
+    scheduleNextPoll();
 
-                <div className="header-center">
-                    <div className="system-status">
-                        <span className="status-indicator online"></span>
-                        <span className="status-text">SYSTEM ONLINE</span>
-                    </div>
-                </div>
+    return () => {
+      isMounted = false;
+      if (pollInterval) {
+        if (typeof pollInterval === 'number') {
+          clearTimeout(pollInterval);
+        } else if (typeof pollInterval === 'object' && pollInterval !== null) {
+          if (pollInterval.timeout) clearTimeout(pollInterval.timeout);
+          if (pollInterval.idle && window.cancelIdleCallback) {
+            window.cancelIdleCallback(pollInterval.idle);
+          }
+        } else {
+          clearInterval(pollInterval);
+        }
+      }
+    };
+  }, [auth.isAuthenticated, auth.loading, auth.user, auth.getUserRole]); // Re-fetch when auth state changes
 
-                <div className="header-right">
-                    <div className="header-clock">
-                        <div className="clock-time font-mono">{formatTime(currentTime)}</div>
-                        <div className="clock-date">{formatDate(currentTime)}</div>
-                    </div>
-                    <div className="header-notifications">
-                        <button className="notification-btn">
-                            <span className="notification-icon">🔔</span>
-                            <span className="notification-badge">3</span>
-                        </button>
-                    </div>
-                    <div className="header-user">
-                        <div className="user-avatar">
-                            <span>A</span>
-                        </div>
-                        <div className="user-info">
-                            <span className="user-name">Admin</span>
-                            <span className="user-role">Super Admin</span>
-                        </div>
-                    </div>
-                </div>
-            </header>
+  const handleNewOrder = useCallback(async (orderData) => {
+    try {
+      const response = await ordersAPI.createOrder({
+        customer: {
+          name: orderData.customerName,
+          phone_number: orderData.phoneNumber
+        },
+        product_type: orderData.productType,
+        quantity: orderData.quantity,
+        unit_price: 10000, // Default price, should be calculated
+        delivery_date: orderData.deliveryDate
+      });
+      
+      // Transform the new order data
+      const transformedOrder = transformOrderData(response.data);
+      setOrders(prevOrders => [transformedOrder, ...prevOrders]);
+      toast.success('Order created successfully!');
+      setCurrentView('orders');
+    } catch (err) {
+      setError('Failed to create order');
+      toast.error('Failed to create order. Please check your input and try again.');
+      if (import.meta.env.DEV) {
+        console.error('Error creating order:', err);
+      }
+    }
+  }, []); // Removed toast - functions are stable
 
-            <div className="main-container">
-                {/* Sidebar */}
-                <aside className={`sidebar ${sidebarCollapsed ? 'collapsed' : ''}`}>
-                    <nav className="sidebar-nav">
-                        <NavItem
-                            icon="📊"
-                            label="Dashboard"
-                            active={activeNav === 'dashboard'}
-                            onClick={() => setActiveNav('dashboard')}
-                        />
-                        <NavItem
-                            icon="📦"
-                            label="Orders"
-                            active={activeNav === 'orders'}
-                            onClick={() => setActiveNav('orders')}
-                            badge="12"
-                        />
-                        <NavItem
-                            icon="👥"
-                            label="Customers"
-                            active={activeNav === 'customers'}
-                            onClick={() => setActiveNav('customers')}
-                        />
-                        <NavItem
-                            icon="🏭"
-                            label="Suppliers"
-                            active={activeNav === 'suppliers'}
-                            onClick={() => setActiveNav('suppliers')}
-                        />
-                        <NavItem
-                            icon="🤖"
-                            label="AI Assistant"
-                            active={activeNav === 'ai'}
-                            onClick={() => setActiveNav('ai')}
-                        />
-                        <NavItem
-                            icon="📈"
-                            label="Analytics"
-                            active={activeNav === 'analytics'}
-                            onClick={() => setActiveNav('analytics')}
-                        />
-                        <NavItem
-                            icon="💰"
-                            label="Accounting"
-                            active={activeNav === 'accounting'}
-                            onClick={() => setActiveNav('accounting')}
-                        />
-                        <NavItem
-                            icon="⚙️"
-                            label="Settings"
-                            active={activeNav === 'settings'}
-                            onClick={() => setActiveNav('settings')}
-                        />
-                    </nav>
+  const handleStatusUpdate = useCallback(async (orderId, newStatus) => {
+    try {
+      await ordersAPI.updateOrderStatus(orderId, newStatus);
+      setOrders(prevOrders => prevOrders.map(order => 
+        order.id === orderId ? { ...order, status: newStatus } : order
+      ));
+      toast.success(`Order status updated to ${newStatus}`);
+    } catch (err) {
+      setError('Failed to update order status');
+      toast.error('Failed to update order status. Please try again.');
+      if (import.meta.env.DEV) {
+        console.error('Error updating order status:', err);
+      }
+    }
+  }, []); // Removed toast - functions are stable
 
-                    <div className="sidebar-footer">
-                        <div className="system-info">
-                            <div className="info-row">
-                                <span className="info-label">CPU</span>
-                                <div className="progress">
-                                    <div className="progress-bar" style={{ width: '45%' }}></div>
-                                </div>
-                                <span className="info-value font-mono">45%</span>
-                            </div>
-                            <div className="info-row">
-                                <span className="info-label">MEM</span>
-                                <div className="progress">
-                                    <div className="progress-bar" style={{ width: '62%' }}></div>
-                                </div>
-                                <span className="info-value font-mono">62%</span>
-                            </div>
-                        </div>
-                    </div>
-                </aside>
+  const renderView = useMemo(() => {
+    if (loading) {
+      return <ListSkeleton count={6} />;
+    }
 
-                {/* Main Content */}
-                <main className="main-content">
-                    {/* Page Header */}
-                    <div className="page-header">
-                        <div className="page-title-area">
-                            <h1 className="page-title text-gradient">Command Center</h1>
-                            <p className="page-subtitle">Real-time order management & AI analytics</p>
-                        </div>
-                        <div className="page-actions">
-                            <button className="btn btn-secondary">
-                                <span>📤</span> Export
-                            </button>
-                            <button className="btn btn-primary">
-                                <span>➕</span> New Order
-                            </button>
-                        </div>
-                    </div>
-
-                    {/* Stats Grid */}
-                    <div className="stats-grid">
-                        {stats.map((stat, index) => (
-                            <DigitalCounter key={index} {...stat} />
-                        ))}
-                    </div>
-
-                    {/* Dashboard Grid */}
-                    <div className="dashboard-grid">
-                        {/* Orders Section */}
-                        <section className="orders-section card">
-                            <div className="section-header">
-                                <h2 className="section-title">
-                                    <span className="title-icon">📦</span>
-                                    Recent Orders
-                                </h2>
-                                <button className="section-action">View All →</button>
-                            </div>
-                            <div className="orders-list">
-                                {recentOrders.map((order, index) => (
-                                    <OrderCard key={index} order={order} />
-                                ))}
-                            </div>
-                        </section>
-
-                        {/* Right Panel */}
-                        <div className="right-panel">
-                            {/* AI Assistant */}
-                            <AIAssistant />
-
-                            {/* Activity Feed */}
-                            <section className="activity-section card">
-                                <div className="section-header">
-                                    <h2 className="section-title">
-                                        <span className="title-icon">⚡</span>
-                                        Live Activity
-                                    </h2>
-                                </div>
-                                <div className="activity-list">
-                                    {activities.map((activity, index) => (
-                                        <ActivityItem key={index} activity={activity} />
-                                    ))}
-                                </div>
-                            </section>
-                        </div>
-                    </div>
-                </main>
-            </div>
-
-            {/* Footer Status Bar */}
-            <footer className="status-bar">
-                <div className="status-bar-left">
-                    <span className="status-item">
-                        <span className="status-dot online"></span>
-                        Backend Connected
-                    </span>
-                    <span className="status-item">
-                        <span className="status-dot online"></span>
-                        WebSocket Active
-                    </span>
-                </div>
-                <div className="status-bar-center">
-                    <span className="version-info font-mono">
-                        OPTIMUM SMART SYSTEM v2.0 ADVANCED
-                    </span>
-                </div>
-                <div className="status-bar-right">
-                    <span className="status-item font-mono">
-                        API Latency: 24ms
-                    </span>
-                </div>
-            </footer>
+    if (error) {
+      return (
+        <div className="error-container">
+          <p className="error-message">{error}</p>
+          <button onClick={() => window.location.reload()} aria-label="Retry loading orders" title="Retry loading orders">
+            Retry
+          </button>
         </div>
-    )
+      );
+    }
+
+    // Role-based component routing
+    const userRole = auth.getUserRole();
+    
+    switch (currentView) {
+      // Admin views
+      case 'dashboard':
+        if (auth.isAdmin()) {
+          return (
+            <Suspense fallback={<ListSkeleton count={6} />}>
+              <CommandCenter orders={orders} onNavigate={setCurrentView} />
+            </Suspense>
+          );
+        } else if (auth.isSupplier()) {
+          return (
+            <Suspense fallback={<ListSkeleton count={6} />}>
+              <SupplierDashboard orders={orders} />
+            </Suspense>
+          );
+        } else {
+          return (
+            <Suspense fallback={<ListSkeleton count={6} />}>
+              <CustomerDashboard orders={orders} />
+            </Suspense>
+          );
+        }
+      
+      case 'new-order':
+        return (
+          <Suspense fallback={<ListSkeleton count={3} />}>
+            <OrderReception onSubmit={handleNewOrder} />
+          </Suspense>
+        );
+      
+      case 'new-request':
+        return (
+          <Suspense fallback={<ListSkeleton count={3} />}>
+            <NewOrderRequest onSubmit={handleNewOrder} />
+          </Suspense>
+        );
+      
+      case 'orders':
+        return (
+          <Suspense fallback={<ListSkeleton count={6} />}>
+            <OrderList orders={orders} onStatusUpdate={handleStatusUpdate} />
+          </Suspense>
+        );
+      
+      case 'my-orders':
+        if (auth.isCustomer()) {
+          return (
+            <Suspense fallback={<ListSkeleton count={6} />}>
+              <CustomerOrders orders={orders} />
+            </Suspense>
+          );
+        } else if (auth.isSupplier()) {
+          return (
+            <Suspense fallback={<ListSkeleton count={6} />}>
+              <SupplierOrders orders={orders} onStatusUpdate={handleStatusUpdate} />
+            </Suspense>
+          );
+        }
+        break;
+      
+      case 'order-requests':
+        return (
+          <Suspense fallback={<ListSkeleton count={4} />}>
+            <OrderRequests orders={orders} />
+          </Suspense>
+        );
+      
+      case 'supplier-offers':
+      case 'supplier-inventory':
+        // Placeholder for future implementation
+        return (
+          <Suspense fallback={<ListSkeleton count={4} />}>
+            <div style={{ padding: '2rem', textAlign: 'center' }}>
+              <h2>Coming Soon</h2>
+              <p>This feature is under development.</p>
+            </div>
+          </Suspense>
+        );
+      
+      case 'order-history':
+        return (
+          <Suspense fallback={<ListSkeleton count={6} />}>
+            <CustomerOrders orders={orders} />
+          </Suspense>
+        );
+      
+      case 'suppliers':
+        return (
+          <Suspense fallback={<ListSkeleton count={4} />}>
+            <SupplierCommunication orders={orders} />
+          </Suspense>
+        );
+      
+      case 'accounting':
+        return (
+          <Suspense fallback={<ListSkeleton count={4} />}>
+            <Accounting orders={orders} />
+          </Suspense>
+        );
+      
+      case 'ai-dashboard':
+        return (
+          <Suspense fallback={<ListSkeleton count={4} />}>
+            <AIDashboard />
+          </Suspense>
+        );
+      
+      case 'chat':
+        return (
+          <Suspense fallback={<ListSkeleton count={3} />}>
+            <AIChatPage />
+          </Suspense>
+        );
+      
+      case 'about':
+        return (
+          <Suspense fallback={<ListSkeleton count={3} />}>
+            <About />
+          </Suspense>
+        );
+      
+      case 'profile':
+        return (
+          <Suspense fallback={<ListSkeleton count={3} />}>
+            <UserProfile />
+          </Suspense>
+        );
+      
+      case 'settings':
+        return (
+          <Suspense fallback={<ListSkeleton count={3} />}>
+            <UserSettings />
+          </Suspense>
+        );
+      
+      case 'user-management':
+        return (
+          <Suspense fallback={<ListSkeleton count={4} />}>
+            <AdminUserManagement />
+          </Suspense>
+        );
+      
+      default:
+        // Default to role-appropriate dashboard
+        if (auth.isAdmin()) {
+          return (
+            <Suspense fallback={<ListSkeleton count={6} />}>
+              <CommandCenter orders={orders} onNavigate={setCurrentView} />
+            </Suspense>
+          );
+        } else if (auth.isSupplier()) {
+          return (
+            <Suspense fallback={<ListSkeleton count={6} />}>
+              <SupplierDashboard orders={orders} />
+            </Suspense>
+          );
+        } else {
+          return (
+            <Suspense fallback={<ListSkeleton count={6} />}>
+              <CustomerDashboard orders={orders} />
+            </Suspense>
+          );
+        }
+    }
+  }, [loading, error, currentView, orders, handleNewOrder, handleStatusUpdate, auth]);
+
+  const location = useLocation();
+  const isAuthPage = location.pathname === '/login' || location.pathname === '/signup';
+  const isRoleSelection = location.pathname === '/';
+  
+  // Handle route-based navigation for profile/settings and dashboard
+  useEffect(() => {
+    if (location.pathname === '/profile') {
+      setCurrentView('profile');
+    } else if (location.pathname === '/settings') {
+      setCurrentView('settings');
+    } else if (location.pathname === '/dashboard' || location.pathname === '/app') {
+      setCurrentView('dashboard');
+      // Update URL if on /app
+      if (location.pathname === '/app') {
+        window.history.replaceState({}, '', '/dashboard');
+      }
+    }
+  }, [location.pathname]);
+
+  // Show role selection page on home page (always show, even if authenticated)
+  // Users can still access it to switch roles or see the landing page
+  if (isRoleSelection) {
+    // If authenticated, allow access but show role selection
+    // If not authenticated, show role selection (required)
+    return (
+      <ErrorBoundary>
+        <Routes>
+          <Route path="/" element={<RoleSelection />} />
+        </Routes>
+        <ToastContainer />
+      </ErrorBoundary>
+    );
+  }
+
+  // If on auth page, show only auth component
+  if (isAuthPage) {
+    return (
+      <ErrorBoundary>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+        </Routes>
+        <ToastContainer />
+      </ErrorBoundary>
+    );
+  }
+
+  // Main app (authentication optional for now)
+  return (
+    <ErrorBoundary>
+      <Routes>
+        <Route path="/profile" element={<Navigate to="/" replace />} />
+        <Route path="/settings" element={<Navigate to="/" replace />} />
+        <Route path="/app" element={<Navigate to="/dashboard" replace />} />
+        <Route 
+          path="/*" 
+          element={
+            <MainApp
+              currentView={currentView}
+              setCurrentView={setCurrentView}
+              orders={orders}
+              loading={loading}
+              error={error}
+              handleNewOrder={handleNewOrder}
+              handleStatusUpdate={handleStatusUpdate}
+              renderView={renderView}
+            />
+          } 
+        />
+      </Routes>
+      <ToastContainer />
+    </ErrorBoundary>
+  );
 }
 
-export default App
+export default App;

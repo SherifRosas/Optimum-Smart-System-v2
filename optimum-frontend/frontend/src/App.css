@@ -3,12 +3,27 @@
    Cyberpunk Dashboard Interface
    ======================================== */
 
-/* App Container */
-.app {
+/* ========================================
+   APP CONTAINER - ADVANCED DIGITAL THEME
+   Futuristic Robotic Digital Aesthetic
+   ======================================== */
+
+/* App Container - Command Center Theme */
+.App {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   overflow: hidden;
+  background: #0f1a2e;
+  position: relative;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  overflow: hidden;
+  position: relative;
 }
 
 /* ========================================
@@ -409,11 +424,16 @@
    ======================================== */
 .main-content {
   flex: 1;
-  padding: var(--space-xl);
+  padding: 1.5rem;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  gap: var(--space-xl);
+  gap: 1.5rem;
+  margin-left: 250px;
+  margin-top: 100px;
+  position: relative;
+  z-index: 1;
+  background: transparent;
 }
 
 /* Page Header */

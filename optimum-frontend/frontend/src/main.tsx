@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App.tsx'; // Explicitly import App.tsx (advanced frontend)
+import { BrowserRouter } from 'react-router-dom';
+import App from './App.jsx'; // Import App.jsx - Main routing app with Command Center integrated
+import { AuthProvider } from './contexts/AuthContext';
+import { ThemeProvider } from './contexts/ThemeContext';
 import './index.css';
 
 // Error boundary for better error handling
@@ -64,7 +67,13 @@ if (!checkBrowserSupport()) {
     const root = ReactDOM.createRoot(rootElement);
     root.render(
       <React.StrictMode>
-        <App />
+        <BrowserRouter>
+          <ThemeProvider>
+            <AuthProvider>
+              <App />
+            </AuthProvider>
+          </ThemeProvider>
+        </BrowserRouter>
       </React.StrictMode>
     );
   } catch (error) {

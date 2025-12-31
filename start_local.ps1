@@ -40,7 +40,7 @@ python manage.py runserver
 
 # Create frontend script content
 $frontendScript = @"
-Set-Location '$projectRoot\optimum-frontend'
+Set-Location '$projectRoot\optimum-frontend\frontend'
 Write-Host 'Starting Vite dev server on http://localhost:3000' -ForegroundColor Green
 npm run dev
 "@

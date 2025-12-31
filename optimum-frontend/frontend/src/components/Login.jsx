@@ -54,9 +54,11 @@ const Login = () => {
       if (result.success) {
         toast.success('Login successful!');
         // Small delay to show toast before navigation
-        // Redirect to main app route instead of "/" (which shows role selection)
+        // Redirect to dashboard - use a route that exists
         setTimeout(() => {
-          navigate('/app');
+          // Navigate to a route that will render the MainApp
+          // The catch-all route /* will handle this
+          window.location.href = '/dashboard';
         }, 500);
       } else {
         const errorMsg = result.error || 'Login failed. Please check your credentials.';

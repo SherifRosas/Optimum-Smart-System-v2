@@ -1,7 +1,7 @@
 # 🗺️ Optimum Smart System - AI Development Roadmap
 
-**Last Updated:** December 2024  
-**Project Status:** Production Ready (9.5/10) - Deployment Configured  
+**Last Updated:** December 31, 2025  
+**Project Status:** Production Ready (9.5/10)  
 **Purpose:** This document enables any AI coding assistant to seamlessly continue development
 
 ---
@@ -35,7 +35,7 @@
 ### Technology Stack
 
 **Frontend:**
-- React 18.2.0 with TypeScript
+- React 19.2.0 with TypeScript
 - Vite 5.0.5 (build tool)
 - TailwindCSS 3.3.6 (styling)
 - React Query 5.8.4 (server state)
@@ -43,11 +43,6 @@
 - React Router 6.20.0 (routing)
 - Radix UI (accessible components)
 - Socket.IO Client 4.5.4 (WebSocket)
-
-**Browser Support:**
-- Minimum: Safari 14+ (iOS 14+), Chrome 90+, Firefox 88+, Edge 90+
-- Not Supported: Safari 12 (iOS 12) - React 18 limitation
-- See `REACT18_BROWSER_REQUIREMENTS.md` for details
 
 **Backend:**
 - Django 5.2.7
@@ -66,7 +61,7 @@
 
 ## ✅ Current Status
 
-### Overall Completion: ~85%
+### Overall Completion: ~90%
 
 **Production Ready Features:**
 - ✅ Authentication & Authorization (JWT, RBAC)
@@ -81,8 +76,8 @@
 - ✅ Settings Refactoring
 - ✅ CI/CD Pipeline
 - ✅ Documentation Organization
-- ✅ Vercel Deployment Configuration
-- ✅ Advanced Frontend UI (Cyberpunk Theme)
+- ✅ Command Center Theme (Default)
+- ✅ Theme Migration & Archive
 
 **In Progress:**
 - 🔄 TypeScript Migration (components still in JS/JSX)
@@ -108,37 +103,35 @@
 
 **Component Structure:**
 ```
-optimum-frontend/
-├── frontend/            # Advanced frontend (active, cyberpunk theme)
-│   ├── src/
-│   │   ├── components/
-│   │   │   ├── ui/              # Reusable UI components (TypeScript)
-│   │   │   ├── Auth/            # Authentication components (TypeScript)
-│   │   │   ├── Dashboard/       # Dashboard components (TypeScript)
-│   │   │   ├── Orders/          # Order components (TypeScript)
-│   │   │   └── [others]/        # Feature components (mixed JS/TS)
-│   │   ├── hooks/
-│   │   │   ├── queries/         # React Query hooks
-│   │   │   └── useWebSocket.ts  # WebSocket hook
-│   │   ├── services/            # API service layer
-│   │   ├── stores/              # Zustand stores
-│   │   ├── types/               # TypeScript definitions
-│   │   └── config/              # Configuration files
-│   ├── vite.config.ts           # Vite config (root: ./frontend)
-│   ├── package.json             # Frontend dependencies
-│   └── vercel.json              # Vercel deployment config
-└── src/                 # Legacy frontend (being phased out)
+src/
+├── components/
+│   ├── ui/              # Reusable UI components (TypeScript)
+│   ├── Auth/            # Authentication components (TypeScript)
+│   ├── Dashboard/       # Dashboard components (TypeScript)
+│   ├── Orders/          # Order components (TypeScript)
+│   └── [others]/        # Feature components (mixed JS/TS)
+├── hooks/
+│   ├── queries/         # React Query hooks
+│   └── useWebSocket.ts  # WebSocket hook
+├── services/            # API service layer
+├── stores/              # Zustand stores
+├── types/               # TypeScript definitions
+└── config/              # Configuration files
 ```
 
 **Routing:**
-- Main routes: `/login`, `/app`, `/orders`
+- Main routes: `/` (Role Selection - Landing Page), `/login`, `/dashboard`, `/orders`
+- Role Selection page (`/`) is the main/landing page
 - Protected routes use `ProtectedRoute.tsx`
 - Lazy loading for code splitting
+- Command Center dashboard at `/dashboard` for admin users
 
 **Styling:**
+- **Command Center Theme** (Default) - Dark blue (`#0f1a2e`), cyan accents (`#00ffff`), golden borders (`#ffd700`)
 - TailwindCSS utility classes
 - CSS modules for component-specific styles
 - Dark mode support via Zustand store
+- Consistent theme across all pages and components
 
 ### Backend Architecture
 
@@ -228,10 +221,18 @@ docs/
 - ✅ Fixed API URL typo (`sherifrissas` → `sherifrosas`)
 - ✅ Fixed domain typo in backend settings
 - ✅ Cleaned up `requirements.txt` (removed duplicates)
+- ✅ Fixed JSX syntax errors in `.js` files (Vite configuration)
+- ✅ Fixed routing issues (App.js import, BrowserRouter, AuthProvider)
+- ✅ Fixed meta tag deprecation warning (mobile-web-app-capable)
+- ✅ Fixed start_local.ps1 script directory path
 
 **Files:**
-- `optimum-frontend/src/config/api.ts`
+- `optimum-frontend/frontend/src/config/api.ts`
 - `optimum-backend/optimum_system/settings/production.py`
+- `optimum-frontend/frontend/vite.config.ts`
+- `optimum-frontend/frontend/src/main.tsx`
+- `optimum-frontend/frontend/index.html`
+- `start_local.ps1`
 
 ---
 
@@ -279,152 +280,55 @@ docs/
 
 ---
 
-### 8. Vercel Deployment Configuration (December 2024)
+### 8. Theme Migration to Command Center (December 2025)
 **Status:** ✅ Complete
 
 **What was done:**
-- Fixed Vercel build failures by relaxing TypeScript strict mode
-- Removed `type-check` from build command to prevent deployment errors
-- Optimized Vite build configuration for production
-- Created `.vercelignore` to exclude unnecessary files
-- Configured Vite to use `frontend` directory as root
-- Updated `vercel.json` with proper build settings
-- Fixed module resolution conflicts (`.js` vs `.ts` files)
-- Resolved React Hooks order violations in Dashboard component
-- Fixed Dashboard visibility issues with cyberpunk theme CSS conflicts
-- Fixed Rollup native module issue with `@rollup/rollup-linux-x64-gnu` in `optionalDependencies`
-- Added `--legacy-peer-deps --force` flags to handle npm bug with optional dependencies
-- Fixed `rootDirectory` configuration in `vercel.json`
-- Removed redundant `npm install` from `buildCommand`
-- Fixed `useToast.ts` → `useToast.tsx` (TypeScript JSX syntax)
-- Added environment variable configuration for Vite (`VITE_API_URL`, `VITE_WS_URL`)
+- Migrated from "Advanced Digital Theme" to "Command Center Theme"
+- Updated all components to use Command Center design
+- Set Command Center theme as default across application
+- Applied consistent dark blue background (`#0f1a2e`)
+- Implemented cyan accents (`#00ffff`) and golden borders (`#ffd700`)
+- Updated Role Selection page (main/landing page) with Command Center header
+- Updated Login page with Command Center styling
+- Updated Header and Navigation components
+- Added real-time clock to Role Selection header
+- Archived old Advanced Digital Theme files
 
-**Files Modified:**
-- `optimum-frontend/frontend/tsconfig.json` - Relaxed strict mode
-- `optimum-frontend/frontend/package.json` - Updated build command, added optional dependencies
-- `optimum-frontend/frontend/vite.config.ts` - Optimized build settings, added esbuild config
-- `optimum-frontend/frontend/.vercelignore` - Exclude unnecessary files
-- `optimum-frontend/frontend/vercel.json` - Deployment configuration
-- `vercel.json` (root) - Root directory and build configuration
-- `optimum-frontend/vite.config.ts` - Set root to `./frontend`
-- `optimum-frontend/src/services/api.ts` - Fixed module resolution
-- `optimum-frontend/src/components/Dashboard/Dashboard.tsx` - Fixed hooks and styling
-- `optimum-frontend/frontend/src/hooks/useToast.tsx` - Renamed from `.ts` to support JSX
-- `optimum-frontend/frontend/src/config/api.ts` - Fixed API URL typo, added Vite env var support
+**Files Updated:**
+- `optimum-frontend/frontend/src/index.css` - Global theme variables
+- `optimum-frontend/frontend/src/App.css` - App container background
+- `optimum-frontend/frontend/src/components/Header.css` - Command Center header
+- `optimum-frontend/frontend/src/components/Navigation.css` - Command Center navigation
+- `optimum-frontend/frontend/src/components/RoleSelection.css` - Command Center role selection
+- `optimum-frontend/frontend/src/components/RoleSelection.jsx` - Added header with clock
+- `optimum-frontend/frontend/src/components/Login.css` - Command Center login
+- `optimum-frontend/frontend/src/components/CommandCenter.tsx` - New Command Center dashboard component
 
-**Impact:** Successful Vercel deployments, production-ready build configuration
+**Archived Files:**
+- `archive/themes/old-advanced-digital-theme/` - Old theme documentation and styles
+
+**Impact:** Consistent, professional Command Center aesthetic matching OPTIMUM v2.0 design
 
 ---
 
-### 10. Performance Optimizations (December 2024)
+### 9. Command Center Dashboard Integration (December 2025)
 **Status:** ✅ Complete
 
 **What was done:**
-- Optimized `DigitalCounter` animation to reduce `requestAnimationFrame` violations
-- Added throttling to limit updates to ~60fps (16ms intervals)
-- Simplified easing function (removed expensive `Math.pow`)
-- Staggered counter animations with delays (0ms, 200ms, 400ms, 600ms)
-- Reduced animation duration from 2000ms to 1500ms
-- Added proper cleanup for animation frames
-- Ensured final values are always displayed correctly
-
-**Files Modified:**
-- `optimum-frontend/frontend/src/App.tsx` - Optimized DigitalCounter component
-
-**Impact:** Reduced RAF handler time from 113ms to <16ms per frame, smoother animations
-
----
-
-### 11. Browser Compatibility & iPhone 6 Support (December 2024)
-**Status:** ✅ Complete (with limitations documented)
-
-**What was done:**
-- Added browser compatibility detection before React rendering
-- Implemented user-friendly error messages for unsupported browsers
-- Fixed CSS compatibility (replaced `inset` with explicit `top/right/bottom/left`)
-- Added iOS-specific meta tags for better mobile experience
-- Changed build target to `es2017` for better browser compatibility
-- Documented React 18 browser requirements
-
-**React 18 Browser Requirements:**
-- **Minimum:** Safari 14+ (iOS 14+), Chrome 90+, Firefox 88+, Edge 90+
-- **Not Supported:** Safari 12 (iOS 12) - iPhone 6 limitation
-- **Reason:** React 18 uses modern JavaScript features not available in Safari 12
-
-**Files Modified:**
-- `optimum-frontend/frontend/index.html` - Browser compatibility check, iOS meta tags
-- `optimum-frontend/frontend/src/main.tsx` - Feature detection and error handling
-- `optimum-frontend/frontend/src/index.css` - CSS compatibility fixes
-- `optimum-frontend/frontend/vite.config.ts` - Build target optimization
-
-**Documentation Created:**
-- `REACT18_BROWSER_REQUIREMENTS.md` - Complete browser compatibility guide
-- `IPHONE6_REACT18_LIMITATION.md` - iPhone 6 specific limitations
-- `IPHONE6_COMPATIBILITY_FIX.md` - Compatibility fixes attempted
-
-**Impact:** 
-- ✅ Modern browsers work perfectly
-- ✅ Unsupported browsers see helpful error messages instead of blank pages
-- ⚠️ iPhone 6 (iOS 12) cannot run React 18 - this is a React limitation, not a bug
-
----
-
-### 12. Environment Variables Configuration (December 2024)
-**Status:** ✅ Complete
-
-**What was done:**
-- Fixed environment variable prefix (Vite requires `VITE_` not `REACT_APP_`)
-- Updated API configuration to use `import.meta.env.VITE_API_URL`
-- Added fallback URLs for production and development
-- Created documentation for Vercel environment variable setup
-
-**Required Vercel Environment Variables:**
-- `VITE_API_URL` - API base URL (e.g., `https://sherifrosas.pythonanywhere.com/api`)
-- `VITE_WS_URL` - WebSocket URL (optional, e.g., `wss://sherifrosas.pythonanywhere.com/ws`)
-
-**Files Modified:**
-- `optimum-frontend/frontend/src/config/api.ts` - Vite environment variable support
-- `VERCEL_ENV_VARIABLES_FIX.md` - Setup guide created
-
-**Impact:** Proper environment variable configuration for Vercel deployment
-
----
-
-### 13. Code Quality Improvements (December 2024)
-**Status:** ✅ Complete
-
-**What was done:**
-- Removed unused `ReactNode` import from `App.tsx`
-- Added error handling to `main.tsx` for better debugging
-- Removed duplicate `useToast.ts` file (kept only `useToast.tsx`)
-- Fixed TypeScript errors in `useToast.tsx`
-- Added comprehensive test report
-
-**Files Modified:**
-- `optimum-frontend/frontend/src/App.tsx` - Removed unused imports
-- `optimum-frontend/frontend/src/main.tsx` - Enhanced error handling
-- `optimum-frontend/frontend/src/hooks/useToast.tsx` - Fixed and optimized
-
-**Impact:** Cleaner code, better error handling, no duplicate files
-
----
-
-### 9. Advanced Frontend Integration (December 2024)
-**Status:** ✅ Complete
-
-**What was done:**
-- Switched to advanced frontend UI with cyberpunk theme
-- Configured Vite to use `frontend` directory structure
-- Integrated cyberpunk styling with existing components
-- Fixed CSS conflicts between theme and Dashboard component
-- Updated routing to work with new frontend structure
+- Created `CommandCenter.tsx` component from `App.tsx`
+- Integrated Command Center as default dashboard for admin users
+- Replaced `ModernDashboard` with `CommandCenter` in routing
+- Added full-page rendering for Command Center (hides default Header/Navigation)
+- Implemented navigation mapping between Command Center and main app
+- Command Center now shows real order data and statistics
 
 **Files:**
-- `optimum-frontend/frontend/` - Advanced frontend directory
-- `optimum-frontend/frontend/src/index.css` - Cyberpunk theme styles
-- `optimum-frontend/index.html` - Updated entry point
+- `optimum-frontend/frontend/src/components/CommandCenter.tsx` - Command Center component
+- `optimum-frontend/frontend/src/App.jsx` - Updated to use CommandCenter
+- `optimum-frontend/frontend/src/main.tsx` - Updated to use App.jsx (routing version)
 
-**Impact:** Modern, visually appealing UI with cyberpunk aesthetic
+**Impact:** Users see OPTIMUM v2.0 Command Center interface after login
 
 ---
 
@@ -443,6 +347,7 @@ docs/
 
 **Remaining (JavaScript/JSX):**
 - ⏳ Feature components: `About`, `Accounting`, `AdminUserManagement`, `AIChatPage`, `AIChatWidget`, `AIDashboard`, `CustomerDashboard`, `CustomerOrders`, `FileUploadAI`, `Header`, `HelpModal`, `LanguageSwitcher`, `ModernDashboard`, `Navigation`, `NewOrderRequest`, `OrderList`, `OrderReception`, `OrderRequests`, `PredictiveAlerts`, `RoleSelection`, `Signup`, `SmartOrderSuggestions`, `SupplierCommunication`, `SupplierDashboard`, `SupplierOrders`, `ThemeToggle`, `Tooltip`, `UserProfile`, `UserSettings`
+- ✅ `CommandCenter.tsx` - New TypeScript component (Command Center dashboard)
 - ⏳ Hooks: `useToast.js`, `useToast.jsx`
 - ⏳ Contexts: `AuthContext.js`, `ThemeContext.js`
 - ⏳ Services: `api.js`, `authAPI.js`
@@ -556,28 +461,7 @@ docs/
 
 ### 🟡 Medium Priority
 
-#### 4. Complete Vercel Deployment
-**Why:** Get frontend live in production
-
-**Tasks:**
-- [x] Configure Vercel build settings
-- [x] Fix TypeScript strict mode issues
-- [x] Optimize build configuration
-- [ ] Push changes to GitHub (if not already done)
-- [ ] Set environment variables in Vercel Dashboard
-- [ ] Verify deployment is live
-- [ ] Test production frontend
-
-**Estimated Effort:** 1 hour
-
-**Environment Variables to Set in Vercel:**
-- `VITE_API_BASE_URL` - Backend API URL
-- `VITE_WS_URL` - WebSocket URL (if different)
-- Any other required environment variables
-
----
-
-#### 5. Set Up Monitoring & Logging
+#### 4. Set Up Monitoring & Logging
 **Why:** Production visibility, error tracking
 
 **Tasks:**
@@ -650,40 +534,36 @@ docs/
 ### Frontend Key Files
 
 **Entry Points:**
-- `optimum-frontend/frontend/index.html` - HTML entry (advanced frontend)
-- `optimum-frontend/frontend/src/main.tsx` - React entry point
-- `optimum-frontend/frontend/src/App.tsx` - Main app component
+- `optimum-frontend/index.html` - HTML entry (uses `main.tsx`)
+- `optimum-frontend/src/main.tsx` - React entry point
+- `optimum-frontend/src/App.tsx` - Main app component
 
 **Configuration:**
-- `optimum-frontend/frontend/vite.config.ts` - Vite configuration (root: ./frontend)
-- `optimum-frontend/frontend/tsconfig.json` - TypeScript configuration (relaxed strict mode)
+- `optimum-frontend/frontend/vite.config.ts` - Vite configuration (JSX support for .js files)
+- `optimum-frontend/frontend/tsconfig.json` - TypeScript configuration
 - `optimum-frontend/frontend/tailwind.config.js` - TailwindCSS configuration
 - `optimum-frontend/frontend/src/config/api.ts` - API configuration
-- `optimum-frontend/frontend/vercel.json` - Vercel deployment configuration
-- `optimum-frontend/frontend/.vercelignore` - Files to exclude from Vercel deployment
-- `optimum-frontend/frontend/package.json` - Frontend dependencies and build scripts
 
 **State Management:**
-- `optimum-frontend/frontend/src/stores/authStore.ts` - Authentication state
-- `optimum-frontend/frontend/src/stores/uiStore.ts` - UI state (theme, etc.)
-- `optimum-frontend/frontend/src/lib/react-query.tsx` - React Query setup
+- `optimum-frontend/src/stores/authStore.ts` - Authentication state
+- `optimum-frontend/src/stores/uiStore.ts` - UI state (theme, etc.)
+- `optimum-frontend/src/lib/react-query.tsx` - React Query setup
 
 **Components:**
-- `optimum-frontend/frontend/src/components/Dashboard/Dashboard.tsx` - Main dashboard
-- `optimum-frontend/frontend/src/components/Orders/Orders.tsx` - Orders management
-- `optimum-frontend/frontend/src/components/Auth/Login.tsx` - Login page
-- `optimum-frontend/frontend/src/components/ProtectedRoute.tsx` - Route protection
+- `optimum-frontend/frontend/src/components/RoleSelection.jsx` - **Main/Landing Page** (Route: `/`)
+- `optimum-frontend/frontend/src/components/CommandCenter.tsx` - Command Center dashboard (OPTIMUM v2.0)
+- `optimum-frontend/frontend/src/components/Login.jsx` - Login page
+- `optimum-frontend/frontend/src/components/Header.jsx` - Application header
+- `optimum-frontend/frontend/src/components/Navigation.jsx` - Side navigation
+- `optimum-frontend/frontend/src/components/ProtectedRoute.jsx` - Route protection
 
 **Services:**
-- `optimum-frontend/frontend/src/services/api.ts` - API client
-- `optimum-frontend/frontend/src/services/authService.ts` - Auth service
+- `optimum-frontend/src/services/api.ts` - API client
+- `optimum-frontend/src/services/authService.ts` - Auth service
 
 **Hooks:**
-- `optimum-frontend/frontend/src/hooks/queries/useOrders.ts` - Orders query hook
-- `optimum-frontend/frontend/src/hooks/useWebSocket.ts` - WebSocket hook
-
-**Styling:**
-- `optimum-frontend/frontend/src/index.css` - Cyberpunk theme styles
+- `optimum-frontend/src/hooks/queries/useOrders.ts` - Orders query hook
+- `optimum-frontend/src/hooks/useWebSocket.ts` - WebSocket hook
 
 ---
 
@@ -762,10 +642,8 @@ python manage.py runserver
 
 **Frontend:**
 ```bash
-cd optimum-frontend
+cd optimum-frontend/frontend
 npm install
-# The advanced frontend is in the frontend/ subdirectory
-# Vite is configured to use frontend/ as root
 npm run dev
 ```
 
@@ -793,7 +671,6 @@ DATABASE_URL=sqlite:///db.sqlite3
 ```env
 VITE_API_URL=http://localhost:8000/api
 VITE_WS_URL=ws://localhost:8000/ws
-VITE_API_BASE_URL=http://localhost:8000/api
 ```
 
 ---
@@ -802,10 +679,9 @@ VITE_API_BASE_URL=http://localhost:8000/api
 
 **1. Frontend Component:**
 - Create/update component in `optimum-frontend/frontend/src/components/`
-- Use TypeScript (`.tsx`) for new components
+- Use TypeScript (`.tsx`) for new components (or `.js`/`.jsx` if needed - Vite now supports JSX in .js files)
 - Follow existing patterns (React Query, Zustand)
 - Add types in `optimum-frontend/frontend/src/types/`
-- Note: The active frontend is in `frontend/` subdirectory
 
 **2. Backend API:**
 - Add model in appropriate app's `models.py`
@@ -822,7 +698,7 @@ cd optimum-backend
 pytest
 
 # Frontend
-cd optimum-frontend
+cd optimum-frontend/frontend
 npm test
 npm run test:e2e
 ```
@@ -866,52 +742,50 @@ npm run test:e2e
 
 ---
 
-### 6. Vercel Deployment (RESOLVED)
-**Issue:** Build failures due to strict TypeScript checking  
-**Impact:** Deployment failures  
-**Solution:** ✅ Relaxed TypeScript strict mode, optimized build settings (December 2024)
-
----
-
-### 8. iPhone 6 Compatibility (DOCUMENTED LIMITATION)
-**Issue:** App not running on iPhone 6 (iOS 12, Safari 12)  
-**Impact:** Users with iPhone 6 cannot access the app  
-**Root Cause:** React 18 requires Safari 14+ (iOS 14+), iPhone 6 only supports iOS 12  
-**Solution:** ✅ Added browser compatibility detection and user-friendly error messages  
-**Status:** Cannot be fully fixed - React 18 limitation, not a bug  
-**Documentation:** `REACT18_BROWSER_REQUIREMENTS.md`, `IPHONE6_REACT18_LIMITATION.md`
-
----
-
-### 9. Performance Warnings (RESOLVED)
-**Issue:** `requestAnimationFrame` handler violations (113ms, 52ms, 62ms)  
-**Impact:** Performance warnings in browser console  
-**Solution:** ✅ Optimized DigitalCounter animation with throttling and staggered delays (December 2024)  
-**Result:** Reduced to <16ms per frame
-
----
-
-### 10. Zustand Deprecation Warning (HARMLESS)
-**Issue:** Console warning about Zustand default export deprecation  
-**Impact:** Console warning (harmless)  
-**Root Cause:** Zustand v4.4.6 still exposes deprecated default export  
-**Solution:** ✅ Code already uses correct named import (`import { create } from 'zustand'`)  
-**Status:** Warning will disappear when Zustand removes default export in future version
-
----
-
-### 11. Environment Variables (RESOLVED)
-**Issue:** Wrong environment variable prefix (`REACT_APP_` instead of `VITE_`)  
-**Impact:** Environment variables not working in Vite  
-**Solution:** ✅ Documented correct prefix, updated API config to use `VITE_` prefix (December 2024)  
-**Status:** Configuration correct, variables need to be set in Vercel Dashboard
-
----
-
-### 7. Token Storage
+### 6. Token Storage
 **Issue:** Tokens stored in localStorage (XSS risk)  
 **Impact:** Security concern  
 **Solution:** Consider httpOnly cookies for production (low priority)
+
+---
+
+### 7. JSX in .js Files (RESOLVED - December 2024)
+**Issue:** Vite was not processing JSX syntax in `.js` files  
+**Impact:** Build errors, 500 errors in dev server  
+**Solution:** ✅ Fixed by configuring `optimizeDeps.esbuildOptions.loader` in `vite.config.ts`  
+**Status:** ✅ Resolved
+
+---
+
+### 8. Routing Configuration (RESOLVED - December 2024)
+**Issue:** Role Selection page not loading, missing BrowserRouter and AuthProvider  
+**Impact:** Application routing not working  
+**Solution:** ✅ Fixed by updating `main.tsx` to import `App.js` and wrap with `BrowserRouter` and `AuthProvider`  
+**Status:** ✅ Resolved
+
+---
+
+### 9. Meta Tag Deprecation (RESOLVED - December 2024)
+**Issue:** `apple-mobile-web-app-capable` meta tag deprecated  
+**Impact:** Browser console warnings  
+**Solution:** ✅ Fixed by adding `mobile-web-app-capable` meta tag alongside the Apple-specific one  
+**Status:** ✅ Resolved
+
+---
+
+### 10. Theme Consistency (RESOLVED - December 2025)
+**Issue:** Multiple theme styles across components, inconsistent design  
+**Impact:** Inconsistent user experience  
+**Solution:** ✅ Migrated all components to Command Center theme, set as default, archived old theme  
+**Status:** ✅ Resolved
+
+---
+
+### 11. Main Page Configuration (RESOLVED - December 2025)
+**Issue:** Unclear which page is the main landing page  
+**Impact:** User confusion  
+**Solution:** ✅ Confirmed Role Selection page (`/`) is the main/landing page with Command Center header and real-time clock  
+**Status:** ✅ Resolved
 
 ---
 
@@ -920,25 +794,17 @@ npm run test:e2e
 ### Important URLs
 
 **Development:**
-- Frontend: http://localhost:3000
+- Frontend: http://localhost:3000 (Role Selection - Main Page)
 - Backend: http://localhost:8000
 - API: http://localhost:8000/api
 - Admin: http://localhost:8000/admin/
+- Login: http://localhost:3000/login?role=admin
+- Dashboard: http://localhost:3000/dashboard (Command Center for admin)
 
 **Production:**
-- Frontend: https://optimum-smart-system-navy.vercel.app/ (deployed)
+- Frontend: https://[vercel-url]
 - Backend: https://sherifrosas.pythonanywhere.com
 - API: https://sherifrosas.pythonanywhere.com/api
-- WebSocket: wss://sherifrosas.pythonanywhere.com/ws
-
-**Deployment Status:**
-- ✅ Vercel configuration complete
-- ✅ Build optimizations applied
-- ✅ TypeScript strict mode relaxed for deployment
-- ✅ Environment variables documented (`VITE_API_URL`, `VITE_WS_URL`)
-- ✅ All fixes committed and pushed to GitHub
-- ✅ Production URL: https://optimum-smart-system-navy.vercel.app/
-- ⏳ Environment variables should be set in Vercel Dashboard (optional but recommended)
 
 ---
 
@@ -955,12 +821,11 @@ pytest                              # Run tests
 
 **Frontend:**
 ```bash
-cd optimum-frontend
-npm run dev          # Start dev server (uses frontend/ directory)
-npm run build        # Build for production (Vercel-ready)
+npm run dev          # Start dev server
+npm run build        # Build for production
 npm test             # Run tests
 npm run lint         # Lint code
-# Note: type-check removed from build to prevent Vercel deployment errors
+npm run type-check   # TypeScript check
 ```
 
 ---
@@ -991,7 +856,7 @@ npm run lint         # Lint code
 **TypeScript:**
 - Use interfaces for props
 - Export types from `types/index.ts`
-- Note: Strict mode is relaxed in `frontend/tsconfig.json` for Vercel deployment compatibility
+- Use strict mode
 
 **React:**
 - Use functional components
@@ -1029,14 +894,6 @@ npm run lint         # Lint code
 - `IMPLEMENTATION_COMPLETE.md` - Completed improvements
 - `docs/development/LOCAL_SETUP.md` - Setup guide
 - `docs/deployment/DEPLOYMENT_GUIDE.md` - Deployment guide
-- `REACT18_BROWSER_REQUIREMENTS.md` - Browser compatibility guide
-- `IPHONE6_REACT18_LIMITATION.md` - iPhone 6 compatibility limitations
-- `VERCEL_ENV_VARIABLES_FIX.md` - Environment variable setup
-- `VERCEL_DEPLOYMENT_TROUBLESHOOTING.md` - Deployment troubleshooting
-- `FULL_TEST_REPORT.md` - Comprehensive test results
-- `VERCEL_BUILD_FIX.md` - Rollup native module fix
-- `VERCEL_CONFIG_FIX.md` - Vercel configuration fixes
-- `OPTIONAL_DEPENDENCIES_FORCE_FIX.md` - npm optional dependencies fix
 
 **When Stuck:**
 1. Check this roadmap
@@ -1057,28 +914,9 @@ When completing tasks:
 
 ---
 
-**Last Updated:** December 2024  
+**Last Updated:** December 31, 2025  
 **Maintained By:** AI Development Team  
-**Version:** 1.2
-
-**Deployment Status:** ✅ Production Ready
-- Frontend deployed to Vercel
-- All critical bugs fixed
-- Performance optimized
-- Browser compatibility documented
-- Test suite passing
-
-**Recent Updates (December 2024):**
-- ✅ Added Vercel deployment configuration section
-- ✅ Updated frontend structure to reflect advanced frontend
-- ✅ Added deployment fixes and optimizations
-- ✅ Updated file paths to reflect new structure
-- ✅ Added browser compatibility and React 18 requirements documentation
-- ✅ Added performance optimization details
-- ✅ Added environment variable configuration fixes
-- ✅ Added iPhone 6 compatibility limitations
-- ✅ Added comprehensive test report
-- ✅ Documented all recent bug fixes and improvements
+**Version:** 1.1
 
 ---
 
@@ -1109,5 +947,4 @@ When completing tasks:
 ---
 
 **Happy Coding! 🎉**
-
 

@@ -43,11 +43,16 @@ class ErrorBoundary extends React.Component {
               </ul>
             </div>
             
-            {process.env.NODE_ENV === 'development' && this.state.error && (
-              <details className="error-details">
+            {import.meta.env.DEV && this.state.error && (
+              <details className="error-details" open>
                 <summary>Error Details (Development Only)</summary>
                 <pre className="error-stack">
-                  {this.state.error.toString()}
+                  <strong>Error:</strong> {this.state.error.toString()}
+                  {'\n\n'}
+                  <strong>Stack:</strong>
+                  {this.state.error.stack}
+                  {'\n\n'}
+                  <strong>Component Stack:</strong>
                   {this.state.errorInfo?.componentStack}
                 </pre>
               </details>

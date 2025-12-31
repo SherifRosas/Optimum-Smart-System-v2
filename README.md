@@ -1,164 +1,112 @@
-# Optimum Smart System
+# 🚀 Optimum Smart System v2.0.0
 
-An AI-powered order management platform built with React and Django.
+**Command Center Theme - Production Ready**
 
-## 🚀 Quick Start
-
-### Prerequisites
-
-- **Node.js** 18+ and npm
-- **Python** 3.9+
-- **Git**
-
-### Local Development
-
-1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd Optimum-Smart-System-v
-   ```
-
-2. **Start both servers** (choose one method):
-
-   **Windows:**
-   ```powershell
-   # Option 1: Batch file (easiest)
-   .\start_servers.bat
-   
-   # Option 2: PowerShell script
-   .\start_local.ps1
-   ```
-
-   **macOS/Linux:**
-   ```bash
-   chmod +x start_local.sh
-   ./start_local.sh
-   ```
-
-   **Manual:**
-   - See [Local Setup Guide](docs/development/LOCAL_SETUP.md)
-
-3. **Access the application:**
-   - Frontend: http://localhost:3000
-   - Backend API: http://localhost:8000/api
-   - Admin Panel: http://localhost:8000/admin/
-
-## 📚 Documentation
-
-- **[AI Development Roadmap](AI_ROADMAP.md)** - 🗺️ **Complete roadmap for AI assistants to continue development**
-- **[Local Setup Guide](docs/development/LOCAL_SETUP.md)** - Detailed local development setup
-- **[Deployment Guide](docs/deployment/DEPLOYMENT_GUIDE.md)** - Production deployment instructions
-- **[Project Review](PROJECT_REVIEW.md)** - Comprehensive project review and recommendations
-- **[Troubleshooting](docs/development/TROUBLESHOOTING.md)** - Common issues and solutions
-
-## 🛠️ Technology Stack
-
-### Frontend
-- React 19.2.0
-- TypeScript
-- Vite
-- TailwindCSS
-- React Query
-- Zustand
-
-### Backend
-- Django 5.2.7
-- Django REST Framework
-- JWT Authentication
-- PostgreSQL/SQLite
-- WebSocket support
-
-## 📋 Features
-
-- **Order Management**: Create, track, and manage customer orders
-- **Customer Management**: Store and manage customer information
-- **Supplier Communication**: Real-time messaging with suppliers
-- **Financial Dashboard**: Track revenue, costs, and profitability
-- **AI Integration**: AI-powered order analysis
-- **Role-Based Access Control**: Secure user permissions
-- **Responsive Design**: Works on desktop and mobile devices
-
-## 🔧 Configuration
-
-### Environment Variables
-
-**Backend** (create `optimum-backend/.env`):
-```env
-DJANGO_ENV=development
-DEBUG=True
-SECRET_KEY=your-secret-key
-ALLOWED_HOSTS=localhost,127.0.0.1
-CORS_ALLOWED_ORIGINS=http://localhost:3000
-ADMIN_EMAIL=sherifrosas.ai@gmail.com
-```
-
-**Frontend** (create `optimum-frontend/.env`):
-```env
-VITE_API_URL=http://localhost:8000/api
-VITE_WS_URL=ws://localhost:8000/ws
-```
-
-## 🧪 Testing
-
-### Backend Tests
-```bash
-cd optimum-backend
-pytest
-```
-
-### Frontend Tests
-```bash
-cd optimum-frontend
-npm test
-```
-
-## 📦 Deployment
-
-### Current Deployment
-
-- **Frontend:** [Vercel](https://optimum-smart-system-navy.vercel.app)
-- **Backend:** [PythonAnywhere](https://sherifrosas.pythonanywhere.com/api)
-
-See [Deployment Guide](docs/deployment/DEPLOYMENT_GUIDE.md) for detailed instructions.
-
-## 🔐 Admin Access
-
-Default credentials (change in production!):
-- Username: `admin`
-- Password: `admin123`
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests if applicable
-5. Submit a pull request
-
-## 📄 License
-
-This project is licensed under the MIT License.
-
-## 🆘 Support
-
-For support and questions:
-- Check [Troubleshooting Guide](docs/development/TROUBLESHOOTING.md)
-- Open an issue in the repository
-
-## 🗺️ Roadmap
-
-- [x] AI/NLP integration for order analysis ✅
-- [x] Role-based access control (RBAC) ✅
-- [x] Real-time order updates ✅
-- [x] Dashboard analytics ✅
-- [x] Production deployment ✅
-- [ ] Real-time notifications (WebSocket)
-- [ ] Mobile app
-- [ ] Advanced analytics
-- [ ] Multi-language support
-- [ ] Payment integration
+A full-stack order management platform with AI integration, featuring the OPTIMUM v2.0 Command Center interface.
 
 ---
 
-**Last Updated:** December 2024  
-**Status:** ✅ Production Ready
+## 🎯 Quick Start
+
+### Development
+```bash
+# Windows
+.\start_local.ps1
+
+# macOS/Linux
+./start_local.sh
+```
+
+### Access
+- **Frontend:** http://localhost:3000 (Role Selection - Main Page)
+- **Backend API:** http://localhost:8000/api
+- **Admin Panel:** http://localhost:8000/admin/
+
+---
+
+## 🎨 Current Theme
+
+**Command Center Theme (Default)**
+- Dark blue background (`#0f1a2e`)
+- Cyan accents (`#00ffff`)
+- Golden borders (`#ffd700`)
+- Clean, minimal design
+
+---
+
+## 📋 Main Features
+
+- ✅ **Role Selection** - Main/Landing Page (`/`)
+- ✅ **Command Center Dashboard** - OPTIMUM v2.0 interface
+- ✅ **Order Management** - Full CRUD operations
+- ✅ **AI Chat Integration** - Intelligent assistant
+- ✅ **Real-time Updates** - WebSocket support
+- ✅ **Customer & Supplier Management**
+- ✅ **Financial Dashboard**
+
+---
+
+## 🚀 Deployment
+
+See `DEPLOYMENT_INSTRUCTIONS.md` for detailed deployment guide.
+
+**Quick Deploy:**
+- **Frontend:** Vercel (root: `optimum-frontend/frontend`)
+- **Backend:** PythonAnywhere
+
+---
+
+## 📚 Documentation
+
+- `AI_ROADMAP.md` - Development roadmap and current status
+- `DEPLOYMENT_READY.md` - Deployment checklist
+- `DEPLOYMENT_INSTRUCTIONS.md` - Step-by-step deployment guide
+- `VERSION_2.0.0.md` - Version information
+
+---
+
+## 🏗️ Technology Stack
+
+**Frontend:**
+- React 19.2.0 + TypeScript
+- Vite 5.0.5
+- TailwindCSS 3.3.6
+- React Query 5.8.4
+- Zustand 4.4.6
+
+**Backend:**
+- Django 5.2.7
+- Django REST Framework
+- PostgreSQL / SQLite
+- WebSocket (Django Channels)
+
+---
+
+## 📦 Project Structure
+
+```
+optimum-frontend/frontend/  # Frontend source
+optimum-backend/            # Backend source
+docs/                       # Documentation
+archive/                    # Archived files (not deployed)
+```
+
+---
+
+## 🔒 Environment Variables
+
+See `DEPLOYMENT_INSTRUCTIONS.md` for required environment variables.
+
+---
+
+## 📝 Version History
+
+**v2.0.0** (December 31, 2025)
+- Command Center theme implemented
+- Role Selection as main page
+- Command Center dashboard integrated
+- All components themed consistently
+
+---
+
+**Ready for Production! 🎉**

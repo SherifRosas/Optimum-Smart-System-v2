@@ -2,9 +2,9 @@ import axios from 'axios';
 
 // Use localhost for local development, PythonAnywhere for production
 const getApiBaseUrl = () => {
-  // Check environment variable first
-  if (process.env.REACT_APP_API_URL) {
-    return process.env.REACT_APP_API_URL;
+  // Check environment variable first (Vite uses import.meta.env)
+  if (import.meta.env.VITE_API_URL) {
+    return import.meta.env.VITE_API_URL;
   }
   
   // Check if we're in development

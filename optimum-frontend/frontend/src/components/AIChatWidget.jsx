@@ -94,7 +94,7 @@ What would you like to know more about?`;
 Try asking: "How do I create a new order?" or "How do I navigate?"`;
 };
 
-const AIChatWidget = () => {
+const AIChatWidget = ({ inlineMode = false }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([]);
   const [inputMessage, setInputMessage] = useState('');
@@ -245,14 +245,14 @@ const AIChatWidget = () => {
     <>
       {/* Floating Button */}
       <motion.button
-        className="chat-widget-button"
+        className={`chat-widget-button ${inlineMode ? 'chat-widget-button-inline' : ''}`}
         onClick={() => setIsOpen(!isOpen)}
-        whileHover={{ scale: 1.1, rotate: 5 }}
-        whileTap={{ scale: 0.9 }}
+        whileHover={inlineMode ? {} : { scale: 1.1, rotate: 5 }}
+        whileTap={inlineMode ? {} : { scale: 0.9 }}
         initial={{ scale: 0 }}
         animate={{ 
           scale: 1,
-          boxShadow: [
+          boxShadow: inlineMode ? undefined : [
             "0 4px 20px rgba(255, 215, 0, 0.4)",
             "0 4px 30px rgba(255, 215, 0, 0.6)",
             "0 4px 20px rgba(255, 215, 0, 0.4)"
@@ -262,7 +262,7 @@ const AIChatWidget = () => {
           type: "spring", 
           stiffness: 260, 
           damping: 20,
-          boxShadow: {
+          boxShadow: inlineMode ? undefined : {
             duration: 2,
             repeat: Infinity,
             ease: "easeInOut"
@@ -272,20 +272,28 @@ const AIChatWidget = () => {
         {isOpen ? (
           <HiX />
         ) : (
-          <motion.div
-            className="chat-icon-container"
-            animate={{
-              rotate: [0, 10, -10, 0],
-            }}
-            transition={{
-              duration: 3,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-          >
-            <HiChip className="chat-icon-main" />
-            <HiSparkles className="chat-icon-sparkle" />
-          </motion.div>
+          <>
+            <motion.div
+              className="chat-icon-container"
+              animate={{
+                rotate: [0, 10, -10, 0],
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            >
+              <HiChip className="chat-icon-main" />
+              <HiSparkles className="chat-icon-sparkle" />
+            </motion.div>
+            {inlineMode && (
+              <div className="chat-inline-content">
+                <h3>AI Assistant</h3>
+                <p>Ask me anything</p>
+              </div>
+            )}
+          </>
         )}
         {!isOpen && messages.length > 0 && (
           <motion.span 
@@ -296,7 +304,7 @@ const AIChatWidget = () => {
             {messages.length}
           </motion.span>
         )}
-        {!isOpen && (
+        {!isOpen && !inlineMode && (
           <motion.span 
             className="chat-pulse-ring"
             animate={{ scale: [1, 1.5], opacity: [0.6, 0] }}
@@ -427,6 +435,11 @@ const AIChatWidget = () => {
 
   if (!isMounted) {
     return null;
+  }
+
+  // In inline mode, render directly without portal
+  if (inlineMode) {
+    return widgetContent;
   }
 
   return createPortal(widgetContent, document.body);

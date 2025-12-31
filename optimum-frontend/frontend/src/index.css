@@ -2,11 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Import Digital/Robotic Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap');
+
 /* ========================================
    CYBERPUNK THEME VARIABLES
    ======================================== */
 :root {
-  /* Colors */
+  /* Colors - Command Center Theme */
   --neon-cyan: #00ffff;
   --neon-magenta: #ff00ff;
   --neon-purple: #a855f7;
@@ -14,12 +17,14 @@
   --neon-orange: #ff6b00;
   --neon-yellow: #ffd700;
   --neon-red: #ff0055;
+  --command-gold: #ffd700;
+  --command-blue: #0f1a2e;
   
-  /* Backgrounds */
-  --bg-dark: #0a0a0f;
-  --bg-darker: #050508;
-  --bg-card: rgba(15, 15, 25, 0.95);
-  --bg-elevated: rgba(20, 20, 35, 0.9);
+  /* Backgrounds - Command Center Theme */
+  --bg-dark: #0f1a2e;
+  --bg-darker: #0a1525;
+  --bg-card: rgba(15, 26, 46, 0.95);
+  --bg-elevated: rgba(20, 30, 45, 0.9);
   
   /* Text */
   --text-primary: #ffffff;
@@ -72,44 +77,20 @@
 
   body {
     font-family: var(--font-body);
-    background: var(--bg-darker);
+    /* Command Center Default Background */
+    background: #0f1a2e;
     color: var(--text-primary);
     min-height: 100vh;
     overflow-x: hidden;
     margin: 0;
     padding: 0;
+    position: relative;
   }
 
-  /* Cyberpunk Grid Background - Use top/right/bottom/left instead of inset for older browsers */
-  body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background:
-      linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px),
-      linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px);
-    background-size: 60px 60px;
-    pointer-events: none;
-    z-index: -2;
-  }
-
-  /* Cyberpunk Orb Effects - Use top/right/bottom/left instead of inset for older browsers */
+  /* Command Center Theme - Clean Background (No overlays) */
+  body::before,
   body::after {
-    content: '';
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background:
-      radial-gradient(circle at 20% 20%, rgba(0, 255, 255, 0.1) 0%, transparent 40%),
-      radial-gradient(circle at 80% 80%, rgba(255, 0, 255, 0.1) 0%, transparent 40%);
-    pointer-events: none;
-    z-index: -1;
-    animation: orbPulse 8s ease-in-out infinite alternate;
+    display: none;
   }
 
   @keyframes orbPulse {

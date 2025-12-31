@@ -3,9 +3,9 @@ import axios from 'axios';
 // Use localhost for local development, PythonAnywhere for production
 // Updated: Fixed API URL to use correct PythonAnywhere domain (sherifrissas - double 's')
 const getApiBaseUrl = () => {
-  // Check environment variable first
-  if (process.env.REACT_APP_API_URL) {
-    return process.env.REACT_APP_API_URL;
+  // Check environment variable first (Vite uses import.meta.env)
+  if (import.meta.env.VITE_API_URL) {
+    return import.meta.env.VITE_API_URL;
   }
   
   // Check if we're in development
@@ -25,7 +25,7 @@ const API_BASE_URL = getApiBaseUrl();
 
 // Log API URL for debugging (only in development, and only once)
 // Commented out to reduce console noise - uncomment if needed for debugging
-// if (process.env.NODE_ENV === 'development' && !window.__API_URL_LOGGED__) {
+// if (import.meta.env.DEV && !window.__API_URL_LOGGED__) {
 //   console.log('API Base URL:', API_BASE_URL);
 //   window.__API_URL_LOGGED__ = true;
 // }
@@ -76,7 +76,8 @@ api.interceptors.response.use(
           localStorage.removeItem('access_token');
           localStorage.removeItem('refresh_token');
           localStorage.removeItem('user');
-          if (window.location.pathname !== '/login') {
+          // Don't redirect if on role selection page - let user choose role first
+          if (window.location.pathname !== '/login' && window.location.pathname !== '/') {
             window.location.href = '/login';
           }
         }
@@ -85,7 +86,8 @@ api.interceptors.response.use(
         localStorage.removeItem('access_token');
         localStorage.removeItem('refresh_token');
         localStorage.removeItem('user');
-        if (window.location.pathname !== '/login') {
+        // Don't redirect if on role selection page - let user choose role first
+        if (window.location.pathname !== '/login' && window.location.pathname !== '/') {
           window.location.href = '/login';
         }
       }

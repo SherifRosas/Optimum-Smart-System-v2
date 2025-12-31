@@ -8,6 +8,7 @@ dist/
 optimum-frontend/dist/
 optimum-frontend/build/
 optimum-frontend/frontend/dist/
+optimum-frontend/frontend/build/
 
 # Environment variables
 .env
@@ -38,6 +39,9 @@ db.sqlite3
 db.sqlite3-journal
 media/
 staticfiles/
+optimum-backend/staticfiles/
+optimum-backend/htmlcov/
+optimum-backend/coverage.xml
 
 # IDE
 .vscode/
@@ -68,7 +72,7 @@ pids
 *.seed
 *.pid.lock
 
-# Coverage directory used by tools like istanbul
+# Coverage directory
 coverage/
 htmlcov/
 .coverage
@@ -93,7 +97,7 @@ jspm_packages/
 # Yarn Integrity file
 .yarn-integrity
 
-# parcel-bundler cache (https://parceljs.org/)
+# parcel-bundler cache
 .cache
 .parcel-cache
 
@@ -125,9 +129,39 @@ jspm_packages/
 .pytest_cache/
 .tox/
 
-# Backup files
-*.backup
-settings.py.backup
+# Archive directory (exclude from deployment)
+archive/
+docs/archive/
 
-# Archive directory (keep in repo for reference, but can be excluded if needed)
-# archive/
+# Development scripts (not needed in production)
+# Root level scripts
+start_local.ps1
+start_local.sh
+start_local_simple.ps1
+start_servers.bat
+test_app.ps1
+verify_setup.ps1
+
+# Keep backend/frontend start scripts for reference
+# optimum-backend/start-local.*
+# optimum-frontend/start-local.*
+
+# Documentation (keep main docs, archive others)
+# Keep: README.md, AI_ROADMAP.md, DEPLOYMENT_*.md, VERSION_*.md
+# Archive: All other .md files in root (moved to archive/)
+
+# Screenshots and images (exclude from deployment)
+*.PNG
+*.png
+*.jpg
+*.jpeg
+*.jfif
+# But keep public assets
+!optimum-frontend/frontend/public/*.png
+!optimum-frontend/frontend/public/*.jpg
+!optimum-frontend/frontend/public/*.ico
+
+# Docker (if not using)
+docker-compose.yml
+docker-compose.local.yml
+Dockerfile

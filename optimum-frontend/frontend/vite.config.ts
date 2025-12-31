@@ -2,36 +2,51 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 
+// Custom plugin to handle .js files with JSX before import analysis
+const jsxInJsPlugin = () => {
+  return {
+    name: 'jsx-in-js',
+    enforce: 'pre', // Run before other plugins
+    resolveId(id) {
+      // Treat .js files with JSX as .jsx for import analysis
+      if (id.endsWith('.js') && id.includes('src/')) {
+        // Don't change the ID, just let it pass through
+        return null;
+      }
+    },
+    load(id) {
+      // This helps Vite understand the file type
+      if (id.endsWith('.js') && id.includes('src/')) {
+        return null; // Let default loader handle it
+      }
+    },
+  };
+};
+
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    jsxInJsPlugin(), // Run first to mark .js files with JSX
+    react({
+      // Enable JSX in .js files - explicitly include all JS/TS variants
+      include: /\.(jsx|tsx|js|ts)$/,
+      jsxRuntime: 'automatic',
+    })
+  ],
   esbuild: {
     // Skip type checking during build (Vite handles this)
-    logOverride: { 'this-is-undefined-in-esm': 'silent' }
-  },
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, './src'),
-      '@/components': path.resolve(__dirname, './src/components'),
-      '@/hooks': path.resolve(__dirname, './src/hooks'),
-      '@/services': path.resolve(__dirname, './src/services'),
-      '@/stores': path.resolve(__dirname, './src/stores'),
-      '@/types': path.resolve(__dirname, './src/types'),
-      '@/utils': path.resolve(__dirname, './src/utils'),
-      '@/config': path.resolve(__dirname, './src/config'),
-      '@/lib': path.resolve(__dirname, './src/lib'),
+    logOverride: { 'this-is-undefined-in-esm': 'silent' },
+    // Configure esbuild to process JSX in .js files
+    loader: {
+      '.js': 'jsx',
     },
+    // Ensure JSX is transformed
+    jsx: 'automatic',
   },
-  server: {
-    port: 3000,
-    proxy: {
-      '/api': {
-        target: 'http://localhost:8000',
-        changeOrigin: true,
-      },
-      '/ws': {
-        target: 'ws://localhost:8000',
-        ws: true,
+  optimizeDeps: {
+    esbuildOptions: {
+      loader: {
+        '.js': 'jsx',
       },
     },
   },
@@ -58,6 +73,32 @@ export default defineConfig({
         // Suppress TypeScript warnings during build
         if (warning.code === 'UNUSED_EXTERNAL_IMPORT') return;
         warn(warning);
+      },
+    },
+  },
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+      '@/components': path.resolve(__dirname, './src/components'),
+      '@/hooks': path.resolve(__dirname, './src/hooks'),
+      '@/services': path.resolve(__dirname, './src/services'),
+      '@/stores': path.resolve(__dirname, './src/stores'),
+      '@/types': path.resolve(__dirname, './src/types'),
+      '@/utils': path.resolve(__dirname, './src/utils'),
+      '@/config': path.resolve(__dirname, './src/config'),
+      '@/lib': path.resolve(__dirname, './src/lib'),
+    },
+  },
+  server: {
+    port: 3000,
+    proxy: {
+      '/api': {
+        target: 'http://localhost:8000',
+        changeOrigin: true,
+      },
+      '/ws': {
+        target: 'ws://localhost:8000',
+        ws: true,
       },
     },
   },

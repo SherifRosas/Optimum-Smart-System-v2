@@ -1,4 +1,4 @@
-/* Chat Widget Button - Golden Premium Theme */
+/* Chat Widget Button - Advanced Digital/Robotic Theme */
 .chat-widget-button {
   position: fixed;
   bottom: 24px;
@@ -6,23 +6,110 @@
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: linear-gradient(135deg, rgba(255, 215, 0, 0.9) 0%, rgba(255, 215, 0, 0.7) 50%, rgba(192, 192, 192, 0.8) 100%);
-  color: #1a1a1a;
-  border: 2px solid rgba(255, 255, 255, 0.4);
+  background: rgba(15, 15, 25, 0.85);
+  backdrop-filter: blur(15px);
+  color: var(--neon-cyan);
+  border: 2px solid rgba(0, 255, 255, 0.4);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 24px;
   box-shadow: 
-    0 4px 20px rgba(255, 215, 0, 0.4),
-    0 0 0 0 rgba(255, 215, 0, 0.7),
-    inset 0 2px 4px rgba(255, 255, 255, 0.3);
+    0 0 20px rgba(0, 255, 255, 0.4),
+    0 0 40px rgba(0, 255, 255, 0.2),
+    inset 0 0 20px rgba(0, 255, 255, 0.1);
   z-index: 9999;
   transition: all 0.3s ease;
   overflow: visible;
   position: relative;
-  backdrop-filter: blur(8px);
+}
+
+/* When positioned beside cards (not fixed) */
+.chat-widget-side .chat-widget-button {
+  position: relative;
+  bottom: auto;
+  right: auto;
+}
+
+/* Inline Mode - Card Style */
+.chat-widget-button-inline {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+  border-radius: 16px;
+  background: rgba(20, 20, 35, 0.7);
+  backdrop-filter: blur(10px) saturate(180%);
+  -webkit-backdrop-filter: blur(10px) saturate(180%);
+  border: 2px solid rgba(0, 255, 255, 0.2);
+  box-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(0, 255, 255, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  cursor: pointer;
+}
+
+.chat-widget-button-inline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #00ffff, #a855f7, #ff00ff, #00ffff);
+  background-size: 200% 100%;
+  border-radius: 16px 16px 0 0;
+  animation: gradientShift 3s ease infinite;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
+}
+
+.chat-widget-button-inline:hover {
+  border-color: rgba(0, 255, 255, 0.6);
+  box-shadow: 
+    0 8px 30px rgba(0, 255, 255, 0.3),
+    0 0 20px rgba(0, 255, 255, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  background: rgba(20, 20, 35, 0.85);
+}
+
+.chat-widget-button-inline .chat-icon-container {
+  margin-bottom: 1rem;
+}
+
+.chat-widget-button-inline .chat-icon-main {
+  font-size: 3rem;
+}
+
+.chat-widget-button-inline .chat-icon-sparkle {
+  font-size: 2rem;
+  top: 10px;
+  right: 10px;
+}
+
+.chat-inline-content {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.chat-inline-content h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--neon-cyan);
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+  font-family: var(--font-display, 'Orbitron', sans-serif);
+}
+
+.chat-inline-content p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--text-secondary, #a0a0c0);
 }
 
 .chat-widget-button::before {
@@ -33,10 +120,10 @@
   right: -2px;
   bottom: -2px;
   border-radius: 50%;
-  background: linear-gradient(135deg, rgba(255, 215, 0, 1), rgba(192, 192, 192, 0.9), rgba(255, 215, 0, 0.8), rgba(255, 215, 0, 1));
+  background: linear-gradient(135deg, rgba(0, 255, 255, 0.8), rgba(168, 85, 247, 0.6), rgba(255, 0, 255, 0.8), rgba(0, 255, 255, 0.8));
   background-size: 300% 300%;
   z-index: -1;
-  opacity: 0.7;
+  opacity: 0.6;
   animation: gradientRotate 3s ease infinite;
 }
 
@@ -46,13 +133,14 @@
 }
 
 .chat-widget-button:hover {
-  background: linear-gradient(135deg, rgba(255, 215, 0, 1) 0%, rgba(255, 215, 0, 0.85) 50%, rgba(192, 192, 192, 0.95) 100%);
+  background: rgba(15, 15, 25, 0.95);
   box-shadow: 
-    0 8px 40px rgba(255, 215, 0, 0.6),
-    0 0 0 8px rgba(255, 215, 0, 0.15),
-    inset 0 2px 4px rgba(255, 255, 255, 0.4);
-  transform: translateY(-4px);
-  border-color: rgba(255, 255, 255, 0.6);
+    0 0 30px rgba(0, 255, 255, 0.6),
+    0 0 60px rgba(0, 255, 255, 0.4),
+    0 0 0 4px rgba(0, 255, 255, 0.3),
+    inset 0 0 30px rgba(0, 255, 255, 0.2);
+  transform: translateY(-4px) scale(1.05);
+  border-color: var(--neon-cyan);
 }
 
 .chat-icon-container {
@@ -67,8 +155,9 @@
 .chat-icon-main {
   position: absolute;
   font-size: 24px;
-  color: #1a1a1a;
-  filter: drop-shadow(0 2px 6px rgba(255, 215, 0, 0.5));
+  color: var(--neon-cyan);
+  filter: drop-shadow(0 0 8px rgba(0, 255, 255, 0.8));
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
 }
 
 .chat-icon-sparkle {
@@ -76,8 +165,8 @@
   font-size: 16px;
   top: 8px;
   right: 8px;
-  color: rgba(255, 215, 0, 1);
-  filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.9));
+  color: var(--neon-cyan);
+  filter: drop-shadow(0 0 8px rgba(0, 255, 255, 1));
   animation: sparkle 2s ease-in-out infinite;
 }
 
@@ -100,16 +189,28 @@
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  border: 2px solid rgba(255, 215, 0, 0.6);
+  border: 2px solid rgba(0, 255, 255, 0.5);
   pointer-events: none;
+  animation: pulseRing 2s ease-in-out infinite;
+}
+
+@keyframes pulseRing {
+  0%, 100% {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
 }
 
 .chat-badge {
   position: absolute;
   top: -6px;
   right: -6px;
-  background: linear-gradient(135deg, rgba(255, 215, 0, 1) 0%, rgba(192, 192, 192, 0.9) 100%);
-  color: #1a1a1a;
+  background: linear-gradient(135deg, var(--neon-cyan) 0%, var(--neon-purple) 100%);
+  color: var(--bg-darker);
   border-radius: 50%;
   width: 24px;
   height: 24px;
@@ -118,9 +219,10 @@
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  border: 2px solid rgba(255, 255, 255, 0.8);
-  box-shadow: 0 2px 8px rgba(255, 215, 0, 0.5);
+  border: 2px solid rgba(0, 255, 255, 0.8);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
   z-index: 10;
+  font-family: var(--font-display);
 }
 
 /* Chat Window */
