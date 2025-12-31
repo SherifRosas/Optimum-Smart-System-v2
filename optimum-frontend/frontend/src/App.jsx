@@ -94,12 +94,8 @@ function App() {
   const location = useLocation();
   // Initialize currentView based on pathname, default to null (will show RoleSelection)
   const [currentView, setCurrentView] = useState(() => {
-    const path = location.pathname;
-    if (path === '/' || path === '') return null; // null means show RoleSelection
-    if (path === '/profile') return 'profile';
-    if (path === '/settings') return 'settings';
-    if (path === '/dashboard' || path === '/app') return 'dashboard';
-    return null; // Default to RoleSelection for unknown paths
+    // Can't use location here in initializer, will be set in useEffect
+    return null; // Default to null (shows RoleSelection) until pathname is checked
   });
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
