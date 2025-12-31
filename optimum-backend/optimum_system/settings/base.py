@@ -168,3 +168,7 @@ X_FRAME_OPTIONS = 'DENY'
 # Admin email (can be overridden via environment variable)
 ADMIN_EMAIL = os.environ.get('ADMIN_EMAIL', 'sherifrosas.ai@gmail.com')
 
+
+
+
+
