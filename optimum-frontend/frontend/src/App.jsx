@@ -475,6 +475,7 @@ function App() {
 
   // Show role selection page on home page (always show, even if authenticated)
   // Users can still access it to switch roles or see the landing page
+  // This early return ensures root path ALWAYS shows RoleSelection
   if (isRoleSelection) {
     // If authenticated, allow access but show role selection
     // If not authenticated, show role selection (required)
@@ -482,6 +483,8 @@ function App() {
       <ErrorBoundary>
         <Routes>
           <Route path="/" element={<RoleSelection />} />
+          {/* Catch-all to redirect any other paths to root during role selection */}
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
         <ToastContainer />
       </ErrorBoundary>
