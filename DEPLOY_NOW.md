@@ -69,11 +69,14 @@ vercel --prod
 
 6. **Create Admin User (First Time Only):**
    ```bash
-   export ADMIN_USERNAME=Optimumoptimum959
-   export ADMIN_PASSWORD=your_secure_password
-   export ADMIN_EMAIL=optimum959@optimum.com
+   # IMPORTANT: Use strong, unique credentials for production!
+   export ADMIN_USERNAME=your_admin_username
+   export ADMIN_PASSWORD=your_secure_password_here
+   export ADMIN_EMAIL=your_admin_email@example.com
    python3.9 create_admin_user.py
    ```
+   
+   **Security Note:** Never use default or example credentials in production. Choose a strong password (minimum 12 characters, mix of letters, numbers, and symbols).
 
 7. **Reload Web App:**
    - Go to: https://www.pythonanywhere.com/user/SherifRosas/webapps/
