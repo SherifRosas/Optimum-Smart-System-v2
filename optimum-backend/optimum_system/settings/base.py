@@ -165,8 +165,8 @@ SECURE_BROWSER_XSS_FILTER = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
 X_FRAME_OPTIONS = 'DENY'
 
-# Admin email (can be overridden via environment variable)
-ADMIN_EMAIL = os.environ.get('ADMIN_EMAIL', 'sherifrosas.ai@gmail.com')
+# Admin email (should be set via environment variable)
+ADMIN_EMAIL = os.environ.get('ADMIN_EMAIL', 'admin@example.com')
 
 
 

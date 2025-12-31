@@ -22,7 +22,7 @@ from .serializers import (
 )
 
 User = get_user_model()
-ADMIN_EMAIL = getattr(settings, 'ADMIN_EMAIL', 'sherifrosas.ai@gmail.com')
+ADMIN_EMAIL = getattr(settings, 'ADMIN_EMAIL', 'admin@example.com')
 
 
 def _get_user_role(user):

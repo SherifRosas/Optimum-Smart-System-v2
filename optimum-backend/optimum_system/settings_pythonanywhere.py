@@ -6,9 +6,11 @@ import os
 from .settings import *
 
 # Detect if running on PythonAnywhere
+# Use environment variable or generic path check
+_pythonanywhere_user = os.environ.get('PYTHONANYWHERE_USER', '')
 ON_PYTHONANYWHERE = 'pythonanywhere.com' in os.environ.get('HTTP_HOST', '') or \
                     'pythonanywhere.com' in os.environ.get('SERVER_NAME', '') or \
-                    os.path.exists('/home/SherifRosas/.pythonanywhere')
+                    (_pythonanywhere_user and os.path.exists(f'/home/{_pythonanywhere_user}/.pythonanywhere'))
 
 if ON_PYTHONANYWHERE:
     print("🐍 PythonAnywhere detected - Disabling v2.0 features (WebSocket, Celery, Redis)")

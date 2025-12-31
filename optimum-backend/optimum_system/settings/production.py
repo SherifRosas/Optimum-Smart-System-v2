@@ -21,10 +21,12 @@ _allowed_hosts_env = os.environ.get('ALLOWED_HOSTS')
 if _allowed_hosts_env:
     ALLOWED_HOSTS = [h.strip() for h in _allowed_hosts_env.split(',') if h.strip()]
 else:
-    # Default production hosts
-    ALLOWED_HOSTS = [
-        'sherifrosas.pythonanywhere.com',
-    ]
+    # SECURITY: ALLOWED_HOSTS must be set via environment variable in production
+    # This prevents unauthorized host header attacks
+    raise ValueError(
+        'ALLOWED_HOSTS environment variable must be set in production! '
+        'Example: ALLOWED_HOSTS=yourdomain.com,www.yourdomain.com'
+    )
 
 # CORS settings for production
 _cors_origins_env = os.environ.get('CORS_ALLOWED_ORIGINS')

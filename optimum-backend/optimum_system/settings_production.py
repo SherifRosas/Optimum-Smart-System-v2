@@ -21,7 +21,11 @@ _allowed_hosts = os.environ.get('ALLOWED_HOSTS', '')
 if _allowed_hosts:
     ALLOWED_HOSTS = [h.strip() for h in _allowed_hosts.split(',') if h.strip()]
 else:
-    ALLOWED_HOSTS = ['sherifrissas.pythonanywhere.com', 'optimum-smart-system-pi.vercel.app']
+    # SECURITY: ALLOWED_HOSTS must be set via environment variable in production
+    raise ValueError(
+        'ALLOWED_HOSTS environment variable must be set in production! '
+        'Example: ALLOWED_HOSTS=yourdomain.com,www.yourdomain.com'
+    )
 
 # CORS settings
 _cors_origins = os.environ.get('CORS_ALLOWED_ORIGINS', '')
