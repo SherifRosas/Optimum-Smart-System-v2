@@ -15,7 +15,6 @@ import RoleSelection from './components/RoleSelection';
 import ProtectedRoute from './components/ProtectedRoute';
 
 // Lazy load heavy components for code splitting
-const CommandCenter = lazy(() => import('./components/CommandCenter'));
 const ModernDashboard = lazy(() => import('./components/ModernDashboard'));
 const OrderReception = lazy(() => import('./components/OrderReception'));
 const OrderList = lazy(() => import('./components/OrderList'));
@@ -39,35 +38,21 @@ const AdminUserManagement = lazy(() => import('./components/AdminUserManagement'
 
 // Main App Content Component (separated for routing) - Memoized for performance
 const MainApp = memo(({ currentView, setCurrentView, orders, loading, error, handleNewOrder, handleStatusUpdate, renderView }) => {
-  // CommandCenter has its own header/sidebar, so hide default header/navigation
-  // ModernDashboard (analytics) needs the default header/navigation
-  const isCommandCenter = currentView === 'dashboard';
-  const isFullPageView = currentView === 'dashboard'; // Only CommandCenter is full-page
-  
   return (
     <div className="App">
-      {!isCommandCenter && <Header onNavigate={setCurrentView} />}
-      {!isCommandCenter && (
-        <div className="app-container">
-          <Navigation currentView={currentView} onNavigate={setCurrentView} />
-          <main className="main-content">
-            {/* Simplified animation for better performance */}
-            <div key={currentView} style={{ willChange: 'opacity' }}>
-              {renderView}
-            </div>
-          </main>
-        </div>
-      )}
-      {isCommandCenter && (
-        <div key={currentView} style={{ willChange: 'opacity' }}>
-          {renderView}
-        </div>
-      )}
-      {!isCommandCenter && (
-        <Suspense fallback={null}>
-          <AIChatWidget />
-        </Suspense>
-      )}
+      <Header onNavigate={setCurrentView} />
+      <div className="app-container">
+        <Navigation currentView={currentView} onNavigate={setCurrentView} />
+        <main className="main-content">
+          {/* Simplified animation for better performance */}
+          <div key={currentView} style={{ willChange: 'opacity' }}>
+            {renderView}
+          </div>
+        </main>
+      </div>
+      <Suspense fallback={null}>
+        <AIChatWidget />
+      </Suspense>
     </div>
   );
 });
@@ -91,12 +76,7 @@ const transformOrderData = (order) => {
 
 function App() {
   const auth = useAuth();
-  const location = useLocation();
-  // Initialize currentView based on pathname, default to null (will show RoleSelection)
-  const [currentView, setCurrentView] = useState(() => {
-    // Can't use location here in initializer, will be set in useEffect
-    return null; // Default to null (shows RoleSelection) until pathname is checked
-  });
+  const [currentView, setCurrentView] = useState('dashboard');
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -105,13 +85,6 @@ function App() {
 
   // Load orders from API with real-time polling (filtered by role)
   useEffect(() => {
-    // Don't fetch orders if user is not authenticated or auth is still loading
-    if (auth.loading || !auth.isAuthenticated) {
-      setLoading(false);
-      setOrders([]); // Clear orders on logout
-      return;
-    }
-
     let isMounted = true;
     let pollInterval = null;
 
@@ -193,10 +166,8 @@ function App() {
       }
     };
 
-    // Initial load (only if authenticated)
-    if (auth.isAuthenticated) {
-      fetchOrders(true);
-    }
+    // Initial load
+    fetchOrders(true);
 
     // Poll for updates every 90 seconds (further reduced for better performance)
     // Use requestIdleCallback with longer timeout to avoid blocking
@@ -248,7 +219,7 @@ function App() {
         }
       }
     };
-  }, [auth.user, auth.getUserRole, auth.isAuthenticated, auth.loading]); // Re-fetch when auth state changes
+  }, [auth.user, auth.getUserRole]); // Removed toast from dependencies - functions are stable
 
   const handleNewOrder = useCallback(async (orderData) => {
     try {
@@ -271,7 +242,7 @@ function App() {
     } catch (err) {
       setError('Failed to create order');
       toast.error('Failed to create order. Please check your input and try again.');
-      if (import.meta.env.DEV) {
+      if (process.env.NODE_ENV === 'development') {
         console.error('Error creating order:', err);
       }
     }
@@ -287,7 +258,7 @@ function App() {
     } catch (err) {
       setError('Failed to update order status');
       toast.error('Failed to update order status. Please try again.');
-      if (import.meta.env.DEV) {
+      if (process.env.NODE_ENV === 'development') {
         console.error('Error updating order status:', err);
       }
     }
@@ -318,7 +289,7 @@ function App() {
         if (auth.isAdmin()) {
           return (
             <Suspense fallback={<ListSkeleton count={6} />}>
-              <CommandCenter orders={orders} onNavigate={setCurrentView} />
+              <ModernDashboard orders={orders} onNavigate={setCurrentView} />
             </Suspense>
           );
         } else if (auth.isSupplier()) {
@@ -419,32 +390,6 @@ function App() {
           </Suspense>
         );
       
-      case 'analytics':
-      case 'modern-dashboard':
-        // ModernDashboard with charts and analytics (admin/sub-admin only)
-        // Note: isAdmin() already checks for both 'ADMIN' and 'SUB_ADMIN' roles
-        if (auth.isAdmin()) {
-          return (
-            <Suspense fallback={<ListSkeleton count={6} />}>
-              <ModernDashboard orders={orders} onNavigate={setCurrentView} />
-            </Suspense>
-          );
-        } else if (auth.isSupplier()) {
-          // Fallback to supplier dashboard for non-admin users
-          return (
-            <Suspense fallback={<ListSkeleton count={6} />}>
-              <SupplierDashboard orders={orders} />
-            </Suspense>
-          );
-        } else {
-          // Fallback to customer dashboard for other users
-          return (
-            <Suspense fallback={<ListSkeleton count={6} />}>
-              <CustomerDashboard orders={orders} />
-            </Suspense>
-          );
-        }
-      
       case 'chat':
         return (
           <Suspense fallback={<ListSkeleton count={3} />}>
@@ -485,7 +430,7 @@ function App() {
         if (auth.isAdmin()) {
           return (
             <Suspense fallback={<ListSkeleton count={6} />}>
-              <CommandCenter orders={orders} onNavigate={setCurrentView} />
+              <ModernDashboard orders={orders} onNavigate={setCurrentView} />
             </Suspense>
           );
         } else if (auth.isSupplier()) {
@@ -504,12 +449,11 @@ function App() {
     }
   }, [loading, error, currentView, orders, handleNewOrder, handleStatusUpdate, auth]);
 
+  const location = useLocation();
   const isAuthPage = location.pathname === '/login' || location.pathname === '/signup';
-  // Check for root path - handle both exact '/' and empty pathname (Vercel edge case)
-  // Also check if currentView is null (initial state for root)
-  const isRoleSelection = location.pathname === '/' || location.pathname === '' || !location.pathname || currentView === null;
+  const isRoleSelection = location.pathname === '/';
   
-  // Handle route-based navigation for profile/settings and dashboard
+  // Handle route-based navigation for profile/settings
   useEffect(() => {
     if (location.pathname === '/profile') {
       setCurrentView('profile');
@@ -521,6 +465,9 @@ function App() {
       if (location.pathname === '/app') {
         window.history.replaceState({}, '', '/dashboard');
       }
+    } else if (location.pathname === '/' || location.pathname === '') {
+      // Explicitly set to null for root path to show RoleSelection
+      setCurrentView(null);
     }
   }, [location.pathname]);
 
@@ -556,63 +503,8 @@ function App() {
   return (
     <ErrorBoundary>
       <Routes>
-        {/* Explicit root route - should not match if isRoleSelection is true, but added for safety */}
-        <Route path="/" element={<RoleSelection />} />
-        
-        {/* Profile and Settings routes - protected and handled by MainApp with useEffect */}
-        <Route 
-          path="/profile" 
-          element={
-            <ProtectedRoute>
-              <MainApp
-                currentView={currentView}
-                setCurrentView={setCurrentView}
-                orders={orders}
-                loading={loading}
-                error={error}
-                handleNewOrder={handleNewOrder}
-                handleStatusUpdate={handleStatusUpdate}
-                renderView={renderView}
-              />
-            </ProtectedRoute>
-          } 
-        />
-        <Route 
-          path="/settings" 
-          element={
-            <ProtectedRoute>
-              <MainApp
-                currentView={currentView}
-                setCurrentView={setCurrentView}
-                orders={orders}
-                loading={loading}
-                error={error}
-                handleNewOrder={handleNewOrder}
-                handleStatusUpdate={handleStatusUpdate}
-                renderView={renderView}
-              />
-            </ProtectedRoute>
-          } 
-        />
-        {/* Redirect /app to /dashboard */}
-        <Route path="/app" element={<Navigate to="/dashboard" replace />} />
-        {/* Dashboard route */}
-        <Route 
-          path="/dashboard" 
-          element={
-            <MainApp
-              currentView={currentView || 'dashboard'}
-              setCurrentView={setCurrentView}
-              orders={orders}
-              loading={loading}
-              error={error}
-              handleNewOrder={handleNewOrder}
-              handleStatusUpdate={handleStatusUpdate}
-              renderView={renderView}
-            />
-          } 
-        />
-        {/* Catch-all route - matches everything except root (which is handled above) */}
+        <Route path="/profile" element={<Navigate to="/" replace />} />
+        <Route path="/settings" element={<Navigate to="/" replace />} />
         <Route 
           path="/*" 
           element={
