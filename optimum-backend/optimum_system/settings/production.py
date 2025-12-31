@@ -42,6 +42,7 @@ else:
         "https://optimum-smart-system-h5vrcbfdn-sherifrosas-projects.vercel.app",
         "https://optimum-smart-system-hz12nxpj4-sherifrosas-projects.vercel.app",
         "https://optimum-smart-system-git-main-sherifrosas-projects.vercel.app",
+        "https://optimum-smart-system-git-master-sherifrosas-projects.vercel.app",  # Added for new deployment
     ]
 
 CORS_ALLOW_CREDENTIALS = True
