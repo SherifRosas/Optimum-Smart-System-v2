@@ -28,20 +28,26 @@ else:
     )
 
 # CORS settings
+# SECURITY: Only production domains should be in the fallback list.
+# Preview/branch deployment URLs (containing -git- or hash patterns) are temporary,
+# publicly accessible, and should NEVER be trusted in production CORS/CSRF settings.
+# Use CORS_ALLOWED_ORIGINS environment variable to add preview URLs if needed for testing.
 _cors_origins = os.environ.get('CORS_ALLOWED_ORIGINS', '')
 if _cors_origins:
     CORS_ALLOWED_ORIGINS = [origin.strip() for origin in _cors_origins.split(',') if origin.strip()]
 else:
+    # Only production domains - no preview/branch deployment URLs
+    # Preview URLs should be added via CORS_ALLOWED_ORIGINS environment variable if needed
     CORS_ALLOWED_ORIGINS = [
         "https://optimum-smart-system.vercel.app",
-        "https://optimum-smart-system-pi.vercel.app",
         "https://optimum-smart-system-navy.vercel.app",
-        "https://optimum-smart-system-git-main-sherif-rosas-projects.vercel.app",
-        "https://optimum-smart-system-h5vrcbfdn-sherifrosas-projects.vercel.app",
-        "https://optimum-smart-system-hz12nxpj4-sherifrosas-projects.vercel.app",
-        "https://optimum-smart-system-git-main-sherifrosas-projects.vercel.app",
-        "https://optimum-smart-system-git-master-sherifrosas-projects.vercel.app",  # New deployment URL
+        # Add other production domains here - NOT preview/branch deployments
     ]
+
+# CSRF Protection - must match CORS_ALLOWED_ORIGINS for security
+# SECURITY: Only production domains should be trusted for CSRF.
+# Preview/branch deployment URLs must NEVER be in CSRF_TRUSTED_ORIGINS.
+CSRF_TRUSTED_ORIGINS = CORS_ALLOWED_ORIGINS.copy() if isinstance(CORS_ALLOWED_ORIGINS, list) else list(CORS_ALLOWED_ORIGINS)
 
 # Security middleware settings
 SECURE_SSL_REDIRECT = os.environ.get('SECURE_SSL_REDIRECT', 'True').lower() == 'true'
