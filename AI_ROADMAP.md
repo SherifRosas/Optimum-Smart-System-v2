@@ -81,6 +81,7 @@
 - ✅ Theme Migration & Archive
 - ✅ Version 2.0.1 Bug Fixes (Security, Routing, Authentication)
 - ✅ Version 2.0.2 Features (Real-Time Clock, Theme Consistency, Navigation)
+- ✅ Security Fix: Removed preview URLs from production CORS/CSRF (January 2026)
 
 **In Progress:**
 - 🔄 TypeScript Migration (components still in JS/JSX)
