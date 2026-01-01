@@ -33,8 +33,14 @@ if _cors_origins:
     CORS_ALLOWED_ORIGINS = [origin.strip() for origin in _cors_origins.split(',') if origin.strip()]
 else:
     CORS_ALLOWED_ORIGINS = [
-        "https://optimum-smart-system-pi.vercel.app",
         "https://optimum-smart-system.vercel.app",
+        "https://optimum-smart-system-pi.vercel.app",
+        "https://optimum-smart-system-navy.vercel.app",
+        "https://optimum-smart-system-git-main-sherif-rosas-projects.vercel.app",
+        "https://optimum-smart-system-h5vrcbfdn-sherifrosas-projects.vercel.app",
+        "https://optimum-smart-system-hz12nxpj4-sherifrosas-projects.vercel.app",
+        "https://optimum-smart-system-git-main-sherifrosas-projects.vercel.app",
+        "https://optimum-smart-system-git-master-sherifrosas-projects.vercel.app",  # New deployment URL
     ]
 
 # Security middleware settings
