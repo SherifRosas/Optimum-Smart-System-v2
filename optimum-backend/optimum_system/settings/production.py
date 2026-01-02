@@ -29,20 +29,20 @@ else:
     )
 
 # CORS settings for production
+# SECURITY: Only production domains should be in the fallback list.
+# Preview/branch deployment URLs (containing -git- or hash patterns) are temporary,
+# publicly accessible, and should NEVER be trusted in production CORS/CSRF settings.
+# Use CORS_ALLOWED_ORIGINS environment variable to add preview URLs if needed for testing.
 _cors_origins_env = os.environ.get('CORS_ALLOWED_ORIGINS')
 if _cors_origins_env:
     CORS_ALLOWED_ORIGINS = [origin.strip() for origin in _cors_origins_env.split(',') if origin.strip()]
 else:
-    # Default production CORS origins
+    # Only production domains - no preview/branch deployment URLs
+    # Preview URLs should be added via CORS_ALLOWED_ORIGINS environment variable if needed
     CORS_ALLOWED_ORIGINS = [
         "https://optimum-smart-system.vercel.app",
-        "https://optimum-smart-system-pi.vercel.app",
         "https://optimum-smart-system-navy.vercel.app",
-        "https://optimum-smart-system-git-main-sherif-rosas-projects.vercel.app",
-        "https://optimum-smart-system-h5vrcbfdn-sherifrosas-projects.vercel.app",
-        "https://optimum-smart-system-hz12nxpj4-sherifrosas-projects.vercel.app",
-        "https://optimum-smart-system-git-main-sherifrosas-projects.vercel.app",
-        "https://optimum-smart-system-git-master-sherifrosas-projects.vercel.app",  # Added for new deployment
+        # Add other production domains here - NOT preview/branch deployments
     ]
 
 CORS_ALLOW_CREDENTIALS = True
