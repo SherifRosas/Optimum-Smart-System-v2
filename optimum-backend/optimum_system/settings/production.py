@@ -43,6 +43,7 @@ else:
         "https://optimum-smart-system.vercel.app",
         "https://optimum-smart-system-navy.vercel.app",
         "https://optimum-smart-system-git-master-sherifrosas-projects.vercel.app",
+        "https://optimum-smart-system-v2-git-master-sherifrosas-projects.vercel.app",  # Vercel preview URL
         "https://optimum-smart-system-v2-olg01dwo8-sherifrosas-projects.vercel.app",  # Temporary: Vercel preview URL
         # Add other production domains here - NOT preview/branch deployments
     ]

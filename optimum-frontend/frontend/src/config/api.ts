@@ -7,13 +7,13 @@ export const API_CONFIG = {
   // Base URL - auto-detect in production, use env var if set
   baseURL: import.meta.env.VITE_API_URL || 
     (import.meta.env.PROD 
-      ? 'https://sherifrosas.pythonanywhere.com/api'
+      ? 'https://sherifrissas.pythonanywhere.com/api'
       : 'http://localhost:8000/api'),
   
   // WebSocket URL
   wsURL: import.meta.env.VITE_WS_URL ||
     (import.meta.env.PROD
-      ? 'wss://sherifrosas.pythonanywhere.com/ws'
+      ? 'wss://sherifrissas.pythonanywhere.com/ws'
       : 'ws://localhost:8000/ws'),
   
   // Timeouts
