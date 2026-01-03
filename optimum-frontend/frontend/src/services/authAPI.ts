@@ -3,9 +3,9 @@ import { User, UserProfile, AuthResponse } from '../types';
 
 // Use localhost for local development, PythonAnywhere for production
 const getApiBaseUrl = (): string => {
-  // Check Vite environment variable first (for Vite projects)
-  if (import.meta.env.VITE_API_URL) {
-    return import.meta.env.VITE_API_URL;
+  // Check environment variable first
+  if (process.env.REACT_APP_API_URL) {
+    return process.env.REACT_APP_API_URL;
   }
   
   // Check if we're in development
@@ -26,7 +26,6 @@ const API_BASE_URL = getApiBaseUrl();
 // Create axios instance for auth
 const authAPI: AxiosInstance = axios.create({
   baseURL: API_BASE_URL,
-  timeout: 30000, // 30 seconds timeout
   headers: {
     'Content-Type': 'application/json',
   },
@@ -130,8 +129,6 @@ export const authService = {
   // Login user
   login: async (username: string, password: string): Promise<AuthResponse> => {
     try {
-      console.log('Login API - Base URL:', API_BASE_URL);
-      console.log('Login API - Full URL:', `${API_BASE_URL}/auth/login/`);
       const response = await authAPI.post<AuthResponse>('/auth/login/', { username, password });
       console.log('Login API response:', response.data);
       if (response.data.success) {
@@ -143,37 +140,8 @@ export const authService = {
       return response.data;
     } catch (error) {
       console.error('Login API error:', error);
-      const axiosError = error as { 
-        response?: { 
-          data?: { error?: string; detail?: string }; 
-          status?: number;
-        }; 
-        message?: string;
-        code?: string;
-      };
-      
-      // Log detailed error info
-      console.error('Error details:', {
-        message: axiosError.message,
-        code: axiosError.code,
-        status: axiosError.response?.status,
-        data: axiosError.response?.data,
-        url: `${API_BASE_URL}/auth/login/`
-      });
-      
-      // Provide better error message
-      if (axiosError.code === 'ECONNABORTED' || axiosError.message?.includes('timeout')) {
-        throw new Error('Connection timeout. Please check your internet connection and try again.');
-      } else if (axiosError.code === 'ERR_NETWORK' || axiosError.message?.includes('Network Error')) {
-        throw new Error('Network error. Cannot connect to server. Please check if the backend is running.');
-      } else if (axiosError.response?.status === 400) {
-        const errorMsg = axiosError.response.data?.error || axiosError.response.data?.detail || 'Invalid request. Please check your credentials.';
-        throw new Error(errorMsg);
-      } else if (axiosError.response?.status === 401) {
-        throw new Error('Invalid username or password.');
-      } else {
-        throw error;
-      }
+      console.error('Error response:', (error as { response?: { data?: unknown } }).response?.data);
+      throw error;
     }
   },
 
@@ -239,7 +207,6 @@ export const authService = {
 };
 
 export default authService;
-
 
 
 
