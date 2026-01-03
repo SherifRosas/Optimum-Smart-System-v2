@@ -76,7 +76,16 @@ const transformOrderData = (order) => {
 
 function App() {
   const auth = useAuth();
-  const [currentView, setCurrentView] = useState('dashboard');
+  const location = useLocation();
+  // Initialize currentView based on pathname, default to null (will show RoleSelection)
+  const [currentView, setCurrentView] = useState(() => {
+    const path = location.pathname;
+    if (path === '/' || path === '') return null; // null means show RoleSelection
+    if (path === '/profile') return 'profile';
+    if (path === '/settings') return 'settings';
+    if (path === '/dashboard' || path === '/app') return 'dashboard';
+    return null; // Default to RoleSelection for unknown paths
+  });
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -449,7 +458,6 @@ function App() {
     }
   }, [loading, error, currentView, orders, handleNewOrder, handleStatusUpdate, auth]);
 
-  const location = useLocation();
   const isAuthPage = location.pathname === '/login' || location.pathname === '/signup';
   // Check for root path - handle both exact '/' and empty pathname (Vercel edge case)
   // Also check if currentView is null (initial state for root)
