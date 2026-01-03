@@ -43,8 +43,6 @@ else:
         "https://optimum-smart-system.vercel.app",
         "https://optimum-smart-system-navy.vercel.app",
         "",
-        "
-        "
         # Add other production domains here - NOT preview/branch deployments
     ]
 
