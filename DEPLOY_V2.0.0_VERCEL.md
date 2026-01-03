@@ -74,11 +74,15 @@ vercel --prod
    | `VITE_API_URL` | `https://YOUR-BACKEND.pythonanywhere.com/api` | Production, Preview, Development |
    | `VITE_WS_URL` | `wss://YOUR-BACKEND.pythonanywhere.com/ws` | Production, Preview, Development |
 
-   **Example:**
+   **⚠️ Important:** Replace `YOUR-BACKEND` with your actual PythonAnywhere username.
+
+   **Example (replace with your actual username):**
    ```
-   VITE_API_URL=https://sherifrissas.pythonanywhere.com/api
-   VITE_WS_URL=wss://sherifrissas.pythonanywhere.com/ws
+   VITE_API_URL=https://your-username.pythonanywhere.com/api
+   VITE_WS_URL=wss://your-username.pythonanywhere.com/ws
    ```
+   
+   **Note:** For the Optimum Smart System project, the backend is deployed at `sherifrissas.pythonanywhere.com`, but you should use your own PythonAnywhere username.
 
 3. **Save Changes**
 
