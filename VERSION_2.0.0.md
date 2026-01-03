@@ -1,6 +1,6 @@
 # 🎯 Version 2.0.0 - Command Center Theme
 
-**Release Date:** December 31, 2025  
+**Release Date:** January 1, 2026  
 **Status:** Production Ready  
 **Theme:** Command Center (Default)
 
@@ -53,28 +53,53 @@
 
 ---
 
-## 🚀 Quick Deploy
+## 🚀 Deployment Guides
 
-### Frontend (Vercel)
+### Complete Deployment Instructions
+
+For detailed step-by-step deployment instructions, see:
+
+- **📘 Vercel Deployment:** [`DEPLOY_V2.0.0_VERCEL.md`](./DEPLOY_V2.0.0_VERCEL.md)
+  - Complete guide for deploying frontend to a new Vercel project
+  - Environment variables configuration
+  - Troubleshooting guide
+
+- **🐍 PythonAnywhere Deployment:** [`DEPLOY_V2.0.0_PYTHONANYWHERE.md`](./DEPLOY_V2.0.0_PYTHONANYWHERE.md)
+  - Complete guide for deploying backend to a new PythonAnywhere account
+  - WSGI configuration
+  - Database setup
+  - Security configuration
+
+- **✅ Deployment Checklist:** [`DEPLOY_V2.0.0_CHECKLIST.md`](./DEPLOY_V2.0.0_CHECKLIST.md)
+  - Quick reference checklist
+  - Pre-deployment verification
+  - Post-deployment testing
+
+### Quick Deploy (Summary)
+
+**Frontend (Vercel)**
 ```bash
 # Root Directory: optimum-frontend/frontend
 # Build Command: npm run build
 # Output: dist/
+# Environment Variables: VITE_API_URL, VITE_WS_URL
 ```
 
-### Backend (PythonAnywhere)
+**Backend (PythonAnywhere)**
 ```bash
 cd optimum-backend
 pip install -r requirements.txt
 python manage.py migrate
-python manage.py collectstatic
+python manage.py collectstatic --noinput
+# Configure WSGI file with environment variables
+# Reload web app
 ```
 
 ---
 
 ## 📝 Changelog
 
-### December 31, 2025
+### January 1, 2026
 - Migrated to Command Center theme
 - Set Role Selection as main page
 - Added real-time clock to header

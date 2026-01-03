@@ -893,8 +893,8 @@ npm run test:e2e
 
 **Production:**
 - Frontend: https://[vercel-url]
-- Backend: https://sherifrosas.pythonanywhere.com
-- API: https://sherifrosas.pythonanywhere.com/api
+- Backend: https://sherifrissas.pythonanywhere.com
+- API: https://sherifrissas.pythonanywhere.com/api
 
 ---
 
