@@ -13,16 +13,16 @@ Set-Location $ScriptDir
 
 # Check if Git is initialized
 if (Test-Path .git) {
-    Write-Host "✅ Git repository found" -ForegroundColor Green
+    Write-Host "Git repository found" -ForegroundColor Green
 } else {
-    Write-Host "📦 Initializing Git repository..." -ForegroundColor Yellow
+    Write-Host "Initializing Git repository..." -ForegroundColor Yellow
     git init
-    Write-Host "✅ Git initialized" -ForegroundColor Green
+    Write-Host "Git initialized" -ForegroundColor Green
 }
 
 # Add all files
 Write-Host ""
-Write-Host "📝 Adding all files to Git..." -ForegroundColor Yellow
+Write-Host "Adding all files to Git..." -ForegroundColor Yellow
 git add .
 
 # Check what will be committed
@@ -33,24 +33,24 @@ if ($Status) {
     git status --short | ForEach-Object { Write-Host "  $_" -ForegroundColor White }
     
     Write-Host ""
-    $CommitMessage = "v2.4.0: Navigation fix + Arabic translation support - $(Get-Date -Format 'yyyy-MM-dd HH:mm')"
-    Write-Host "💾 Committing changes..." -ForegroundColor Yellow
-    Write-Host "   Message: $CommitMessage" -ForegroundColor Gray
+    $CommitMessage = "v2.4.0: Changes - $(Get-Date -Format 'yyyy-MM-dd HH:mm')"
+    Write-Host "Committing changes..." -ForegroundColor Yellow
+    Write-Host "Message: $CommitMessage" -ForegroundColor Gray
     git commit -m $CommitMessage
     
     Write-Host ""
-    Write-Host "✅ Changes committed successfully!" -ForegroundColor Green
+    Write-Host "Changes committed successfully!" -ForegroundColor Green
     Write-Host ""
-    Write-Host "📋 Recent commits:" -ForegroundColor Cyan
+    Write-Host "Recent commits:" -ForegroundColor Cyan
     git log --oneline -5
 } else {
     Write-Host ""
-    Write-Host "✅ No changes to commit - everything is already saved!" -ForegroundColor Green
+    Write-Host "No changes to commit - everything is already saved!" -ForegroundColor Green
 }
 
 Write-Host ""
 Write-Host "========================================" -ForegroundColor Cyan
-Write-Host "✅ Your work is now saved!" -ForegroundColor Green
+Write-Host "Your work is now saved!" -ForegroundColor Green
 Write-Host "========================================" -ForegroundColor Cyan
 Write-Host ""
 Write-Host "To view history: git log --oneline" -ForegroundColor Yellow
