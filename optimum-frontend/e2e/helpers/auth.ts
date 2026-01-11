@@ -13,8 +13,8 @@ export async function loginAsAdmin(page: Page) {
   // Fill username using the ID
   await page.fill('#username', 'admin');
   
-  // Fill password using the ID
-  await page.fill('#password', 'password');
+  // Fill password using the ID - use admin123 for local testing
+  await page.fill('#password', 'admin123');
   
   // Click submit button - the button text is "Sign In"
   const submitButton = page.locator('button[type="submit"]:has-text("Sign In"), button:has-text("Sign In")').first();

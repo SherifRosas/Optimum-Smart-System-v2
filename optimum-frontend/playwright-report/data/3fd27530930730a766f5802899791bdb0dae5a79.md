@@ -1,0 +1,207 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e5]:
+      - banner [ref=e6]:
+        - generic [ref=e7]:
+          - button [ref=e8] [cursor=pointer]
+          - generic [ref=e12]:
+            - generic [ref=e13]: ◈
+            - generic [ref=e14]: OPTIMUM
+            - generic [ref=e15]: v2.4.0
+        - generic [ref=e19]: SYSTEM ONLINE
+        - generic [ref=e20]:
+          - generic [ref=e21]:
+            - generic [ref=e22]: 23:25:50
+            - generic [ref=e23]: Sun, Jan 11
+          - button "Change language" [ref=e25] [cursor=pointer]:
+            - generic [ref=e26]: 🇺🇸
+            - generic [ref=e27]: English
+            - generic [ref=e28]: ▼
+          - button "🔔 3" [ref=e30] [cursor=pointer]:
+            - text: 🔔
+            - generic [ref=e31]: "3"
+          - generic [ref=e32] [cursor=pointer]:
+            - generic [ref=e34]: A
+            - generic [ref=e35]:
+              - generic [ref=e36]: Admin
+              - generic [ref=e37]: Super Admin
+      - generic [ref=e38]:
+        - complementary [ref=e39]:
+          - navigation [ref=e40]:
+            - button "📊 Dashboard" [ref=e41] [cursor=pointer]:
+              - generic [ref=e42]: 📊
+              - generic [ref=e43]: Dashboard
+            - button "📦 Orders 12" [ref=e45] [cursor=pointer]:
+              - generic [ref=e46]: 📦
+              - generic [ref=e47]: Orders
+              - generic [ref=e48]: "12"
+            - button "👥 Customers" [ref=e50] [cursor=pointer]:
+              - generic [ref=e51]: 👥
+              - generic [ref=e52]: Customers
+            - button "🏭 Suppliers" [ref=e54] [cursor=pointer]:
+              - generic [ref=e55]: 🏭
+              - generic [ref=e56]: Suppliers
+            - button "🤖 AI Assistant" [ref=e58] [cursor=pointer]:
+              - generic [ref=e59]: 🤖
+              - generic [ref=e60]: AI Assistant
+            - button "📊 Analytics Dashboard" [ref=e62] [cursor=pointer]:
+              - generic [ref=e63]: 📊
+              - generic [ref=e64]: Analytics Dashboard
+            - button "📈 Analytics" [ref=e66] [cursor=pointer]:
+              - generic [ref=e67]: 📈
+              - generic [ref=e68]: Analytics
+            - button "💰 Accounting" [ref=e70] [cursor=pointer]:
+              - generic [ref=e71]: 💰
+              - generic [ref=e72]: Accounting
+            - button "👤 User Management" [ref=e74] [cursor=pointer]:
+              - generic [ref=e75]: 👤
+              - generic [ref=e76]: User Management
+            - button "⚙️ Settings" [ref=e78] [cursor=pointer]:
+              - generic [ref=e79]: ⚙️
+              - generic [ref=e80]: Settings
+          - generic [ref=e83]:
+            - generic [ref=e84]:
+              - generic [ref=e85]: CPU
+              - generic [ref=e87]: 45%
+            - generic [ref=e88]:
+              - generic [ref=e89]: MEM
+              - generic [ref=e91]: 62%
+        - main [ref=e92]:
+          - generic [ref=e93]:
+            - generic [ref=e94]:
+              - heading "Command Center" [level=1] [ref=e95]
+              - paragraph [ref=e96]: Real-time order management & AI analytics
+            - generic [ref=e97]:
+              - button "📤 Export" [ref=e98] [cursor=pointer]
+              - button "➕ New Order" [ref=e99] [cursor=pointer]
+          - generic [ref=e100]:
+            - generic [ref=e101]:
+              - generic [ref=e102]: 📦
+              - generic [ref=e103]:
+                - generic [ref=e104]: "27"
+                - generic [ref=e105]: Total Orders
+            - generic [ref=e106]:
+              - generic [ref=e107]: ⚡
+              - generic [ref=e108]:
+                - generic [ref=e109]: "0"
+                - generic [ref=e110]: Active Now
+            - generic [ref=e111]:
+              - generic [ref=e112]: 💰
+              - generic [ref=e113]:
+                - generic [ref=e114]: "0"
+                - generic [ref=e115]: Revenue (EGP)
+            - generic [ref=e116]:
+              - generic [ref=e117]: 🏭
+              - generic [ref=e118]:
+                - generic [ref=e119]: "0"
+                - generic [ref=e120]: Suppliers
+          - generic [ref=e121]:
+            - generic [ref=e122]:
+              - generic [ref=e123]:
+                - heading "📦 Recent Orders" [level=2] [ref=e124]:
+                  - generic [ref=e125]: 📦
+                  - text: Recent Orders
+                - button "View All →" [ref=e126] [cursor=pointer]
+              - generic [ref=e127]:
+                - generic [ref=e128]:
+                  - generic [ref=e129]:
+                    - generic [ref=e130]: "#ORD-7821"
+                    - generic [ref=e131]: processing
+                  - generic [ref=e132]: Ahmed Hassan
+                  - generic [ref=e133]:
+                    - generic [ref=e134]: 5 items
+                    - generic [ref=e135]: $2450.00
+                  - generic [ref=e136]: 2 min ago
+                  - generic [ref=e137]:
+                    - button "👁" [ref=e138] [cursor=pointer]
+                    - button "✏️" [ref=e139] [cursor=pointer]
+                    - button "🚀" [ref=e140] [cursor=pointer]
+                - generic [ref=e141]:
+                  - generic [ref=e142]:
+                    - generic [ref=e143]: "#ORD-7820"
+                    - generic [ref=e144]: pending
+                  - generic [ref=e145]: Sara Mohamed
+                  - generic [ref=e146]:
+                    - generic [ref=e147]: 3 items
+                    - generic [ref=e148]: $1890.50
+                  - generic [ref=e149]: 5 min ago
+                  - generic [ref=e150]:
+                    - button "👁" [ref=e151] [cursor=pointer]
+                    - button "✏️" [ref=e152] [cursor=pointer]
+                    - button "🚀" [ref=e153] [cursor=pointer]
+                - generic [ref=e154]:
+                  - generic [ref=e155]:
+                    - generic [ref=e156]: "#ORD-7819"
+                    - generic [ref=e157]: completed
+                  - generic [ref=e158]: Omar Ali
+                  - generic [ref=e159]:
+                    - generic [ref=e160]: 8 items
+                    - generic [ref=e161]: $5670.00
+                  - generic [ref=e162]: 12 min ago
+                  - generic [ref=e163]:
+                    - button "👁" [ref=e164] [cursor=pointer]
+                    - button "✏️" [ref=e165] [cursor=pointer]
+                    - button "🚀" [ref=e166] [cursor=pointer]
+                - generic [ref=e167]:
+                  - generic [ref=e168]:
+                    - generic [ref=e169]: "#ORD-7818"
+                    - generic [ref=e170]: processing
+                  - generic [ref=e171]: Nour Ibrahim
+                  - generic [ref=e172]:
+                    - generic [ref=e173]: 2 items
+                    - generic [ref=e174]: $890.00
+                  - generic [ref=e175]: 18 min ago
+                  - generic [ref=e176]:
+                    - button "👁" [ref=e177] [cursor=pointer]
+                    - button "✏️" [ref=e178] [cursor=pointer]
+                    - button "🚀" [ref=e179] [cursor=pointer]
+            - generic [ref=e180]:
+              - generic [ref=e181]:
+                - generic [ref=e185]:
+                  - generic [ref=e186]: OPTIMUS AI
+                  - generic [ref=e187]: Analyzing...
+                - generic [ref=e189]:
+                  - generic [ref=e190]: 📊 System operating at optimal efficiency. Today's orders are up 23% compared to last week. Supplier response time improved by 15%.
+                  - generic [ref=e191]:
+                    - generic [ref=e192]: 💡
+                    - generic [ref=e193]: Consider increasing inventory for Product SKU-2847 based on demand trends
+                - generic [ref=e194]:
+                  - textbox "Ask OPTIMUS anything..." [ref=e195]
+                  - button "→" [ref=e196] [cursor=pointer]
+              - generic [ref=e197]:
+                - heading "⚡ Live Activity" [level=2] [ref=e199]:
+                  - generic [ref=e200]: ⚡
+                  - text: Live Activity
+                - generic [ref=e201]:
+                  - generic [ref=e204]:
+                    - generic [ref=e205]: New order received from Ahmed Hassan
+                    - generic [ref=e206]: 2 min ago
+                  - generic [ref=e209]:
+                    - generic [ref=e210]: Supplier "ElectroTech" confirmed shipment
+                    - generic [ref=e211]: 5 min ago
+                  - generic [ref=e214]:
+                    - generic [ref=e215]: "Order #7815 marked as delivered"
+                    - generic [ref=e216]: 15 min ago
+                  - generic [ref=e219]:
+                    - generic [ref=e220]: "AI assigned optimal supplier for Order #7819"
+                    - generic [ref=e221]: 18 min ago
+                  - generic [ref=e224]:
+                    - generic [ref=e225]: "Payment received for Order #7812"
+                    - generic [ref=e226]: 25 min ago
+      - contentinfo [ref=e227]:
+        - generic [ref=e228]:
+          - generic [ref=e229]: Backend Connected
+          - generic [ref=e231]: WebSocket Active
+        - generic [ref=e233]: OPTIMUM SMART SYSTEM v2.4.0 ADVANCED
+        - generic [ref=e235]: "API Latency: 24ms"
+    - alert [ref=e236]:
+      - generic [ref=e237]:
+        - generic [ref=e238]: ✅
+        - generic [ref=e239]: Orders loaded successfully
+      - button "Close notification" [ref=e240] [cursor=pointer]: ×
+  - button [ref=e241] [cursor=pointer]:
+    - img [ref=e242]
+```

@@ -8,6 +8,7 @@ This directory contains end-to-end (E2E) tests for the Optimum Smart System fron
 - `auth.spec.ts` - Authentication flow tests (login, logout, session persistence)
 - `admin-dashboard.spec.ts` - Admin dashboard (Command Center) tests
 - `orders.spec.ts` - Order management tests
+- `new-order.spec.ts` - New order creation from Command Center (automated test) ⭐
 - `customer-dashboard.spec.ts` - Customer dashboard tests
 - `supplier.spec.ts` - Supplier-specific feature tests
 - `language-switching.spec.ts` - Language switching (Arabic/English) tests

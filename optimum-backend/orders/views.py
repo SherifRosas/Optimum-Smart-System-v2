@@ -112,6 +112,14 @@ class OrderViewSet(viewsets.ModelViewSet):
                 else:
                     data['notes'] = ai_note
         
+        # Set default values for fields that might not be provided
+        if 'is_ai_generated' not in data:
+            data['is_ai_generated'] = False
+        if 'priority' not in data:
+            data['priority'] = 'medium'
+        if 'risk_score' not in data:
+            data['risk_score'] = 0.0
+        
         serializer = self.get_serializer(data=data)
         serializer.is_valid(raise_exception=True)
         order = serializer.save()

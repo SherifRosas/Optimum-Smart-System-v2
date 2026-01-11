@@ -335,27 +335,110 @@ function App() {
 
     const handleNewOrder = useCallback(async (orderData: OrderFormData) => {
         try {
-            const response = await ordersAPI.createOrder({
+            console.log('📝 Creating order with data:', orderData);
+            
+            // Ensure delivery_date is in the correct format (YYYY-MM-DD)
+            let deliveryDate: string = orderData.deliveryDate;
+            if (deliveryDate) {
+                // Ensure it's in YYYY-MM-DD format
+                const dateObj = new Date(deliveryDate);
+                if (!isNaN(dateObj.getTime())) {
+                    deliveryDate = dateObj.toISOString().split('T')[0];
+                }
+            }
+            
+            const orderPayload = {
                 customer: {
-                    name: orderData.customerName,
-                    phone_number: orderData.phoneNumber
+                    name: orderData.customerName.trim(),
+                    phone_number: orderData.phoneNumber.trim()
                 },
-                product_type: orderData.productType,
-                quantity: orderData.quantity,
+                product_type: orderData.productType.trim(),
+                quantity: Number(orderData.quantity),
                 unit_price: 10000, // Default price, should be calculated
-                delivery_date: orderData.deliveryDate
-            });
+                delivery_date: deliveryDate
+            };
+            
+            console.log('📤 Sending to API:', orderPayload);
+            
+            const response = await ordersAPI.createOrder(orderPayload);
+            
+            console.log('✅ Order created successfully:', response.data);
 
             // Transform the new order data
             const transformedOrder = transformOrderData(response.data);
             setOrders(prevOrders => [transformedOrder, ...prevOrders]);
             toast.success('Order created successfully!');
+            
+            // Navigate to orders view to see the new order
             setCurrentView('orders');
         } catch (err: any) {
+            console.error('❌ Error creating order:', err);
+            
+            // Log full error details for debugging
+            const errorDetails = {
+                message: err.message,
+                response: err.response?.data,
+                status: err.response?.status,
+                statusText: err.response?.statusText,
+                config: {
+                    url: err.config?.url,
+                    method: err.config?.method,
+                    data: err.config?.data
+                }
+            };
+            console.error('Error details:', JSON.stringify(errorDetails, null, 2));
+            
             setError('Failed to create order');
-            toast.error('Failed to create order. Please check your input and try again.');
-            if (import.meta.env.DEV) {
-                console.error('Error creating order:', err);
+            
+            // Extract error message from various possible locations
+            let errorMessage = 'Failed to create order. Please check your input and try again.';
+            
+            if (err.response?.data) {
+                // Handle Django REST Framework error format
+                if (err.response.data.detail) {
+                    errorMessage = String(err.response.data.detail);
+                } else if (err.response.data.error) {
+                    errorMessage = String(err.response.data.error);
+                } else if (err.response.data.message) {
+                    errorMessage = String(err.response.data.message);
+                } else if (typeof err.response.data === 'string') {
+                    errorMessage = err.response.data;
+                } else if (err.response.data.non_field_errors) {
+                    // Handle non-field errors
+                    errorMessage = Array.isArray(err.response.data.non_field_errors) 
+                        ? err.response.data.non_field_errors.join(', ')
+                        : String(err.response.data.non_field_errors);
+                } else {
+                    // Handle field-specific errors (e.g., {product_type: ["This field is required."]})
+                    const fieldErrors = Object.entries(err.response.data)
+                        .map(([field, messages]: [string, any]) => {
+                            const msg = Array.isArray(messages) ? messages.join(', ') : String(messages);
+                            return `${field}: ${msg}`;
+                        })
+                        .join('; ');
+                    if (fieldErrors) {
+                        errorMessage = fieldErrors;
+                    }
+                }
+            } else if (err.message) {
+                errorMessage = String(err.message);
+            }
+            
+            // Ensure errorMessage is always a string and not empty
+            if (!errorMessage || typeof errorMessage !== 'string' || errorMessage.trim() === '') {
+                errorMessage = 'Failed to create order. Please check your input and try again.';
+            }
+            
+            // Ensure we have a valid string (handle edge cases)
+            const safeErrorMessage = String(errorMessage).trim() || 'Failed to create order. Please check your input and try again.';
+            
+            // Show error toast with safe string
+            try {
+                toast.error(safeErrorMessage);
+            } catch (toastError) {
+                console.error('Failed to show toast:', toastError);
+                // Fallback: use alert if toast fails
+                alert(safeErrorMessage);
             }
         }
     }, [toast, setCurrentView]);
@@ -395,17 +478,11 @@ function App() {
             );
         }
 
-        // CRITICAL: If admin user, ALWAYS render CommandCenter for dashboard view ONLY
-        // This prevents any possibility of CustomerDashboard rendering
-        // IMPORTANT: Only force CommandCenter when currentView is 'dashboard' or null
-        // For other views (orders, customers, suppliers), let the switch statement handle them
-        if (isAdmin && (currentView === 'dashboard' || currentView === null)) {
-            console.log('✅ FORCING CommandCenter for admin - currentView:', currentView, 'pathname:', location.pathname);
-            // Ensure currentView is set to 'dashboard' for admin
-            if (currentView !== 'dashboard') {
-                setCurrentView('dashboard');
-            }
-            // Don't wrap CommandCenter in a div - it has its own structure with header and sidebar
+        // CRITICAL: If admin user, ONLY render CommandCenter when currentView is explicitly 'dashboard'
+        // IMPORTANT: Do NOT force CommandCenter for other views (orders, new-order, customers, etc.)
+        // Allow the switch statement below to handle all other views
+        if (isAdmin && currentView === 'dashboard') {
+            console.log('✅ Rendering CommandCenter for admin - currentView: dashboard');
             return (
                 <Suspense fallback={<ListSkeleton count={6} />}>
                     <CommandCenter orders={orders} onNavigate={setCurrentView} currentView="dashboard" />
@@ -413,9 +490,10 @@ function App() {
             );
         }
         
-        // CRITICAL: Also handle initial load when pathname is /dashboard or /app but currentView is null
-        if (isAdmin && currentView === null && (location.pathname === '/dashboard' || location.pathname === '/app')) {
-            console.log('✅ Initial load - forcing dashboard for admin');
+        // CRITICAL: Handle initial load - only when currentView is null AND we're on dashboard route
+        // This prevents CustomerDashboard from rendering on initial load
+        if (isAdmin && currentView === null && (location.pathname === '/dashboard' || location.pathname === '/app' || location.pathname === '/')) {
+            console.log('✅ Initial load - setting dashboard for admin');
             setCurrentView('dashboard');
             return (
                 <Suspense fallback={<ListSkeleton count={6} />}>
@@ -427,7 +505,10 @@ function App() {
         // Role-based component routing
         const userRole = auth.getUserRole();
         
-        console.log('🔍 renderView - currentView:', currentView, 'isAdmin:', isAdmin, 'pathname:', location.pathname);
+        // Debug: Log when we're about to use the switch statement (not forcing CommandCenter)
+        if (isAdmin && currentView !== 'dashboard' && currentView !== null) {
+            console.log('🔍 Using switch statement for admin - currentView:', currentView, 'pathname:', location.pathname);
+        }
 
         switch (currentView) {
             // Admin views

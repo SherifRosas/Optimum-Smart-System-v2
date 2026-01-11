@@ -6,7 +6,14 @@ interface ApiParams {
 }
 
 interface OrderData {
-  customer_id: number;
+  // For creating orders, customer can be an object (auto-creates customer) or customer_id
+  customer?: {
+    name: string;
+    phone_number: string;
+    email?: string;
+    address?: string;
+  };
+  customer_id?: number;
   supplier_id?: number | null;
   product_type: string;
   quantity: number;
