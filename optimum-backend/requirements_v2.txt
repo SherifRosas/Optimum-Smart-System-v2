@@ -1,0 +1,64 @@
+# v2.0 Advanced Requirements
+# Use this when deploying to Railway/Render (full v2.0 features)
+
+# Core Django
+Django==5.2.7
+djangorestframework==3.15.2
+djangorestframework-simplejwt==5.3.1
+django-cors-headers==4.3.1
+django-ratelimit==4.1.0
+
+# Async Support & Performance
+uvicorn[standard]==0.27.0
+gunicorn==23.0.0
+
+# WebSocket Support
+channels==4.0.0
+channels-redis==4.1.0
+daphne==4.1.0
+
+# Background Tasks
+celery==5.3.6
+redis==5.0.1
+django-celery-beat==2.5.0
+django-celery-results==2.5.0
+
+# Caching
+django-redis==5.4.0
+
+# API Documentation
+drf-spectacular==0.27.2
+drf-spectacular-sidecar==2024.1.1
+
+# Database
+psycopg2-binary>=2.9.9
+dj-database-url==2.1.0
+django-environ>=0.11.2
+
+# Security
+django-axes==6.3.0
+django-csp==3.8
+
+# AI & ML
+openai==1.51.0
+tiktoken==0.7.0
+numpy==1.26.4
+pandas==2.2.1
+
+# Monitoring & Logging
+sentry-sdk==2.8.0
+django-health-check==3.17.1
+structlog==24.1.0
+
+# File handling
+Pillow==10.4.0
+python-magic==0.4.27
+
+# Utilities
+python-dotenv==1.0.1
+whitenoise==6.8.2
+requests==2.32.3
+python-dateutil==2.9.0
+pytz==2024.1
+
+

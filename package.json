@@ -1,0 +1,11 @@
+{
+  "name": "optimum-smart-system",
+  "version": "2.4.0",
+  "description": "Optimum Smart System - AI-powered order management platform",
+  "scripts": {
+    "build": "cd optimum-frontend && npm ci && npm run build",
+    "install": "cd optimum-frontend && npm ci"
+  },
+  "private": true
+}
+

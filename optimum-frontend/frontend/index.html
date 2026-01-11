@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <title>Optimum Smart System v2.4.0 | Advanced AI Order Management</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap"
+      rel="stylesheet">
+  </head>
+  <body>
+    <div id="root"></div>
+    <!-- Browser compatibility check -->
+    <script>
+      // Check for minimum browser requirements
+      var isSupported = true;
+      var errorMessage = '';
+      
+      // Check for ES6 support (required for React 18)
+      try {
+        eval('const test = () => {}; class Test {}');
+      } catch (e) {
+        isSupported = false;
+        errorMessage = 'Your browser does not support modern JavaScript features.';
+      }
+      
+      // Check for required APIs
+      if (typeof Promise === 'undefined') {
+        isSupported = false;
+        errorMessage = 'Your browser does not support Promises.';
+      }
+      
+      if (!isSupported) {
+        document.getElementById('root').innerHTML = 
+          '<div style="padding: 20px; text-align: center; color: #fff; font-family: Arial, sans-serif; background: #0a0a0f; min-height: 100vh; display: flex; align-items: center; justify-content: center; flex-direction: column;">' +
+          '<h1 style="color: #00ffff; margin-bottom: 20px;">Browser Not Supported</h1>' +
+          '<p style="color: #a0a0c0; margin-bottom: 10px;">' + errorMessage + '</p>' +
+          '<p style="color: #a0a0c0; margin-bottom: 20px;">This application requires a modern browser.</p>' +
+          '<p style="color: #606080; font-size: 14px;">Minimum requirements: iOS 14+ (Safari 14+) or Chrome 90+</p>' +
+          '<p style="color: #606080; font-size: 14px; margin-top: 10px;">Please update your device or use a modern browser.</p>' +
+          '</div>';
+      }
+    </script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

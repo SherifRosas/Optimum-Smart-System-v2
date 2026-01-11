@@ -1,0 +1,529 @@
+/* Device-Specific Optimizations for All Device Versions */
+
+/* ============================================
+   iPhone Specific Optimizations
+   ============================================ */
+
+/* iPhone SE (1st gen) - 320px x 568px */
+@media (width: 320px) and (height: 568px) {
+  .App {
+    font-size: 14px;
+  }
+  
+  .main-content {
+    padding: 0.3rem;
+  }
+  
+  .stat-card {
+    padding: 0.4rem;
+  }
+  
+  h1 { font-size: 1.1rem; }
+  h2 { font-size: 1rem; }
+  h3 { font-size: 0.9rem; }
+}
+
+/* iPhone 6/7/8 - 375px x 667px */
+@media (width: 375px) and (height: 667px) {
+  .main-content {
+    padding: 0.4rem;
+  }
+  
+  .stat-card {
+    padding: 0.5rem;
+  }
+}
+
+/* iPhone 6/7/8 Plus - 414px x 736px */
+@media (width: 414px) and (height: 736px) {
+  .main-content {
+    padding: 0.5rem;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* iPhone X/11 Pro - 375px x 812px */
+@media (width: 375px) and (height: 812px) {
+  .App {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  
+  .header {
+    padding-top: calc(0.75rem + env(safe-area-inset-top));
+  }
+  
+  .navigation {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  
+  .main-content {
+    padding-bottom: calc(0.5rem + 70px + env(safe-area-inset-bottom));
+  }
+}
+
+/* iPhone 11 Pro Max / 12/13 Pro Max - 414px x 896px */
+@media (width: 414px) and (height: 896px) {
+  .App {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* iPhone 12/13 Pro Max - 428px x 926px */
+@media (width: 428px) and (height: 926px) {
+  .App {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* iPhone 14/15 Pro Max - 430px x 932px */
+@media (width: 430px) and (height: 932px) {
+  .App {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ============================================
+   iPad Specific Optimizations
+   ============================================ */
+
+/* iPad Mini - 768px x 1024px */
+@media (width: 768px) and (height: 1024px) {
+  .app-container {
+    margin-left: 0;
+  }
+  
+  .navigation {
+    position: fixed;
+    top: var(--header-height-desktop);
+    left: 0;
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+  
+  .main-content {
+    margin-top: 60px;
+    padding: 1rem;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .charts-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* iPad / iPad Air - 810px x 1080px / 820px x 1180px */
+@media (width: 810px) and (height: 1080px),
+       (width: 820px) and (height: 1180px) {
+  .app-container {
+    margin-left: 0;
+  }
+  
+  .navigation {
+    position: fixed;
+    top: var(--header-height-desktop);
+    left: 0;
+    width: 100%;
+    height: auto;
+  }
+  
+  .main-content {
+    margin-top: 60px;
+    padding: 1.25rem;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .charts-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* iPad Pro 11" - 834px x 1194px */
+@media (width: 834px) and (height: 1194px) {
+  .main-content {
+    padding: 1.5rem;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .charts-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* iPad Pro 12.9" - 1024px x 1366px */
+@media (width: 1024px) and (height: 1366px) {
+  .app-container {
+    margin-left: var(--nav-width-desktop);
+  }
+  
+  .navigation {
+    position: fixed;
+    left: 0;
+    top: var(--header-height-desktop);
+    width: var(--nav-width-desktop);
+    height: calc(100vh - var(--header-height-desktop));
+  }
+  
+  .main-content {
+    margin-top: 0;
+    padding: 1.5rem;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .charts-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ============================================
+   Android Device Optimizations
+   ============================================ */
+
+/* Small Android Phones - 360px - 399px */
+@media (min-width: 360px) and (max-width: 399px) {
+  .main-content {
+    padding: 0.4rem;
+  }
+  
+  .stat-card {
+    padding: 0.5rem;
+  }
+}
+
+/* Standard Android Phones - 400px - 479px */
+@media (min-width: 400px) and (max-width: 479px) {
+  .main-content {
+    padding: 0.5rem;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Large Android Phones - 480px - 599px */
+@media (min-width: 480px) and (max-width: 599px) {
+  .main-content {
+    padding: 0.6rem;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Small Android Tablets - 600px - 767px */
+@media (min-width: 600px) and (max-width: 767px) {
+  .main-content {
+    padding: 0.75rem;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Standard Android Tablets - 768px - 1023px */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .app-container {
+    margin-left: 0;
+  }
+  
+  .navigation {
+    position: fixed;
+    top: var(--header-height-desktop);
+    left: 0;
+    width: 100%;
+    height: auto;
+  }
+  
+  .main-content {
+    margin-top: 60px;
+    padding: 1rem;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .charts-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Large Android Tablets - 1024px - 1199px */
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .app-container {
+    margin-left: var(--nav-width-desktop);
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .charts-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ============================================
+   Desktop/Laptop Optimizations
+   ============================================ */
+
+/* Small Laptops - 1200px - 1439px */
+@media (min-width: 1200px) and (max-width: 1439px) {
+  .container {
+    max-width: 1200px;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .charts-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Standard Desktops - 1440px - 1919px */
+@media (min-width: 1440px) and (max-width: 1919px) {
+  .container {
+    max-width: 1400px;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .charts-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Large Desktops / 4K - 1920px - 2559px */
+@media (min-width: 1920px) and (max-width: 2559px) {
+  .container {
+    max-width: 1600px;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  
+  .charts-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .main-content {
+    padding: 2rem;
+  }
+}
+
+/* Ultra-wide Monitors - 2560px+ */
+@media (min-width: 2560px) {
+  .container {
+    max-width: 2000px;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  
+  .charts-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .main-content {
+    padding: 2.5rem;
+  }
+  
+  .navigation {
+    width: 280px;
+  }
+  
+  .app-container {
+    margin-left: 280px;
+  }
+}
+
+/* ============================================
+   Landscape Mode Optimizations
+   ============================================ */
+
+/* Mobile Landscape */
+@media (max-width: 767px) and (orientation: landscape) {
+  .header {
+    padding: 0.5rem 0;
+  }
+  
+  .navigation {
+    height: auto;
+    padding: 0.4rem 0.5rem;
+  }
+  
+  .nav-menu {
+    flex-direction: row;
+    overflow-x: auto;
+  }
+  
+  .nav-button {
+    padding: 0.4rem 0.5rem;
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+  
+  .nav-label {
+    display: block;
+    font-size: 0.7rem;
+  }
+  
+  .main-content {
+    padding-bottom: calc(0.5rem + 50px);
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .charts-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Tablet Landscape */
+@media (min-width: 768px) and (max-width: 1023px) and (orientation: landscape) {
+  .navigation {
+    position: fixed;
+    top: var(--header-height-desktop);
+    left: 0;
+    width: 100%;
+    height: auto;
+  }
+  
+  .app-container {
+    margin-left: 0;
+    margin-top: 60px;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  
+  .charts-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ============================================
+   Foldable Device Support
+   ============================================ */
+
+/* Samsung Galaxy Fold - 280px (folded) / 512px (unfolded) */
+@media (width: 280px) {
+  .App {
+    font-size: 12px;
+  }
+  
+  .main-content {
+    padding: 0.25rem;
+  }
+  
+  .stat-card {
+    padding: 0.3rem;
+  }
+}
+
+@media (width: 512px) and (height: 384px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Microsoft Surface Duo - 540px */
+@media (width: 540px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ============================================
+   Accessibility Optimizations
+   ============================================ */
+
+/* Large Text Preference */
+@media (prefers-font-size: large) {
+  :root {
+    --base-font-size: 18px;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .stat-card:hover,
+  .card:hover,
+  button:hover {
+    transform: none;
+    transition: none;
+  }
+  
+  .navigation::before,
+  .nav-button::before {
+    animation: none;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .card,
+  .stat-card,
+  .chart-card {
+    border: 2px solid currentColor;
+  }
+  
+  button {
+    border: 2px solid currentColor;
+  }
+}
+
+
+

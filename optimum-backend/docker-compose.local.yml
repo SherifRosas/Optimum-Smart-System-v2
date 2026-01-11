@@ -1,0 +1,56 @@
+version: '3.8'
+
+# Local Development - Only PostgreSQL and Redis
+# Django, Celery run directly on host for easier debugging
+
+services:
+  db:
+    image: postgres:15
+    container_name: optimum_db_local
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: optimum_db
+      POSTGRES_USER: optimum_user
+      POSTGRES_PASSWORD: optimum_pass
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U optimum_user"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: optimum_redis_local
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:
+  redis_data:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

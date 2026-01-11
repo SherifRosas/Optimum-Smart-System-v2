@@ -1,0 +1,52 @@
+# PythonAnywhere-Compatible Requirements
+# Use this for PythonAnywhere deployment (basic REST API only)
+
+# Core Django
+Django==5.2.7
+djangorestframework==3.15.2
+djangorestframework-simplejwt==5.3.1
+django-cors-headers==4.3.1
+django-ratelimit==4.1.0
+
+# Server
+gunicorn==23.0.0
+
+# Database
+dj-database-url==2.1.0
+psycopg2-binary==2.9.9
+
+# AI & ML
+openai==1.51.0
+tiktoken==0.7.0
+numpy==1.26.4
+pandas==2.2.1
+
+# File handling
+Pillow==10.4.0
+python-magic==0.4.27
+
+# Utilities
+python-dotenv==1.0.1
+whitenoise==6.8.2
+requests==2.32.3
+python-dateutil==2.9.0
+pytz==2024.1
+
+# Note: WebSocket, Celery, Redis packages excluded (not supported on PythonAnywhere free tier)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

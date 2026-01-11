@@ -1,0 +1,16 @@
+/* Font Loading with Error Suppression */
+/* This file handles Google Fonts loading with proper fallbacks */
+
+/* Try to load Google Fonts, but don't block if they fail */
+@layer fonts {
+  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap');
+}
+
+/* If Google Fonts load, use them. Otherwise, system fonts from CSS variables will be used */
+@supports (font-family: 'Orbitron') {
+  :root {
+    --font-display: 'Orbitron', 'Arial Black', 'Arial', sans-serif;
+    --font-body: 'Rajdhani', 'Segoe UI', 'Arial', sans-serif;
+    --font-mono: 'Share Tech Mono', 'Courier New', 'Courier', monospace;
+  }
+}

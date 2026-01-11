@@ -1,0 +1,2 @@
+SUCCESS: Created superuser 'admin' with password 'password123'
+Total Users: 2
