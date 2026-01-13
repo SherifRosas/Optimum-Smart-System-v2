@@ -1,0 +1,558 @@
+/* ========================================
+   GLOBAL RESPONSIVE DESIGN
+   Comprehensive support for all devices:
+   - Android phones (all sizes)
+   - iPhone (all models)
+   - Tablets (iPad, Android tablets)
+   - Desktop (all resolutions)
+   - Landscape & Portrait orientations
+   ======================================== */
+
+/* ========================================
+   BASE RESPONSIVE SETTINGS
+   ======================================== */
+
+* {
+  /* Prevent text size adjustment on iOS */
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  
+  /* Smooth scrolling for better UX */
+  -webkit-overflow-scrolling: touch;
+}
+
+html {
+  /* Prevent horizontal scroll on mobile */
+  overflow-x: hidden;
+  /* Better font rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  /* Prevent pull-to-refresh on mobile */
+  overscroll-behavior-y: contain;
+  /* Prevent text selection issues on mobile */
+  -webkit-tap-highlight-color: rgba(255, 215, 0, 0.2);
+  /* Better touch scrolling */
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ========================================
+   TOUCH-FRIENDLY INTERACTIONS
+   Minimum 44x44px touch targets (iOS/Android guidelines)
+   ======================================== */
+
+button,
+a,
+input[type="button"],
+input[type="submit"],
+select,
+.clickable {
+  min-height: 44px;
+  min-width: 44px;
+  /* Better touch feedback */
+  -webkit-tap-highlight-color: rgba(255, 215, 0, 0.3);
+  touch-action: manipulation; /* Disable double-tap zoom */
+}
+
+/* ========================================
+   EXTRA SMALL MOBILE (320px - 374px)
+   iPhone SE, small Android phones
+   ======================================== */
+
+@media (max-width: 374px) {
+  :root {
+    font-size: 14px;
+  }
+  
+  .App {
+    font-size: 14px;
+  }
+  
+  .main-content {
+    padding: 0.5rem;
+  }
+  
+  .header {
+    height: 56px;
+    padding: 0 0.5rem;
+  }
+  
+  h1 { font-size: 1.2rem; }
+  h2 { font-size: 1.1rem; }
+  h3 { font-size: 1rem; }
+  h4 { font-size: 0.9rem; }
+  
+  /* Ensure buttons are touch-friendly */
+  button, .btn {
+    padding: 0.6rem 1rem;
+    font-size: 0.875rem;
+    min-height: 44px;
+  }
+  
+  /* Compact cards */
+  .card, .order-card {
+    padding: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  /* Single column layouts */
+  .grid, .stats-grid, .orders-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  
+  /* Compact forms */
+  input, select, textarea {
+    padding: 0.75rem;
+    font-size: 0.875rem;
+    min-height: 44px;
+  }
+  
+  /* Hide less important elements */
+  .header-clock,
+  .header-center {
+    display: none;
+  }
+}
+
+/* ========================================
+   SMALL MOBILE (375px - 479px)
+   iPhone 6/7/8, standard Android phones
+   ======================================== */
+
+@media (min-width: 375px) and (max-width: 479px) {
+  :root {
+    font-size: 15px;
+  }
+  
+  .main-content {
+    padding: 0.75rem;
+  }
+  
+  .header {
+    height: 60px;
+    padding: 0 1rem;
+  }
+  
+  h1 { font-size: 1.4rem; }
+  h2 { font-size: 1.2rem; }
+  h3 { font-size: 1.1rem; }
+  
+  button, .btn {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.9rem;
+  }
+  
+  .card, .order-card {
+    padding: 1rem;
+  }
+  
+  .grid, .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .orders-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ========================================
+   MEDIUM MOBILE (480px - 599px)
+   Large Android phones, iPhone Plus models
+   ======================================== */
+
+@media (min-width: 480px) and (max-width: 599px) {
+  :root {
+    font-size: 16px;
+  }
+  
+  .main-content {
+    padding: 1rem;
+  }
+  
+  .header {
+    height: 64px;
+    padding: 0 1.25rem;
+  }
+  
+  .grid, .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .orders-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ========================================
+   LARGE MOBILE / SMALL TABLET (600px - 767px)
+   Large Android phones, small tablets in portrait
+   ======================================== */
+
+@media (min-width: 600px) and (max-width: 767px) {
+  .main-content {
+    padding: 1.25rem;
+  }
+  
+  .grid, .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+  
+  .orders-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ========================================
+   TABLET PORTRAIT (768px - 1023px)
+   iPad, Android tablets in portrait
+   ======================================== */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .main-content {
+    padding: 1.5rem;
+  }
+  
+  .header {
+    height: 70px;
+    padding: 0 2rem;
+  }
+  
+  .grid, .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .orders-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  /* Show more elements on tablet */
+  .header-center {
+    display: flex;
+  }
+}
+
+/* ========================================
+   TABLET LANDSCAPE / SMALL DESKTOP (1024px - 1199px)
+   iPad landscape, small laptops
+   ======================================== */
+
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .main-content {
+    padding: 2rem;
+  }
+  
+  .grid, .stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .orders-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ========================================
+   DESKTOP (1200px - 1439px)
+   Standard desktop monitors
+   ======================================== */
+
+@media (min-width: 1200px) and (max-width: 1439px) {
+  .main-content {
+    padding: 2rem;
+  }
+  
+  .grid, .stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+  
+  .orders-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ========================================
+   LARGE DESKTOP (1440px - 1919px)
+   Large monitors
+   ======================================== */
+
+@media (min-width: 1440px) and (max-width: 1919px) {
+  .main-content {
+    padding: 2.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  
+  .orders-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ========================================
+   EXTRA LARGE DESKTOP (1920px+)
+   Full HD and larger monitors
+   ======================================== */
+
+@media (min-width: 1920px) {
+  .main-content {
+    padding: 3rem;
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+  
+  .orders-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ========================================
+   LANDSCAPE ORIENTATION
+   Mobile and tablet landscape modes
+   ======================================== */
+
+@media (max-width: 1023px) and (orientation: landscape) {
+  .header {
+    height: 56px;
+  }
+  
+  .main-content {
+    padding: 1rem;
+  }
+  
+  /* Optimize for landscape viewing */
+  .grid, .stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .orders-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  /* Reduce vertical spacing in landscape */
+  .card, .order-card {
+    padding: 0.75rem;
+  }
+}
+
+/* ========================================
+   HIGH DPI / RETINA DISPLAYS
+   iPhone Retina, high-res Android
+   ======================================== */
+
+@media (-webkit-min-device-pixel-ratio: 2),
+       (min-resolution: 192dpi) {
+  /* Ensure crisp rendering on high-DPI displays */
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* ========================================
+   TOUCH DEVICE SPECIFIC
+   ======================================== */
+
+@media (hover: none) and (pointer: coarse) {
+  /* Touch device optimizations */
+  
+  /* Larger touch targets */
+  button, .btn, a, input[type="button"] {
+    min-height: 48px;
+    min-width: 48px;
+    padding: 0.875rem 1.5rem;
+  }
+  
+  /* Better spacing for touch */
+  .card, .order-card {
+    margin-bottom: 1rem;
+  }
+  
+  /* Remove hover effects on touch devices */
+  *:hover {
+    /* Keep essential hover states but reduce visual changes */
+  }
+  
+  /* Better scroll indicators */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+/* ========================================
+   NON-TOUCH DEVICE (Desktop with mouse)
+   ======================================== */
+
+@media (hover: hover) and (pointer: fine) {
+  /* Desktop-specific optimizations */
+  
+  /* Smaller touch targets are OK */
+  button, .btn {
+    min-height: 36px;
+  }
+  
+  /* Hover effects work well */
+  .card:hover,
+  .order-card:hover {
+    transform: translateY(-2px);
+  }
+}
+
+/* ========================================
+   SAFE AREA INSETS (iPhone X and newer)
+   Support for notch and home indicator
+   ======================================== */
+
+@supports (padding: max(0px)) {
+  .header,
+  .main-content,
+  .footer {
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+  }
+  
+  .header {
+    padding-top: max(0.5rem, env(safe-area-inset-top));
+  }
+  
+  .footer,
+  .bottom-nav {
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+}
+
+/* ========================================
+   PRINT STYLES
+   ======================================== */
+
+@media print {
+  .header,
+  .sidebar,
+  .navigation,
+  button,
+  .btn {
+    display: none !important;
+  }
+  
+  .main-content {
+    padding: 0;
+    max-width: 100%;
+  }
+  
+  .card, .order-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
+
+/* ========================================
+   ACCESSIBILITY - REDUCED MOTION
+   Respect user's motion preferences
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ========================================
+   DARK MODE SUPPORT (if needed)
+   ======================================== */
+
+@media (prefers-color-scheme: dark) {
+  /* Already using dark theme, but can add adjustments */
+  body {
+    background-color: #0f1a2e;
+  }
+}
+
+/* ========================================
+   UTILITY CLASSES FOR RESPONSIVE DESIGN
+   ======================================== */
+
+.hide-mobile {
+  display: block;
+}
+
+.show-mobile {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .hide-mobile {
+    display: none !important;
+  }
+  
+  .show-mobile {
+    display: block !important;
+  }
+  
+  .hide-tablet {
+    display: block;
+  }
+  
+  .show-tablet {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hide-tablet {
+    display: none !important;
+  }
+  
+  .show-tablet {
+    display: block !important;
+  }
+}
+
+/* ========================================
+   FLEXIBLE IMAGES AND MEDIA
+   ======================================== */
+
+img,
+video,
+iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ========================================
+   RESPONSIVE TYPOGRAPHY
+   ======================================== */
+
+@media (max-width: 374px) {
+  body { font-size: 14px; }
+  h1 { font-size: 1.5rem; }
+  h2 { font-size: 1.25rem; }
+  h3 { font-size: 1.1rem; }
+}
+
+@media (min-width: 375px) and (max-width: 767px) {
+  body { font-size: 15px; }
+  h1 { font-size: 1.75rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.25rem; }
+}
+
+@media (min-width: 768px) {
+  body { font-size: 16px; }
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.75rem; }
+  h3 { font-size: 1.5rem; }
+}

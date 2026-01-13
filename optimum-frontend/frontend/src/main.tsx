@@ -6,6 +6,7 @@ import { AuthProvider } from './contexts/AuthContext';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { LanguageProvider } from './contexts/LanguageContext';
 import './index.css';
+import './styles/responsive-global.css';
 import { initSentry } from './utils/sentry';
 
 // Initialize Sentry

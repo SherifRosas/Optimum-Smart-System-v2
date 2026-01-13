@@ -1081,10 +1081,18 @@
   }
 }
 
+/* ========================================
+   MOBILE RESPONSIVE (max-width: 768px)
+   Enhanced for all mobile devices
+   ======================================== */
+
 @media (max-width: 768px) {
   .header {
     padding: 0 var(--space-md);
     height: 60px;
+    /* Safe area support for iPhone X+ */
+    padding-left: max(var(--space-md), env(safe-area-inset-left));
+    padding-right: max(var(--space-md), env(safe-area-inset-right));
   }
 
   .header-center {
@@ -1102,6 +1110,8 @@
     bottom: 0;
     z-index: 99;
     transition: left var(--transition-normal);
+    /* Safe area support */
+    padding-bottom: max(0, env(safe-area-inset-bottom));
   }
 
   .sidebar.visible {
@@ -1110,12 +1120,101 @@
 
   .main-content {
     padding: var(--space-md);
+    /* Safe area support */
+    padding-left: max(var(--space-md), env(safe-area-inset-left));
+    padding-right: max(var(--space-md), env(safe-area-inset-right));
+    padding-bottom: max(var(--space-md), env(safe-area-inset-bottom));
   }
 
   .page-header {
     flex-direction: column;
     align-items: flex-start;
     gap: var(--space-md);
+  }
+  
+  /* Touch-friendly buttons */
+  button, .btn {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 0.75rem 1.25rem;
+    touch-action: manipulation;
+  }
+  
+  /* Better spacing for touch */
+  .card, .order-card {
+    margin-bottom: 1rem;
+  }
+  
+  /* Prevent text zoom on input focus (iOS) */
+  input, select, textarea {
+    font-size: 16px; /* Prevents iOS zoom */
+  }
+}
+
+/* ========================================
+   SMALL MOBILE (max-width: 480px)
+   ======================================== */
+
+@media (max-width: 480px) {
+  .header {
+    height: 56px;
+    padding: 0 0.75rem;
+  }
+  
+  .main-content {
+    padding: 0.75rem;
+  }
+  
+  h1 { font-size: 1.5rem; }
+  h2 { font-size: 1.25rem; }
+  h3 { font-size: 1.1rem; }
+  
+  button, .btn {
+    padding: 0.625rem 1rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* ========================================
+   EXTRA SMALL MOBILE (max-width: 375px)
+   ======================================== */
+
+@media (max-width: 375px) {
+  .header {
+    height: 52px;
+    padding: 0 0.5rem;
+  }
+  
+  .main-content {
+    padding: 0.5rem;
+  }
+  
+  h1 { font-size: 1.25rem; }
+  h2 { font-size: 1.1rem; }
+  h3 { font-size: 1rem; }
+  
+  button, .btn {
+    padding: 0.5rem 0.875rem;
+    font-size: 0.8125rem;
+  }
+}
+
+/* ========================================
+   LANDSCAPE MOBILE (max-width: 768px and landscape)
+   ======================================== */
+
+@media (max-width: 768px) and (orientation: landscape) {
+  .header {
+    height: 52px;
+  }
+  
+  .main-content {
+    padding: 0.75rem;
+  }
+  
+  /* Optimize for landscape viewing */
+  .grid, .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
