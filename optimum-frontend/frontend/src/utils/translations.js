@@ -231,7 +231,35 @@ export const translations = {
     analytics: "التحليلات",
     accounting: "المحاسبة",
     userManagement: "إدارة المستخدمين",
-    settings: "الإعدادات"
+    settings: "الإعدادات",
+    
+    // OrderList
+    allOrders: "جميع الطلبات",
+    orderManagement: "إدارة الطلبات",
+    manageTrackOrders: "إدارة وتتبع جميع طلبات العملاء",
+    search: "بحث",
+    searchOrdersPlaceholder: "ابحث بالعميل، المنتج، الهاتف، أو رقم الطلب...",
+    filterByStatus: "تصفية حسب الحالة",
+    sortBy: "ترتيب حسب",
+    dateCreated: "تاريخ الإنشاء",
+    dateFrom: "من تاريخ",
+    dateTo: "إلى تاريخ",
+    customerName: "العميل",
+    phone: "الهاتف",
+    product: "المنتج",
+    deliveryDate: "تاريخ التسليم",
+    created: "تم الإنشاء",
+    updateStatus: "تحديث الحالة",
+    previous: "السابق",
+    next: "التالي",
+    page: "صفحة",
+    of: "من",
+    showing: "عرض",
+    filtered: "مفلتر",
+    itemsPerPage: "عناصر في الصفحة",
+    noOrdersFound: "لم يتم العثور على طلبات تطابق معاييرك.",
+    nA: "غير متاح",
+    cancelled: "ملغي"
   }
 };
 
