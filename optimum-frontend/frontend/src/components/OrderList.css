@@ -316,37 +316,53 @@
 
 .order-details {
   margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
 .detail-row {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 0.5rem;
-  padding: 0.25rem 0;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+  min-height: 2rem;
 }
 
 .detail-row:last-child {
+  border-bottom: none;
   margin-bottom: 0;
 }
 
 .detail-row .label {
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 0.9rem;
+  color: rgba(255, 215, 0, 0.9);
+  font-size: 0.85rem;
   font-family: 'Rajdhani', sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  min-width: 120px;
+  flex-shrink: 0;
+  white-space: nowrap;
+  text-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
 }
 
 .detail-row .value {
   color: rgba(255, 255, 255, 0.95);
-  font-weight: 600;
+  font-weight: 500;
   text-align: right;
-  max-width: 60%;
+  font-size: 0.95rem;
+  max-width: 65%;
   word-break: break-word;
   font-family: 'Rajdhani', sans-serif;
-  text-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
+  text-shadow: 0 0 5px rgba(255, 215, 0, 0.2);
+  white-space: normal;
+  line-height: 1.4;
+  display: inline-block;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .order-actions {
@@ -496,14 +512,21 @@
   }
   
   .detail-row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.25rem;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0;
+  }
+  
+  .detail-row .label {
+    min-width: 100px;
+    font-size: 0.8rem;
   }
   
   .detail-row .value {
-    text-align: left;
-    max-width: 100%;
+    text-align: right;
+    max-width: 60%;
+    font-size: 0.9rem;
   }
 }
 
