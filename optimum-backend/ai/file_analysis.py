@@ -11,7 +11,14 @@ try:
 except ImportError:
     MAGIC_AVAILABLE = False
     magic = None
-from PIL import Image
+
+try:
+    from PIL import Image
+    PIL_AVAILABLE = True
+except ImportError:
+    PIL_AVAILABLE = False
+    Image = None
+
 import io
 from typing import Dict, Any, Optional
 from django.core.files.uploadedfile import UploadedFile
@@ -141,6 +148,13 @@ class FileAnalysisAI:
         """
         Fallback image analysis using basic image processing
         """
+        if not PIL_AVAILABLE:
+            return {
+                'success': False,
+                'error': 'PIL/Pillow not available',
+                'message': 'Image analysis requires Pillow package'
+            }
+        
         try:
             # Basic image analysis
             image = Image.open(image_file)

@@ -12,7 +12,13 @@ import string
 from datetime import datetime, timedelta
 from typing import Any, Dict, List, Optional
 
-import openai
+try:
+    import openai
+    OPENAI_AVAILABLE = True
+except ImportError:
+    OPENAI_AVAILABLE = False
+    openai = None
+
 from django.conf import settings
 from django.utils import timezone
 from dotenv import load_dotenv
@@ -27,8 +33,8 @@ class OrderAnalysisAI:
         api_key = os.getenv('OPENAI_API_KEY', 'demo_key')
         self.client = None
         
-        # Only initialize if we have a valid API key
-        if api_key and api_key != 'demo_key':
+        # Only initialize if we have a valid API key and openai is available
+        if OPENAI_AVAILABLE and api_key and api_key != 'demo_key':
             try:
                 # Initialize with explicit api_key only to avoid proxy-related errors
                 # The OpenAI library may try to read proxy env vars, but we'll catch any errors
