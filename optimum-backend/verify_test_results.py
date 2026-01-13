@@ -35,7 +35,7 @@ in_prep_orders = Order.objects.filter(status='in-preparation').count()
 delivered_orders = Order.objects.filter(status='delivered').count()
 recommended_requests = ProductRequest.objects.filter(status='ai_recommended').count()
 
-print(f"\n📊 ENTITIES CREATED:")
+print(f"\nENTITIES CREATED:")
 print(f"  Users: {users_count}")
 print(f"  Customers: {customers_count} (Expected: 7)")
 print(f"  Suppliers: {suppliers_count} (Expected: 7)")
@@ -43,56 +43,56 @@ print(f"  Orders: {orders_count} (Expected: 7)")
 print(f"  Product Requests: {requests_count} (Expected: 7)")
 print(f"  Supplier Offers: {offers_count} (Expected: 49)")
 
-print(f"\n📈 ORDER STATUS:")
+print(f"\nORDER STATUS:")
 print(f"  Pending: {pending_orders}")
 print(f"  In Preparation: {in_prep_orders}")
 print(f"  Delivered: {delivered_orders}")
 
-print(f"\n🤖 AI RECOMMENDATIONS:")
+print(f"\nAI RECOMMENDATIONS:")
 print(f"  AI Recommended Requests: {recommended_requests} (Expected: 7)")
 
-print(f"\n✅ VERIFICATION:")
+print(f"\nVERIFICATION:")
 all_good = True
 
 if customers_count == 7:
-    print("  ✅ Customers: CORRECT")
+    print("  [OK] Customers: CORRECT")
 else:
-    print(f"  ❌ Customers: Expected 7, got {customers_count}")
+    print(f"  [ERROR] Customers: Expected 7, got {customers_count}")
     all_good = False
 
 if suppliers_count == 7:
-    print("  ✅ Suppliers: CORRECT")
+    print("  [OK] Suppliers: CORRECT")
 else:
-    print(f"  ❌ Suppliers: Expected 7, got {suppliers_count}")
+    print(f"  [ERROR] Suppliers: Expected 7, got {suppliers_count}")
     all_good = False
 
 if orders_count == 7:
-    print("  ✅ Orders: CORRECT")
+    print("  [OK] Orders: CORRECT")
 else:
-    print(f"  ❌ Orders: Expected 7, got {orders_count}")
+    print(f"  [ERROR] Orders: Expected 7, got {orders_count}")
     all_good = False
 
 if offers_count == 49:
-    print("  ✅ Supplier Offers: CORRECT")
+    print("  [OK] Supplier Offers: CORRECT")
 else:
-    print(f"  ❌ Supplier Offers: Expected 49, got {offers_count}")
+    print(f"  [ERROR] Supplier Offers: Expected 49, got {offers_count}")
     all_good = False
 
 if recommended_requests == 7:
-    print("  ✅ AI Recommendations: CORRECT")
+    print("  [OK] AI Recommendations: CORRECT")
 else:
-    print(f"  ⚠️  AI Recommendations: Expected 7, got {recommended_requests}")
+    print(f"  [WARNING] AI Recommendations: Expected 7, got {recommended_requests}")
 
 print("\n" + "=" * 60)
 if all_good:
-    print("✅ ALL CHECKS PASSED!")
+    print("[SUCCESS] ALL CHECKS PASSED!")
 else:
-    print("⚠️  SOME CHECKS FAILED - Review above")
+    print("[WARNING] SOME CHECKS FAILED - Review above")
 print("=" * 60)
 
 # Show sample data
 if orders_count > 0:
-    print("\n📋 SAMPLE ORDER:")
+    print("\nSAMPLE ORDER:")
     order = Order.objects.first()
     print(f"  ID: {order.id}")
     print(f"  Customer: {order.customer.name}")
@@ -103,7 +103,7 @@ if orders_count > 0:
         print(f"  Supplier: {order.supplier.name}")
 
 if recommended_requests > 0:
-    print("\n🤖 SAMPLE AI RECOMMENDATION:")
+    print("\nSAMPLE AI RECOMMENDATION:")
     request = ProductRequest.objects.filter(status='ai_recommended').first()
     if request:
         print(f"  Request: {request.title}")

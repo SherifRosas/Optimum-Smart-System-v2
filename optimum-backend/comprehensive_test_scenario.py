@@ -52,13 +52,22 @@ def print_step(step_num, text):
     print(f"{Colors.OKCYAN}[STEP {step_num}]{Colors.ENDC} {text}")
 
 def print_success(text):
-    print(f"{Colors.OKGREEN}✅ {text}{Colors.ENDC}")
+    try:
+        print(f"{Colors.OKGREEN}[OK] {text}{Colors.ENDC}")
+    except UnicodeEncodeError:
+        print(f"[OK] {text}")
 
 def print_warning(text):
-    print(f"{Colors.WARNING}⚠️  {text}{Colors.ENDC}")
+    try:
+        print(f"{Colors.WARNING}[WARNING] {text}{Colors.ENDC}")
+    except UnicodeEncodeError:
+        print(f"[WARNING] {text}")
 
 def print_error(text):
-    print(f"{Colors.FAIL}❌ {text}{Colors.ENDC}")
+    try:
+        print(f"{Colors.FAIL}[ERROR] {text}{Colors.ENDC}")
+    except UnicodeEncodeError:
+        print(f"[ERROR] {text}")
 
 def verify_clean_state():
     """Phase 1: Verify database is clean"""
@@ -79,12 +88,13 @@ def verify_clean_state():
         print_success("Database is clean - ready for testing!")
         return True
     else:
-        print_warning("Database is not clean. Some data exists.")
-        response = input("Do you want to continue anyway? (yes/no): ")
-        return response.lower() == 'yes'
+        print_warning(f"Database is not clean. Found: {orders_count} orders, {customers_count} customers, {suppliers_count} suppliers")
+        print("The script will create new test data alongside existing data.")
+        print("Continuing with test data creation...")
+        return True
 
 def verify_master_admin():
-    """Phase 2: Verify master admin exists"""
+    """Phase 2: Verify or create master admin"""
     print_header("PHASE 2: VERIFYING MASTER ADMIN")
     
     try:
@@ -94,11 +104,41 @@ def verify_master_admin():
         print(f"  Email: {admin.email}")
         print(f"  Role: {profile.role}")
         print(f"  Status: {profile.status}")
-        return True
+        return admin
     except User.DoesNotExist:
-        print_error("Master Admin (SherifRosas) not found!")
-        print("Please create master admin first using create_admin.py")
-        return False
+        print_warning("Master Admin (SherifRosas) not found!")
+        print("Creating master admin...")
+        
+        # Create master admin
+        admin = User.objects.create_user(
+            username='SherifRosas',
+            email='sherifrosas.ai@gmail.com',
+            password='01224576070#MoonLand',
+            is_staff=True,
+            is_superuser=True,
+            is_active=True
+        )
+        
+        profile, created = UserProfile.objects.get_or_create(
+            user=admin,
+            defaults={
+                'role': UserProfile.RoleChoices.ADMIN,
+                'status': UserProfile.StatusChoices.ACTIVE
+            }
+        )
+        
+        if not created:
+            profile.role = UserProfile.RoleChoices.ADMIN
+            profile.status = UserProfile.StatusChoices.ACTIVE
+            profile.save()
+        
+        print_success(f"Master Admin Created: {admin.username}")
+        print(f"  Email: {admin.email}")
+        print(f"  Password: 01224576070#MoonLand")
+        return admin
+    except Exception as e:
+        print_error(f"Error with master admin: {e}")
+        return None
 
 def create_subadmin():
     """Phase 3.1: Create 1 subadmin"""
@@ -429,15 +469,12 @@ def create_orders(customers):
     
     return orders
 
-def create_product_requests(orders):
+def create_product_requests(orders, requester):
     """Phase 5: Create product requests for AI supplier selection"""
     print_header("PHASE 5: CREATING PRODUCT REQUESTS FOR AI SELECTION")
     
-    # Get master admin as requester
-    try:
-        requester = User.objects.get(username='SherifRosas')
-    except User.DoesNotExist:
-        print_error("Master admin not found for product requests")
+    if not requester:
+        print_error("Requester (master admin) not provided")
         return []
     
     product_requests = []
@@ -605,13 +642,13 @@ def final_verification():
     in_prep_count = Order.objects.filter(status='in-preparation').count()
     
     print(f"{Colors.BOLD}System State:{Colors.ENDC}")
-    print(f"  ✅ Customers: {customers_count} (Expected: 7)")
-    print(f"  ✅ Suppliers: {suppliers_count} (Expected: 7)")
-    print(f"  ✅ Orders: {orders_count} (Expected: 7)")
-    print(f"  ✅ Product Requests: {requests_count} (Expected: 7)")
-    print(f"  ✅ Supplier Offers: {offers_count} (Expected: 49)")
-    print(f"  ✅ Orders in Preparation: {in_prep_count}")
-    print(f"  ✅ Orders Delivered: {delivered_count}")
+    print(f"  [OK] Customers: {customers_count} (Expected: 7)")
+    print(f"  [OK] Suppliers: {suppliers_count} (Expected: 7)")
+    print(f"  [OK] Orders: {orders_count} (Expected: 7)")
+    print(f"  [OK] Product Requests: {requests_count} (Expected: 7)")
+    print(f"  [OK] Supplier Offers: {offers_count} (Expected: 49)")
+    print(f"  [OK] Orders in Preparation: {in_prep_count}")
+    print(f"  [OK] Orders Delivered: {delivered_count}")
     
     print(f"\n{Colors.BOLD}Test Status:{Colors.ENDC}")
     if customers_count == 7 and suppliers_count == 7 and orders_count == 7:
@@ -628,18 +665,17 @@ def main():
     """Main test execution"""
     print_header("COMPREHENSIVE TEST SCENARIO - AUTOMATED SCRIPT")
     print("This script will test the complete system workflow")
-    print("Starting in 3 seconds...")
-    import time
-    time.sleep(3)
+    print("Starting now...")
     
     # Phase 1: Verify clean state
     if not verify_clean_state():
         print_error("Test aborted - database not clean")
         return
     
-    # Phase 2: Verify master admin
-    if not verify_master_admin():
-        print_error("Test aborted - master admin not found")
+    # Phase 2: Verify or create master admin
+    master_admin = verify_master_admin()
+    if not master_admin:
+        print_error("Test aborted - could not create/verify master admin")
         return
     
     # Phase 3: Create users
@@ -652,7 +688,7 @@ def main():
     orders = create_orders(customers)
     
     # Phase 5: Create product requests
-    product_requests = create_product_requests(orders)
+    product_requests = create_product_requests(orders, master_admin)
     
     # Phase 6: Create supplier offers
     create_supplier_offers(product_requests, suppliers)
