@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useMemo, memo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useLanguage } from '../contexts/LanguageContext';
 import './OrderList.css';
 
 const OrderList = ({ orders, onStatusUpdate }) => {
+  const { t } = useLanguage();
   const [filterStatus, setFilterStatus] = useState('all');
   const [sortBy, setSortBy] = useState('createdAt');
   const [sortOrder, setSortOrder] = useState('desc');
@@ -12,20 +14,22 @@ const OrderList = ({ orders, onStatusUpdate }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(12);
 
-  const statusOptions = [
-    { value: 'all', label: 'All Orders' },
-    { value: 'pending', label: 'Pending' },
-    { value: 'in-preparation', label: 'In Preparation' },
-    { value: 'ready', label: 'Ready' },
-    { value: 'delivered', label: 'Delivered' }
-  ];
+  const statusOptions = useMemo(() => [
+    { value: 'all', label: t('allOrders') },
+    { value: 'pending', label: t('pending') },
+    { value: 'in-preparation', label: t('inPreparation') },
+    { value: 'ready', label: t('ready') },
+    { value: 'delivered', label: t('delivered') },
+    { value: 'cancelled', label: t('cancelled') }
+  ], [t]);
 
-  const statusLabels = {
-    'pending': 'Pending',
-    'in-preparation': 'In Preparation',
-    'ready': 'Ready',
-    'delivered': 'Delivered'
-  };
+  const statusLabels = useMemo(() => ({
+    'pending': t('pending'),
+    'in-preparation': t('inPreparation'),
+    'ready': t('ready'),
+    'delivered': t('delivered'),
+    'cancelled': t('cancelled')
+  }), [t]);
 
   // Debounce search
   useEffect(() => {
@@ -149,17 +153,17 @@ const OrderList = ({ orders, onStatusUpdate }) => {
   return (
     <div className="order-list">
       <div className="page-header">
-        <h2>Order Management</h2>
-        <p>Manage and track all customer orders</p>
+        <h2>{t('orderManagement')}</h2>
+        <p>{t('manageTrackOrders')}</p>
       </div>
 
       <div className="filters-section">
         <div className="filter-group search-group">
-          <label htmlFor="searchInput">Search:</label>
+          <label htmlFor="searchInput">{t('search')}:</label>
           <input
             id="searchInput"
             type="text"
-            placeholder="Search by customer, product, phone, or order ID..."
+            placeholder={t('searchOrdersPlaceholder')}
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="search-input"
@@ -167,7 +171,7 @@ const OrderList = ({ orders, onStatusUpdate }) => {
         </div>
 
         <div className="filter-group">
-          <label htmlFor="statusFilter">Filter by Status:</label>
+          <label htmlFor="statusFilter">{t('filterByStatus')}:</label>
           <select
             id="statusFilter"
             value={filterStatus}
@@ -183,7 +187,7 @@ const OrderList = ({ orders, onStatusUpdate }) => {
         </div>
 
         <div className="filter-group">
-          <label htmlFor="sortBy">Sort by:</label>
+          <label htmlFor="sortBy">{t('sortBy')}:</label>
           <select
             id="sortBy"
             value={sortBy}
@@ -193,17 +197,17 @@ const OrderList = ({ orders, onStatusUpdate }) => {
             }}
             className="filter-select"
           >
-            <option value="createdAt">Date Created</option>
-            <option value="deliveryDate">Delivery Date</option>
-            <option value="customerName">Customer Name</option>
-            <option value="productType">Product Type</option>
-            <option value="totalAmount">Total Amount</option>
-            <option value="quantity">Quantity</option>
+            <option value="createdAt">{t('dateCreated')}</option>
+            <option value="deliveryDate">{t('deliveryDate')}</option>
+            <option value="customerName">{t('customerName')}</option>
+            <option value="productType">{t('productType')}</option>
+            <option value="totalAmount">{t('totalAmount')}</option>
+            <option value="quantity">{t('quantity')}</option>
           </select>
         </div>
 
         <div className="filter-group">
-          <label htmlFor="dateStart">Date From:</label>
+          <label htmlFor="dateStart">{t('dateFrom')}:</label>
           <input
             id="dateStart"
             type="date"
@@ -217,7 +221,7 @@ const OrderList = ({ orders, onStatusUpdate }) => {
         </div>
 
         <div className="filter-group">
-          <label htmlFor="dateEnd">Date To:</label>
+          <label htmlFor="dateEnd">{t('dateTo')}:</label>
           <input
             id="dateEnd"
             type="date"
@@ -257,7 +261,7 @@ const OrderList = ({ orders, onStatusUpdate }) => {
       <div className="orders-container">
         {sortedOrders.length === 0 ? (
           <div className="no-orders">
-            <p>No orders found matching your criteria.</p>
+            <p>{t('noOrdersFound')}</p>
           </div>
         ) : (
           <div className="orders-grid">
@@ -280,34 +284,34 @@ const OrderList = ({ orders, onStatusUpdate }) => {
                 
                 <div className="order-details">
                   <div className="detail-row">
-                    <span className="label">Customer:</span>
-                    <span className="value">{order.customerName || 'N/A'}</span>
+                    <span className="label">{t('customerName')}:</span>
+                    <span className="value">{order.customerName || t('nA')}</span>
                   </div>
                   <div className="detail-row">
-                    <span className="label">Phone:</span>
-                    <span className="value">{order.phoneNumber || 'N/A'}</span>
+                    <span className="label">{t('phone')}:</span>
+                    <span className="value">{order.phoneNumber || t('nA')}</span>
                   </div>
                   <div className="detail-row">
-                    <span className="label">Product:</span>
-                    <span className="value">{order.productType || 'N/A'}</span>
+                    <span className="label">{t('product')}:</span>
+                    <span className="value">{order.productType || t('nA')}</span>
                   </div>
                   <div className="detail-row">
-                    <span className="label">Quantity:</span>
+                    <span className="label">{t('quantity')}:</span>
                     <span className="value">{order.quantity || 0}</span>
                   </div>
                   <div className="detail-row">
-                    <span className="label">Delivery Date:</span>
+                    <span className="label">{t('deliveryDate')}:</span>
                     <span className="value">{formatDate(order.deliveryDate)}</span>
                   </div>
                   <div className="detail-row">
-                    <span className="label">Created:</span>
+                    <span className="label">{t('created')}:</span>
                     <span className="value">{formatDate(order.createdAt)}</span>
                   </div>
                 </div>
 
                 <div className="order-actions">
                   <div className="status-selector">
-                    <label htmlFor={`status-${order.id}`}>Update Status:</label>
+                    <label htmlFor={`status-${order.id}`}>{t('updateStatus')}:</label>
                     <select
                       id={`status-${order.id}`}
                       value={order.status}
@@ -337,11 +341,11 @@ const OrderList = ({ orders, onStatusUpdate }) => {
             className="pagination-btn"
             aria-label="Previous page"
           >
-            Previous
+            {t('previous')}
           </button>
           
           <div className="pagination-info">
-            Page {currentPage} of {totalPages}
+            {t('page')} {currentPage} {t('of')} {totalPages}
           </div>
           
           {Array.from({ length: Math.min(5, totalPages) }, (_, i) => {
@@ -374,18 +378,18 @@ const OrderList = ({ orders, onStatusUpdate }) => {
             className="pagination-btn"
             aria-label="Next page"
           >
-            Next
+            {t('next')}
           </button>
         </div>
       )}
 
       <div className="orders-summary">
         <p>
-          Showing {startIndex + 1}-{Math.min(endIndex, sortedOrders.length)} of {sortedOrders.length} orders
-          {filterStatus !== 'all' || debouncedSearch || dateRange.start || dateRange.end ? ' (filtered)' : ''}
+          {t('showing')} {startIndex + 1}-{Math.min(endIndex, sortedOrders.length)} {t('of')} {sortedOrders.length} {t('orders')}
+          {filterStatus !== 'all' || debouncedSearch || dateRange.start || dateRange.end ? ` (${t('filtered')})` : ''}
         </p>
         <div className="items-per-page">
-          <label htmlFor="itemsPerPage">Items per page:</label>
+          <label htmlFor="itemsPerPage">{t('itemsPerPage')}:</label>
           <select
             id="itemsPerPage"
             value={itemsPerPage}

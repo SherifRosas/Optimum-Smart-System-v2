@@ -100,7 +100,35 @@ export const translations = {
     analytics: "Analytics",
     accounting: "Accounting",
     userManagement: "User Management",
-    settings: "Settings"
+    settings: "Settings",
+    
+    // OrderList
+    allOrders: "All Orders",
+    orderManagement: "Order Management",
+    manageTrackOrders: "Manage and track all customer orders",
+    search: "Search",
+    searchOrdersPlaceholder: "Search by customer, product, phone, or order ID...",
+    filterByStatus: "Filter by Status",
+    sortBy: "Sort by",
+    dateCreated: "Date Created",
+    dateFrom: "Date From",
+    dateTo: "Date To",
+    customerName: "Customer",
+    phone: "Phone",
+    product: "Product",
+    deliveryDate: "Delivery Date",
+    created: "Created",
+    updateStatus: "Update Status",
+    previous: "Previous",
+    next: "Next",
+    page: "Page",
+    of: "of",
+    showing: "Showing",
+    filtered: "filtered",
+    itemsPerPage: "Items per page",
+    noOrdersFound: "No orders found matching your criteria.",
+    nA: "N/A",
+    cancelled: "Cancelled"
   },
   
   ar: {
