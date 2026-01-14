@@ -22,7 +22,6 @@ const Login: React.FC = () => {
     const selectedRole = searchParams.get('role');
     const { login } = useAuth();
     const toast = useToast();
-    const { ToastContainer } = toast;
     const navigate = useNavigate();
 
     const roleInfo: Record<string, RoleDetail> = {
@@ -196,7 +195,6 @@ const Login: React.FC = () => {
                     </div>
                 </motion.div>
             </div>
-            <ToastContainer />
         </div>
     );
 };

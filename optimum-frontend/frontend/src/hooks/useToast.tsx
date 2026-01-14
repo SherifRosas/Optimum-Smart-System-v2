@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useMemo, ReactNode } from 'react';
+import React, { useState, useCallback, useMemo } from 'react';
 import Toast from '../components/Toast';
 
 type ToastType = 'success' | 'error' | 'warning' | 'info';
@@ -42,21 +42,27 @@ export const useToast = () => {
     return showToast(message, 'info', duration);
   }, [showToast]);
 
-  const ToastContainer = useCallback((): ReactNode => {
-    if (toasts.length === 0) return null;
-    return (
-      <div className="toast-container">
-        {toasts.map((toastItem) => (
-          <Toast
-            key={toastItem.id}
-            message={toastItem.message}
-            type={toastItem.type}
-            duration={toastItem.duration}
-            onClose={() => removeToast(toastItem.id)}
-          />
-        ))}
-      </div>
-    ) as ReactNode;
+  // Create ToastContainer as a stable React component
+  const ToastContainer = useMemo(() => {
+    const Component: React.FC = () => {
+      if (toasts.length === 0) return null;
+      return (
+        <div className="toast-container">
+          {toasts.map((toastItem) => (
+            <Toast
+              key={toastItem.id}
+              message={toastItem.message}
+              type={toastItem.type}
+              duration={toastItem.duration}
+              onClose={() => removeToast(toastItem.id)}
+            />
+          ))}
+        </div>
+      );
+    };
+    // Add display name for better debugging
+    Component.displayName = 'ToastContainer';
+    return Component;
   }, [toasts, removeToast]);
 
   // Memoize the return object to prevent unnecessary re-renders
@@ -70,7 +76,3 @@ export const useToast = () => {
     ToastContainer
   }), [showToast, success, error, warning, info, removeToast, ToastContainer]);
 };
-
-
-
-

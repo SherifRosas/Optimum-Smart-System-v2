@@ -461,14 +461,8 @@
   position: relative;
   z-index: 1;
   background: transparent;
-}
-
-/* Desktop: Add margin for sidebar */
-@media (min-width: 769px) {
-  .main-content {
-    margin-left: 260px;
-    margin-top: 70px;
-  }
+  margin-left: 260px;
+  margin-top: 70px;
 }
 
 /* Mobile: Full width, no margin */
