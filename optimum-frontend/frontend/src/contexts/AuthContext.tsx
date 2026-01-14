@@ -47,13 +47,20 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     // Check if user is logged in on mount
     const checkAuth = async (): Promise<void> => {
       try {
+        // Check if token exists first
+        const token = localStorage.getItem('access_token');
+        if (!token) {
+          setLoading(false);
+          return;
+        }
+
         if (authService.isAuthenticated()) {
           const currentUser = authService.getCurrentUser();
           if (currentUser) {
             setUser(currentUser);
             setIsAuthenticated(true);
             
-            // Optionally refresh profile from server
+            // Optionally refresh profile from server (silently fail if error)
             try {
               const profileData = await authService.getProfile();
               if (profileData.success && profileData.user) {
@@ -61,14 +68,9 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
                 localStorage.setItem('user', JSON.stringify(profileData.user));
               }
             } catch (error: any) {
-              // Silently handle expected errors (401, network errors)
+              // Silently handle all errors - don't break the app
               const status = error?.response?.status;
-              const isNetworkError = !error?.response && error?.message?.includes('Network');
               
-              if (status !== 401 && status !== 403 && !isNetworkError) {
-                // Only log unexpected errors
-                console.error('Error fetching profile:', error);
-              }
               // Clear invalid tokens on 401/403
               if (status === 401 || status === 403) {
                 localStorage.removeItem('access_token');
@@ -77,15 +79,13 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
                 setUser(null);
                 setIsAuthenticated(false);
               }
+              // Don't log network errors or auth errors - they're expected
             }
           }
         }
       } catch (error: any) {
-        // Silently handle expected errors
-        const isNetworkError = !error?.response && error?.message?.includes('Network');
-        if (!isNetworkError) {
-          console.error('Auth check error:', error);
-        }
+        // Silently handle all errors - don't break the app
+        // Just ensure loading is set to false
       } finally {
         setLoading(false);
       }
