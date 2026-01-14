@@ -735,7 +735,11 @@ function App() {
     const isAuthPage = location.pathname === '/login' || location.pathname === '/signup';
     // Check for root path - handle both exact '/' and empty pathname (Vercel edge case)
     // Also check if currentView is null (initial state for root)
-    const isRoleSelection = location.pathname === '/' || location.pathname === '' || !location.pathname || currentView === null;
+    // Do not treat auth pages as role selection
+    const isRoleSelection = !isAuthPage && (location.pathname === '/' || location.pathname === '' || !location.pathname || currentView === null);
+    // #region agent log
+    fetch('http://127.0.0.1:7243/ingest/2f508c51-eb71-4984-ac85-c8d0748c9513',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'App.tsx:736',message:'route_flags',data:{pathname:location.pathname,isAuthPage,isRoleSelection,currentView,authIsAuthenticated:auth.isAuthenticated},timestamp:Date.now(),sessionId:'debug-session',runId:'pre-fix',hypothesisId:'H1'})}).catch(()=>{});
+    // #endregion
 
     // Handle route-based navigation for profile/settings
     useEffect(() => {
@@ -759,6 +763,9 @@ function App() {
     // Users can still access it to switch roles or see the landing page
     // This early return ensures root path ALWAYS shows RoleSelection
     if (isRoleSelection) {
+        // #region agent log
+        fetch('http://127.0.0.1:7243/ingest/2f508c51-eb71-4984-ac85-c8d0748c9513',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'App.tsx:761',message:'render_role_selection',data:{pathname:location.pathname,currentView},timestamp:Date.now(),sessionId:'debug-session',runId:'pre-fix',hypothesisId:'H1'})}).catch(()=>{});
+        // #endregion
         // If authenticated, allow access but show role selection
         // If not authenticated, show role selection (required)
         return (
@@ -777,6 +784,9 @@ function App() {
 
     // If on auth page, show only auth component
     if (isAuthPage) {
+        // #region agent log
+        fetch('http://127.0.0.1:7243/ingest/2f508c51-eb71-4984-ac85-c8d0748c9513',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'App.tsx:779',message:'render_auth_page',data:{pathname:location.pathname},timestamp:Date.now(),sessionId:'debug-session',runId:'pre-fix',hypothesisId:'H1'})}).catch(()=>{});
+        // #endregion
         return (
             <ErrorBoundary>
                 <Routes>

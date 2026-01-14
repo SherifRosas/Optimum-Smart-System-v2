@@ -32,6 +32,23 @@ const Login: React.FC = () => {
     };
 
     const currentRole = selectedRole ? roleInfo[selectedRole] : null;
+    // #region agent log
+    fetch('http://127.0.0.1:7243/ingest/2f508c51-eb71-4984-ac85-c8d0748c9513',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'Login.tsx:35',message:'login_render',data:{selectedRole,hasCurrentRole:!!currentRole},timestamp:Date.now(),sessionId:'debug-session',runId:'pre-fix',hypothesisId:'H2'})}).catch(()=>{});
+    // #endregion
+
+    const toErrorMessage = (value: unknown): string => {
+        if (typeof value === 'string') return value;
+        if (value && typeof value === 'object') {
+            const maybeMessage = (value as { message?: unknown }).message;
+            if (typeof maybeMessage === 'string') return maybeMessage;
+            try {
+                return JSON.stringify(value);
+            } catch {
+                return 'An error occurred. Please try again.';
+            }
+        }
+        return 'An error occurred. Please try again.';
+    };
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -64,18 +81,29 @@ const Login: React.FC = () => {
                     window.location.href = '/dashboard';
                 }, 500);
             } else {
-                const errorMsg = result.error || 'Login failed. Please check your credentials.';
+                const errorMsg = toErrorMessage(result.error) || 'Login failed. Please check your credentials.';
                 setError(errorMsg);
                 toast.error(errorMsg);
             }
         } catch (error: any) {
             console.error('Login error:', error);
-            const errorMsg = error.response?.data?.error || error.message || 'An error occurred. Please try again.';
+            const errorMsg = toErrorMessage(error.response?.data?.error || error.message);
             setError(errorMsg);
             toast.error(errorMsg);
         } finally {
             setLoading(false);
         }
+    };
+
+    const handleClearTokens = (): void => {
+        localStorage.removeItem('access_token');
+        localStorage.removeItem('refresh_token');
+        localStorage.removeItem('user');
+        setError('');
+        // #region agent log
+        fetch('http://127.0.0.1:7243/ingest/2f508c51-eb71-4984-ac85-c8d0748c9513',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'Login.tsx:89',message:'tokens_cleared',data:{cleared:true},timestamp:Date.now(),sessionId:'debug-session',runId:'post-fix',hypothesisId:'H6'})}).catch(()=>{});
+        // #endregion
+        toast.info('Tokens cleared. Please sign in again.');
     };
 
     return (
@@ -192,6 +220,14 @@ const Login: React.FC = () => {
                                 Sign up
                             </Link>
                         </p>
+                        <button
+                            type="button"
+                            className="auth-link"
+                            onClick={handleClearTokens}
+                            style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}
+                        >
+                            Clear tokens
+                        </button>
                     </div>
                 </motion.div>
             </div>

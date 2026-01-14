@@ -13,6 +13,19 @@ import { initSentry } from './utils/sentry';
 
 // Initialize Sentry
 initSentry();
+// #region agent log
+fetch('http://127.0.0.1:7243/ingest/2f508c51-eb71-4984-ac85-c8d0748c9513',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'main.tsx:15',message:'main_init',data:{userAgent:navigator.userAgent},timestamp:Date.now(),sessionId:'debug-session',runId:'post-fix',hypothesisId:'H5'})}).catch(()=>{});
+// #endregion
+
+// #region agent log
+window.addEventListener('error', (event) => {
+  fetch('http://127.0.0.1:7243/ingest/2f508c51-eb71-4984-ac85-c8d0748c9513',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'main.tsx:20',message:'window_error',data:{message:event.message,filename:event.filename,lineno:event.lineno,colno:event.colno},timestamp:Date.now(),sessionId:'debug-session',runId:'post-fix',hypothesisId:'H5'})}).catch(()=>{});
+});
+window.addEventListener('unhandledrejection', (event) => {
+  const reason = (event as PromiseRejectionEvent).reason;
+  fetch('http://127.0.0.1:7243/ingest/2f508c51-eb71-4984-ac85-c8d0748c9513',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'main.tsx:25',message:'unhandled_rejection',data:{reasonType:typeof reason,reasonMessage:reason?.message || String(reason)},timestamp:Date.now(),sessionId:'debug-session',runId:'post-fix',hypothesisId:'H5'})}).catch(()=>{});
+});
+// #endregion
 
 // Error boundary for better error handling
 const rootElement = document.getElementById('root');

@@ -26,6 +26,9 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
       error,
       errorInfo
     });
+    // #region agent log
+    fetch('http://127.0.0.1:7243/ingest/2f508c51-eb71-4984-ac85-c8d0748c9513',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'ErrorBoundary.tsx:24',message:'error_boundary_catch',data:{errorMessage:error?.message || 'unknown',hasStack:!!error?.stack,componentStackPresent:!!errorInfo?.componentStack},timestamp:Date.now(),sessionId:'debug-session',runId:'post-fix',hypothesisId:'H4'})}).catch(()=>{});
+    // #endregion
     console.error('Error caught by boundary:', error, errorInfo);
   }
 

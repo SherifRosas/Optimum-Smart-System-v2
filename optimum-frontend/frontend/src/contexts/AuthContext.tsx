@@ -47,6 +47,9 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     // Check if user is logged in on mount
     const checkAuth = async (): Promise<void> => {
       try {
+        // #region agent log
+        fetch('http://127.0.0.1:7243/ingest/2f508c51-eb71-4984-ac85-c8d0748c9513',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'AuthContext.tsx:49',message:'check_auth_start',data:{hasAccessToken:!!localStorage.getItem('access_token')},timestamp:Date.now(),sessionId:'debug-session',runId:'pre-fix',hypothesisId:'H3'})}).catch(()=>{});
+        // #endregion
         // Check if token exists first
         const token = localStorage.getItem('access_token');
         if (!token) {
