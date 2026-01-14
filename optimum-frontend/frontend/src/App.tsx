@@ -168,7 +168,6 @@ function App() {
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
     const toast = useToast();
-    const { ToastContainer } = toast;
 
     // Load orders from API with real-time polling (filtered by role)
     useEffect(() => {
@@ -785,7 +784,6 @@ function App() {
                     <Route path="/login" element={<Login />} />
                     <Route path="/signup" element={<Signup />} />
                 </Routes>
-                <ToastContainer />
             </ErrorBoundary>
         );
     }
@@ -875,7 +873,6 @@ function App() {
                     }
                 />
             </Routes>
-            <ToastContainer />
         </ErrorBoundary>
     );
 }

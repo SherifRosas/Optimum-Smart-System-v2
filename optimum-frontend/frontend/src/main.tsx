@@ -5,6 +5,7 @@ import App from './App.jsx'; // Import App.jsx - Main routing app with Command C
 import { AuthProvider } from './contexts/AuthContext';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { LanguageProvider } from './contexts/LanguageContext';
+import { ToastProvider } from './contexts/ToastContext';
 import './index.css';
 import './styles/responsive-global.css';
 import './styles/responsive-fixes.css';
@@ -83,7 +84,9 @@ if (!checkBrowserSupport()) {
           <ThemeProvider>
             <LanguageProvider>
               <AuthProvider>
-                <App />
+                <ToastProvider>
+                  <App />
+                </ToastProvider>
               </AuthProvider>
             </LanguageProvider>
           </ThemeProvider>
