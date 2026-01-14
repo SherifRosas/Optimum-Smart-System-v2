@@ -771,7 +771,6 @@ function App() {
                     {/* Catch-all to redirect other paths to root during role selection */}
                     <Route path="*" element={<Navigate to="/" replace />} />
                 </Routes>
-                <ToastContainer />
             </ErrorBoundary>
         );
     }
