@@ -42,7 +42,7 @@ Write-Host "📋 Server URLs:" -ForegroundColor Cyan
 Write-Host "   Frontend: http://localhost:3000" -ForegroundColor Yellow
 Write-Host "   Backend:  http://localhost:8000/api/" -ForegroundColor Yellow
 Write-Host ""
-Write-Host "💡 Two PowerShell windows opened:" -ForegroundColor Cyan
+Write-Host "Two PowerShell windows opened:" -ForegroundColor Cyan
 Write-Host "   1. Backend server (Django)" -ForegroundColor White
 Write-Host "   2. Frontend server (Vite)" -ForegroundColor White
 Write-Host ""
