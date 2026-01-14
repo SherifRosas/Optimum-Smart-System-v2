@@ -130,7 +130,6 @@ export const authService = {
   login: async (username: string, password: string): Promise<AuthResponse> => {
     try {
       const response = await authAPI.post<AuthResponse>('/auth/login/', { username, password });
-      console.log('Login API response:', response.data);
       if (response.data.success) {
         const { tokens, user, profile } = response.data;
         localStorage.setItem('access_token', tokens.access);
@@ -138,9 +137,15 @@ export const authService = {
         localStorage.setItem('user', JSON.stringify({ ...user, ...profile }));
       }
       return response.data;
-    } catch (error) {
-      console.error('Login API error:', error);
-      console.error('Error response:', (error as { response?: { data?: unknown } }).response?.data);
+    } catch (error: any) {
+      // Silently handle expected errors (401 for wrong credentials, network errors)
+      const status = error?.response?.status;
+      const isNetworkError = !error?.response && error?.message?.includes('Network');
+      
+      if (status !== 401 && !isNetworkError) {
+        console.error('Login API error:', error);
+        console.error('Error response:', error.response?.data);
+      }
       throw error;
     }
   },

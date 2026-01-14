@@ -60,13 +60,32 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
                 setUser(profileData.user);
                 localStorage.setItem('user', JSON.stringify(profileData.user));
               }
-            } catch (error) {
-              console.error('Error fetching profile:', error);
+            } catch (error: any) {
+              // Silently handle expected errors (401, network errors)
+              const status = error?.response?.status;
+              const isNetworkError = !error?.response && error?.message?.includes('Network');
+              
+              if (status !== 401 && status !== 403 && !isNetworkError) {
+                // Only log unexpected errors
+                console.error('Error fetching profile:', error);
+              }
+              // Clear invalid tokens on 401/403
+              if (status === 401 || status === 403) {
+                localStorage.removeItem('access_token');
+                localStorage.removeItem('refresh_token');
+                localStorage.removeItem('user');
+                setUser(null);
+                setIsAuthenticated(false);
+              }
             }
           }
         }
-      } catch (error) {
-        console.error('Auth check error:', error);
+      } catch (error: any) {
+        // Silently handle expected errors
+        const isNetworkError = !error?.response && error?.message?.includes('Network');
+        if (!isNetworkError) {
+          console.error('Auth check error:', error);
+        }
       } finally {
         setLoading(false);
       }
@@ -77,9 +96,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
   const login = async (username: string, password: string): Promise<{ success: boolean; error?: string }> => {
     try {
-      console.log('AuthContext: Calling authService.login');
       const response = await authService.login(username, password);
-      console.log('AuthContext: Login response:', response);
       if (response && response.success) {
         const userData = { ...response.user, ...response.profile };
         setUser(userData);
@@ -89,9 +106,15 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       }
       return { success: false, error: (response as { error?: string }).error || 'Login failed' };
     } catch (error) {
-      console.error('AuthContext: Login error:', error);
-      const err = error as { response?: { data?: { error?: string; detail?: string } }; message?: string };
-      console.error('AuthContext: Error response data:', err.response?.data);
+      // Only log unexpected errors (not 401 which is expected for wrong credentials)
+      const err = error as { response?: { data?: { error?: string; detail?: string }; status?: number }; message?: string };
+      const status = err.response?.status;
+      
+      if (status !== 401) {
+        console.error('AuthContext: Login error:', error);
+        console.error('AuthContext: Error response data:', err.response?.data);
+      }
+      
       return {
         success: false,
         error: err.response?.data?.error || err.response?.data?.detail || err.message || 'Login failed',
@@ -129,8 +152,12 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const logout = async (): Promise<void> => {
     try {
       await authService.logout();
-    } catch (error) {
-      console.error('Logout error:', error);
+    } catch (error: any) {
+      // Silently handle logout errors (network errors, etc.)
+      const isNetworkError = !error?.response && error?.message?.includes('Network');
+      if (!isNetworkError && error?.response?.status !== 401) {
+        console.error('Logout error:', error);
+      }
     } finally {
       setUser(null);
       setIsAuthenticated(false);
