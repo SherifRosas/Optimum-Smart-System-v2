@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Optimum vs Odoo - System Comparison</title>
+    <style>
+      :root {
+        color-scheme: light;
+      }
+      body {
+        margin: 0;
+        padding: 24px;
+        font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+        background: #f6f7f9;
+        color: #111827;
+      }
+      .container {
+        max-width: 980px;
+        margin: 0 auto;
+        background: #ffffff;
+        padding: 28px 32px;
+        border-radius: 10px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      }
+      h1, h2, h3 {
+        color: #0f172a;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 12px 0 24px;
+      }
+      th, td {
+        border: 1px solid #e5e7eb;
+        padding: 10px 12px;
+        text-align: left;
+        vertical-align: top;
+      }
+      th {
+        background: #f3f4f6;
+      }
+      code {
+        background: #f3f4f6;
+        padding: 2px 6px;
+        border-radius: 4px;
+      }
+      .muted {
+        color: #6b7280;
+        font-size: 0.9rem;
+      }
+      .error {
+        color: #b91c1c;
+        background: #fee2e2;
+        padding: 10px 12px;
+        border-radius: 6px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Optimum Smart System vs Softobia Odoo ERP</h1>
+      <p class="muted">
+        Online-ready view. This page renders the markdown file automatically.
+      </p>
+      <div id="content">Loading...</div>
+      <noscript class="error">Please enable JavaScript to render the comparison.</noscript>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+      const contentEl = document.getElementById("content");
+
+      fetch("SYSTEM_COMPARISON_ODOO_VS_OPTIMUM.md")
+        .then((res) => {
+          if (!res.ok) {
+            throw new Error("Failed to load markdown file.");
+          }
+          return res.text();
+        })
+        .then((md) => {
+          contentEl.innerHTML = marked.parse(md);
+        })
+        .catch((err) => {
+          contentEl.innerHTML = "<p class=\"error\">" + err.message + "</p>";
+        });
+    </script>
+  </body>
+</html>

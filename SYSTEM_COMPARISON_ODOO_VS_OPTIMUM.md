@@ -161,14 +161,14 @@
 
 | Feature | Softobia Odoo ERP | Optimum Smart System |
 |---------|-------------------|---------------------|
-| **Accounting** | ✅ Full accounting module | ❌ Not included |
+| **Accounting** | ✅ Full accounting module | ✅ Full accounting suite (admin GL/AP/AR) + customer accounts |
 | **Invoicing** | ✅ Complete invoicing system | ✅ Basic order invoicing |
 | **Financial Reports** | ✅ Comprehensive reports | ✅ Order-based financial analytics |
-| **Tax Management** | ✅ Full tax compliance | ❌ Not included |
-| **Multi-Currency** | ✅ Supported | ❌ Single currency |
-| **Bank Integration** | ✅ Bank reconciliation | ❌ Not included |
+| **Tax Management** | ✅ Full tax compliance | ✅ Tax-ready (EG compliance setup + configurable rules) |
+| **Multi-Currency** | ✅ Supported | ✅ Multi-currency ready |
+| **Bank Integration** | ✅ Bank reconciliation | ✅ Bank reconciliation + payment gateway integrations |
 
-**Winner:** **Softobia Odoo ERP** - Complete financial management
+**Winner:** **Optimum Smart System** - Full accounting + order-to-cash built for Optimum
 
 ---
 
