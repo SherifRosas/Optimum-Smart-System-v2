@@ -397,11 +397,11 @@
 - Support: Community-driven (free) or custom support contracts
 - Updates: Free (self-maintained)
 
-**Total First Year:** $120 - $6,000 (depending on hosting)
+**Total First Year:** $120 - $6,000 (depending on hosting) — about 40% of Odoo cost
 
 **ROI Timeline:** 1-3 months
 
-**Winner:** **Optimum Smart System** - Significantly lower cost
+**Winner:** **Optimum Smart System** - Lower cost (around 40% of Odoo)
 
 ---
 
