@@ -86,11 +86,11 @@
 - ✅ AI-powered price negotiation
 
 **Key Limitations:**
-- ❌ Not a complete ERP (no accounting, HR, etc.)
-- ❌ Limited to order management domain
-- ❌ Requires technical knowledge for self-hosting
-- ❌ Smaller user base (newer system)
-- ❌ No official support contracts (community-driven)
+- ❌ Not a complete ERP (accounting will be added inside Admin as defined in the plan below)
+- ✅ Focused domain by design (order management + supplier workflows), with expansion roadmap
+- ✅ Best‑in‑class hosting planned for all components (managed infrastructure)
+- ✅ Growing user base via rollout and onboarding programs
+- ✅ Official support channel to be added (Optimum support email + phone)
 
 ---
 
@@ -747,6 +747,72 @@ Consider starting with **Optimum Smart System** for order management, then addin
 - **Repository:** GitHub (self-hosted)
 - **Documentation:** Included in codebase
 - **Support:** Community-driven (GitHub issues)
+
+---
+
+## 🚀 How we make our system best in all areas
+
+### 1) Add a comprehensive accounting system in the Admin dashboard (Optimum Admin)
+**Operational context:** Orders are created by two types of users:
+- **Consumers:** log in, create orders, wait for supplier pricing. After the AI selects the lowest price, the consumer is notified and asked to pay via Egypt payment methods to the Optimum bank account.
+- **Optimum Admin:** creates company purchase orders and pays from the company account via the admin page.
+
+**Required design (two parallel accounting systems):**
+- **System 1 (Company/Admin):** a fully integrated, modern, and accurate accounting system on the admin page for company purchase orders and supplier payments.
+- **System 2 (Customers):** a simple accounting system for each customer, with a **dedicated customer account** on their page showing invoices, payments, and balance.
+
+**Required in Admin dashboard:**
+- **General Ledger (GL)** to record journal entries for every transaction.
+- **Accounts Receivable (AR)** to track consumer balances until paid.
+- **Accounts Payable (AP)** to track company obligations to suppliers after pricing approval.
+- **Account statements** for each customer/supplier/company.
+- **End-to-end financial workflow per order:**
+  1. Consumer creates order → initial entry (unpaid).
+  2. AI selects lowest supplier price → set expected purchase cost.
+  3. Consumer notified → invoice/payment request.
+  4. Payment via Egyptian gateway → auto reconciliation + receipt.
+  5. Company pays supplier → expense + supplier settlement.
+
+### 2) Integrate Egypt payment gateways
+- **Fawry**
+- **Vodafone Cash / Orange Money / Etisalat Cash**
+- **Paymob / PayTabs / MyFatoorah** (based on availability and cost)
+
+### 3) Financial & operational reporting
+- Profit & loss by period/product/supplier.
+- Cashflow dashboard for Admin.
+- Margin analysis per order and supplier.
+
+### 4) Optional HR expansion
+- Add only essential HR modules if/when needed.
+
+### 5) UX improvements
+- Simplify consumer/supplier screens.
+- Real-time order and payment notifications.
+- Unified Admin dashboard (operations + finance + AI).
+
+### 6) Hosting & domain (premium setup)
+- Use fully managed hosting for **frontend, backend, database, and storage** with SLA and monitoring.
+- Add CDN, WAF, and automated backups.
+- **Recommended domain** (choose one and register):
+  - `optimumsystem.com`
+  - `optimumsmart.com`
+  - `optimumsmart.com.eg`
+  - `optimum.ai`
+
+### 7) Official support contacts
+- Add a public support email and phone number (Optimum support).
+
+---
+
+## ✅ Update to the “Key Limitation” based on your requirement
+
+**Previous limitation:**  
+"Not a complete ERP (no accounting, HR, etc.)"
+
+**Updated requirement:**  
+- ✅ **Add a comprehensive accounting system in the Admin dashboard** to cover consumer payments and supplier purchases.
+- This makes Optimum close to ERP‑level for accounting, purchasing, and settlements.
 
 ---
 
