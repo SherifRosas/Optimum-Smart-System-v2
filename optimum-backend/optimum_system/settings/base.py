@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'ai',
     'authentication',
     'product_requests',
+    'accounting',
 ]
 
 MIDDLEWARE = [

@@ -79,9 +79,26 @@ const CustomerDashboard = ({ orders = [] }) => {
     </motion.div>
   ));
 
-  if (loading) {
-    return <div className="customer-loading">Loading your dashboard...</div>;
-  }
+  const [isReceiptModalOpen, setIsReceiptModalOpen] = useState(false);
+  const [selectedOrder, setSelectedOrder] = useState(null);
+  const [feedback, setFeedback] = useState('');
+
+  const handleConfirmReceipt = async () => {
+    if (!selectedOrder) return;
+    try {
+      await ordersAPI.confirmReceipt(selectedOrder.id, feedback);
+      setStats(prev => ({
+        ...prev,
+        delivered: (prev?.delivered || 0) + 1
+      }));
+      setIsReceiptModalOpen(false);
+      setFeedback('');
+      // Refresh local view if needed (polling will catch it too)
+      window.location.reload();
+    } catch (err) {
+      console.error('Error confirming receipt:', err);
+    }
+  };
 
   return (
     <div className="customer-dashboard">
@@ -97,7 +114,7 @@ const CustomerDashboard = ({ orders = [] }) => {
       <div className="customer-stats-grid">
         <StatCard
           title="My Active Orders"
-          value={statusCounts.pending + (statusCounts['in-preparation'] || 0) + (statusCounts.ready || 0) || 0}
+          value={(statusCounts.pending || 0) + (statusCounts['in-preparation'] || 0) + (statusCounts.ready || 0) || 0}
           icon="📦"
           color="rgba(74, 144, 226, 1)"
           delay={0.1}
@@ -143,25 +160,38 @@ const CustomerDashboard = ({ orders = [] }) => {
                 transition={{ delay: 0.5 + index * 0.1 }}
               >
                 <div className="customer-order-header">
-                  <span className="customer-order-id">Order #{order.id}</span>
-                  <span className={`customer-order-status status-${order.status}`}>
-                    {order.status.replace('-', ' ')}
-                  </span>
+                  <div className="customer-order-info-wrapper">
+                    <span className="customer-order-id">Order #{order.id}</span>
+                    <span className={`customer-order-status status-${order.status}`}>
+                      {order.status.replace('-', ' ')}
+                    </span>
+                  </div>
+                  {(order.status === 'ready' || (order.status === 'delivered' && !order.is_delivered_confirmed)) && (
+                    <button
+                      className="confirm-receipt-btn"
+                      onClick={() => {
+                        setSelectedOrder(order);
+                        setIsReceiptModalOpen(true);
+                      }}
+                    >
+                      Confirm Receipt
+                    </button>
+                  )}
                 </div>
                 <div className="customer-order-body">
                   <div className="customer-order-product">
-                    <strong>{order.productType}</strong>
+                    <strong>{order.productType || order.product_type}</strong>
                     <span>Qty: {order.quantity}</span>
                   </div>
                   <div className="customer-order-dates">
-                    <span>Ordered: {new Date(order.createdAt).toLocaleDateString()}</span>
-                    {order.deliveryDate && (
-                      <span>Delivery: {new Date(order.deliveryDate).toLocaleDateString()}</span>
+                    <span>Ordered: {new Date(order.createdAt || order.created_at).toLocaleDateString()}</span>
+                    {(order.deliveryDate || order.delivery_date) && (
+                      <span>Delivery: {new Date(order.deliveryDate || order.delivery_date).toLocaleDateString()}</span>
                     )}
                   </div>
-                  {order.totalAmount && (
+                  {(order.totalAmount || order.total_amount) && (
                     <div className="customer-order-amount">
-                      Total: ${order.totalAmount.toLocaleString()}
+                      Total: ${(parseFloat(order.totalAmount || order.total_amount) || 0).toLocaleString()}
                     </div>
                   )}
                 </div>
@@ -170,6 +200,43 @@ const CustomerDashboard = ({ orders = [] }) => {
           </div>
         )}
       </div>
+
+      {isReceiptModalOpen && (
+        <div className="receipt-modal-overlay">
+          <motion.div
+            className="receipt-modal"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+          >
+            <h2>Confirm Order Receipt</h2>
+            <p>Did you receive <strong>Order #{selectedOrder?.id}</strong> as demanded?</p>
+
+            <div className="form-group">
+              <label>Your Feedback / Notes</label>
+              <textarea
+                value={feedback}
+                onChange={(e) => setFeedback(e.target.value)}
+                placeholder="How was the product and delivery? Any issues?"
+              />
+            </div>
+
+            <div className="modal-actions">
+              <button
+                className="modal-btn secondary"
+                onClick={() => setIsReceiptModalOpen(false)}
+              >
+                Cancel
+              </button>
+              <button
+                className="modal-btn primary"
+                onClick={handleConfirmReceipt}
+              >
+                Confirm & Submit
+              </button>
+            </div>
+          </motion.div>
+        </div>
+      )}
     </div>
   );
 };

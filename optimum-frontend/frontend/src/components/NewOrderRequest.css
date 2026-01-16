@@ -105,6 +105,14 @@
   font-size: 1rem;
   transition: all 0.2s ease;
   font-family: inherit;
+  background-color: #ffffff;
+  color: #111827;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #9ca3af;
+  opacity: 1;
 }
 
 .form-group input:focus,
@@ -211,6 +219,3 @@
     padding: 1.5rem;
   }
 }
-
-
-

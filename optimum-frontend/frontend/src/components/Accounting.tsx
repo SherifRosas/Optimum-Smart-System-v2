@@ -1,4 +1,7 @@
 import React, { useState, memo, useMemo } from 'react';
+import { useAuth } from '../contexts/AuthContext';
+import AdminAccounting from './AdminAccounting';
+import CustomerAccount from './CustomerAccount';
 import './Accounting.css';
 
 interface Order {
@@ -38,6 +41,18 @@ const getStatusColor = (status: string): string => {
 };
 
 const Accounting: React.FC<AccountingProps> = ({ orders }) => {
+    const auth = useAuth();
+    
+    // Route to appropriate component based on user role
+    if (auth.isAdmin()) {
+        return <AdminAccounting />;
+    } else {
+        return <CustomerAccount />;
+    }
+};
+
+// Keep the old component for backward compatibility (if needed)
+const AccountingLegacy: React.FC<AccountingProps> = ({ orders }) => {
     const [selectedPeriod, setSelectedPeriod] = useState<string>('month');
     const [showDetails, setShowDetails] = useState<boolean>(false);
 

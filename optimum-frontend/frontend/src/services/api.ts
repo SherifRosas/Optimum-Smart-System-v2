@@ -159,6 +159,12 @@ export const ordersAPI = {
   // Update order status
   updateOrderStatus: (id: number | string, status: string) => api.patch(`/orders/${id}/update_status/`, { status }),
 
+  // Supplier confirms AI offer
+  confirmOffer: (id: number | string) => api.post(`/orders/${id}/confirm_offer/`),
+
+  // Customer confirms receipt
+  confirmReceipt: (id: number | string, feedback: string) => api.post(`/orders/${id}/confirm_receipt/`, { feedback }),
+
   // Send message for order
   sendMessage: (id: number | string, messageData: { content: string; type?: string; sender?: string }) =>
     api.post(`/orders/${id}/send_message/`, messageData),
@@ -268,6 +274,38 @@ export const aiAPI = {
 
   // Get supported file types
   getSupportedFileTypes: () => api.get('/ai/supported-file-types/'),
+};
+
+export const accountingAPI = {
+  // Summary
+  getSummary: () => api.get('/accounting/summary/'),
+
+  // General Ledger
+  getGeneralLedger: (params: ApiParams = {}) => api.get('/accounting/general-ledger/', { params }),
+  createGeneralLedgerEntry: (data: any) => api.post('/accounting/general-ledger/', data),
+
+  // Accounts Receivable
+  getAccountsReceivable: (params: ApiParams = {}) => api.get('/accounting/accounts-receivable/', { params }),
+  createInvoice: (data: any) => api.post('/accounting/accounts-receivable/', data),
+  recordPayment: (id: number | string, data: any) => api.post(`/accounting/accounts-receivable/${id}/record_payment/`, data),
+
+  // Accounts Payable
+  getAccountsPayable: (params: ApiParams = {}) => api.get('/accounting/accounts-payable/', { params }),
+  createBill: (data: any) => api.post('/accounting/accounts-payable/', data),
+  recordSupplierPayment: (id: number | string, data: any) => api.post(`/accounting/accounts-payable/${id}/record_payment/`, data),
+
+  // Customer Accounts
+  getCustomerAccounts: (params: ApiParams = {}) => api.get('/accounting/customer-accounts/', { params }),
+  getCustomerAccount: (id: number | string) => api.get(`/accounting/customer-accounts/${id}/`),
+  getCustomerStatement: (id: number | string) => api.get(`/accounting/customer-accounts/${id}/statement/`),
+
+  // Payments
+  getPayments: (params: ApiParams = {}) => api.get('/accounting/payments/', { params }),
+  createPayment: (data: any) => api.post('/accounting/payments/', data),
+
+  // Chart of Accounts
+  getChartOfAccounts: (params: ApiParams = {}) => api.get('/accounting/chart-of-accounts/', { params }),
+  createAccount: (data: any) => api.post('/accounting/chart-of-accounts/', data),
 };
 
 // Export API_BASE_URL for components that need it

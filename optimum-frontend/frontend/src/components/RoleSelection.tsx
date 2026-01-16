@@ -274,24 +274,26 @@ const RoleSelection: React.FC = () => {
                                                 <Icon className="role-icon" style={{ pointerEvents: 'none' }} />
                                             </motion.div>
                                         </motion.div>
-                                        <motion.h3
-                                            style={{ position: 'relative', zIndex: 1, pointerEvents: 'none' }}
-                                            animate={{
-                                                textShadow: [
-                                                    "0 0 10px rgba(0, 255, 255, 0.4)",
-                                                    "0 0 20px rgba(0, 255, 255, 0.6)",
-                                                    "0 0 10px rgba(0, 255, 255, 0.4)"
-                                                ]
-                                            }}
-                                            transition={{
-                                                duration: 2,
-                                                repeat: Infinity,
-                                                ease: "easeInOut"
-                                            }}
-                                        >
-                                            {role.name}
-                                        </motion.h3>
-                                        <p style={{ position: 'relative', zIndex: 1, pointerEvents: 'none' }}>{role.description}</p>
+                                        <div className="role-card-content">
+                                            <motion.h3
+                                                style={{ position: 'relative', zIndex: 1, pointerEvents: 'none' }}
+                                                animate={{
+                                                    textShadow: [
+                                                        "0 0 10px rgba(0, 255, 255, 0.4)",
+                                                        "0 0 20px rgba(0, 255, 255, 0.6)",
+                                                        "0 0 10px rgba(0, 255, 255, 0.4)"
+                                                    ]
+                                                }}
+                                                transition={{
+                                                    duration: 2,
+                                                    repeat: Infinity,
+                                                    ease: "easeInOut"
+                                                }}
+                                            >
+                                                {role.name}
+                                            </motion.h3>
+                                            <p style={{ position: 'relative', zIndex: 1, pointerEvents: 'none' }}>{role.description}</p>
+                                        </div>
                                         <motion.div
                                             className="role-arrow"
                                             style={{ position: 'relative', zIndex: 1, pointerEvents: 'none' }}

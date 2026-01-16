@@ -33,7 +33,7 @@ const Login: React.FC = () => {
 
     const currentRole = selectedRole ? roleInfo[selectedRole] : null;
     // #region agent log
-    fetch('http://127.0.0.1:7243/ingest/2f508c51-eb71-4984-ac85-c8d0748c9513',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'Login.tsx:35',message:'login_render',data:{selectedRole,hasCurrentRole:!!currentRole},timestamp:Date.now(),sessionId:'debug-session',runId:'pre-fix',hypothesisId:'H2'})}).catch(()=>{});
+    fetch('http://127.0.0.1:7243/ingest/2f508c51-eb71-4984-ac85-c8d0748c9513', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ location: 'Login.tsx:35', message: 'login_render', data: { selectedRole, hasCurrentRole: !!currentRole }, timestamp: Date.now(), sessionId: 'debug-session', runId: 'pre-fix', hypothesisId: 'H2' }) }).catch(() => { });
     // #endregion
 
     const toErrorMessage = (value: unknown): string => {
@@ -101,7 +101,7 @@ const Login: React.FC = () => {
         localStorage.removeItem('user');
         setError('');
         // #region agent log
-        fetch('http://127.0.0.1:7243/ingest/2f508c51-eb71-4984-ac85-c8d0748c9513',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'Login.tsx:89',message:'tokens_cleared',data:{cleared:true},timestamp:Date.now(),sessionId:'debug-session',runId:'post-fix',hypothesisId:'H6'})}).catch(()=>{});
+        fetch('http://127.0.0.1:7243/ingest/2f508c51-eb71-4984-ac85-c8d0748c9513', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ location: 'Login.tsx:89', message: 'tokens_cleared', data: { cleared: true }, timestamp: Date.now(), sessionId: 'debug-session', runId: 'post-fix', hypothesisId: 'H6' }) }).catch(() => { });
         // #endregion
         toast.info('Tokens cleared. Please sign in again.');
     };
@@ -115,16 +115,14 @@ const Login: React.FC = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
                 >
-                    {/* Back to role selection */}
-                    {currentRole && (
-                        <button
-                            className="back-to-roles dynamic"
-                            onClick={() => navigate('/')}
-                            style={{ '--role-color': currentRole.color } as React.CSSProperties}
-                        >
-                            <HiArrowLeft /> Back to Role Selection
-                        </button>
-                    )}
+                    {/* Back to role selection - Always visible */}
+                    <button
+                        className={`back-to-roles ${currentRole ? 'dynamic' : ''}`}
+                        onClick={() => navigate('/')}
+                        style={currentRole ? { '--role-color': currentRole.color } as React.CSSProperties : undefined}
+                    >
+                        <HiArrowLeft /> Back to Role Selection
+                    </button>
 
                     {/* Role indicator */}
                     {currentRole && (

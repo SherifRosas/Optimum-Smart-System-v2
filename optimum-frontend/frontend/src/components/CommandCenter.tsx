@@ -20,21 +20,21 @@ function DigitalCounter({ value, label, icon, color = 'cyan', delay = 0 }: Digit
     // Reset and start animation
     setDisplayValue(0);
     setIsAnimating(true);
-    
+
     // Use a single RAF call per counter, batched with setTimeout
     const timeoutId = setTimeout(() => {
       let start: number | null = null;
       const duration = 1500; // Reduced duration for faster animation
-      
+
       const animate = (timestamp: number): void => {
         if (!start) start = timestamp;
         const elapsed = timestamp - start;
         const progress = Math.min(elapsed / duration, 1);
-        
+
         // Simple linear interpolation (fastest)
         const newValue = Math.floor(progress * value);
         setDisplayValue(newValue);
-        
+
         if (progress < 1) {
           requestAnimationFrame(animate);
         } else {
@@ -42,10 +42,10 @@ function DigitalCounter({ value, label, icon, color = 'cyan', delay = 0 }: Digit
           setIsAnimating(false);
         }
       };
-      
+
       requestAnimationFrame(animate);
     }, delay);
-    
+
     return () => {
       clearTimeout(timeoutId);
     };
@@ -210,14 +210,16 @@ function AIAssistant() {
 interface CommandCenterProps {
   orders?: any[];
   onNavigate?: (view: string) => void;
-  currentView?: string; // Add currentView prop to know when to hide/show content
+  currentView?: string; // Addimport { useLanguage } from '../contexts/LanguageContext';
 }
+import { useAuth } from '../contexts/AuthContext';
 
 function CommandCenter({ orders = [], onNavigate, currentView }: CommandCenterProps) {
   const [activeNav, setActiveNav] = useState<string>('dashboard');
   const [currentTime, setCurrentTime] = useState<Date>(new Date());
   const [sidebarCollapsed, setSidebarCollapsed] = useState<boolean>(false);
   const { setLanguage, language, t } = useLanguage();
+  const { logout } = useAuth();
 
   // Update time every second
   useEffect(() => {
@@ -240,21 +242,21 @@ function CommandCenter({ orders = [], onNavigate, currentView }: CommandCenterPr
   ];
 
   // Use real orders or sample data
-  const recentOrders: Order[] = orders.length > 0 
+  const recentOrders: Order[] = orders.length > 0
     ? orders.slice(0, 4).map((o: any) => ({
-        id: o.order_number || `ORD-${o.id}`,
-        customer: o.customer_name || 'Unknown',
-        items: o.items?.length || 1,
-        total: parseFloat(o.total_amount) || 0,
-        status: (o.status === 'pending' ? 'pending' : o.status === 'delivered' ? 'completed' : 'processing') as any,
-        time: o.created_at ? new Date(o.created_at).toLocaleTimeString() : 'Just now'
-      }))
+      id: o.order_number || `ORD-${o.id}`,
+      customer: o.customer_name || 'Unknown',
+      items: o.items?.length || 1,
+      total: parseFloat(o.total_amount) || 0,
+      status: (o.status === 'pending' ? 'pending' : o.status === 'delivered' ? 'completed' : 'processing') as any,
+      time: o.created_at ? new Date(o.created_at).toLocaleTimeString() : 'Just now'
+    }))
     : [
-        { id: 'ORD-7821', customer: 'Ahmed Hassan', items: 5, total: 2450.00, status: 'processing', time: '2 min ago' },
-        { id: 'ORD-7820', customer: 'Sara Mohamed', items: 3, total: 1890.50, status: 'pending', time: '5 min ago' },
-        { id: 'ORD-7819', customer: 'Omar Ali', items: 8, total: 5670.00, status: 'completed', time: '12 min ago' },
-        { id: 'ORD-7818', customer: 'Nour Ibrahim', items: 2, total: 890.00, status: 'processing', time: '18 min ago' },
-      ];
+      { id: 'ORD-7821', customer: 'Ahmed Hassan', items: 5, total: 2450.00, status: 'processing', time: '2 min ago' },
+      { id: 'ORD-7820', customer: 'Sara Mohamed', items: 3, total: 1890.50, status: 'pending', time: '5 min ago' },
+      { id: 'ORD-7819', customer: 'Omar Ali', items: 8, total: 5670.00, status: 'completed', time: '12 min ago' },
+      { id: 'ORD-7818', customer: 'Nour Ibrahim', items: 2, total: 890.00, status: 'processing', time: '18 min ago' },
+    ];
 
   const activities: Activity[] = [
     { message: 'New order received from Ahmed Hassan', time: '2 min ago' },
@@ -423,6 +425,23 @@ function CommandCenter({ orders = [], onNavigate, currentView }: CommandCenterPr
               label={t('settings')}
               active={activeNav === 'settings'}
               onClick={() => handleNavClick('settings')}
+            />
+            <div className="sidebar-divider" style={{ margin: '1rem 0', borderTop: '1px solid rgba(255,255,255,0.1)' }}></div>
+            <NavItem
+              icon="🚪"
+              label={t('logout')}
+              active={false}
+              onClick={async () => {
+                try {
+                  await logout();
+                  // Determine if we need to use onNavigate or window.location
+                  // Since we are inside App structure, usually window.location.href='/login' or navigate('/login')
+                  // Importing hooks at top of file is better
+                  window.location.href = '/login';
+                } catch (e) {
+                  console.error("Logout failed", e);
+                }
+              }}
             />
           </nav>
 

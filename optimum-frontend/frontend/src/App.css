@@ -291,7 +291,8 @@
 
 .user-role {
   font-size: 0.7rem;
-  color: var(--text-muted);
+  color: rgba(255, 255, 255, 0.65);
+  /* Improved visibility in dark theme */
 }
 
 /* ========================================
@@ -335,6 +336,11 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-xs);
+  overflow-y: auto;
+  min-height: 0;
+  /* Crucial for flex scrolling */
+  max-height: calc(100vh - 200px);
+  /* Ensure it doesn't push footer off screen */
 }
 
 .nav-item {
@@ -467,10 +473,48 @@
 
 /* Mobile: Full width, no margin */
 @media (max-width: 768px) {
+  .header {
+    padding: 0 1rem;
+    height: 60px;
+  }
+
+  .header-clock {
+    display: none;
+    /* Hide clock on mobile */
+  }
+
+  .header-user .user-info {
+    display: none;
+    /* Hide user name/role text on mobile */
+  }
+
+  .header-user {
+    padding: 0.25rem;
+    border: none;
+    background: transparent;
+  }
+
+  .system-status {
+    display: none;
+    /* Hide system status to save space */
+  }
+
   .main-content {
     margin-left: 0;
     margin-top: 60px;
     padding: 1rem;
+  }
+
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .page-actions {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
   }
 }
 
@@ -527,6 +571,20 @@
 @media (max-width: 767px) {
   .stats-grid {
     grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .stat-card {
+    padding: 1rem;
+  }
+
+  .stat-card .stat-value {
+    font-size: 1.5rem;
+  }
+
+  .stat-icon {
+    font-size: 1.5rem;
+    padding: 0.5rem;
   }
 }
 
@@ -1200,7 +1258,8 @@
   }
 
   .user-info {
-    display: none; /* Hide user info on small screens */
+    display: none;
+    /* Hide user info on small screens */
   }
 
   .sidebar {
@@ -1237,23 +1296,28 @@
     align-items: flex-start;
     gap: var(--space-md);
   }
-  
+
   /* Touch-friendly buttons */
-  button, .btn {
+  button,
+  .btn {
     min-height: 44px;
     min-width: 44px;
     padding: 0.75rem 1.25rem;
     touch-action: manipulation;
   }
-  
+
   /* Better spacing for touch */
-  .card, .order-card {
+  .card,
+  .order-card {
     margin-bottom: 1rem;
   }
-  
+
   /* Prevent text zoom on input focus (iOS) */
-  input, select, textarea {
-    font-size: 16px; /* Prevents iOS zoom */
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+    /* Prevents iOS zoom */
   }
 }
 
@@ -1266,16 +1330,25 @@
     height: 56px;
     padding: 0 0.75rem;
   }
-  
+
   .main-content {
     padding: 0.75rem;
   }
-  
-  h1 { font-size: 1.5rem; }
-  h2 { font-size: 1.25rem; }
-  h3 { font-size: 1.1rem; }
-  
-  button, .btn {
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+  }
+
+  button,
+  .btn {
     padding: 0.625rem 1rem;
     font-size: 0.875rem;
   }
@@ -1290,16 +1363,25 @@
     height: 52px;
     padding: 0 0.5rem;
   }
-  
+
   .main-content {
     padding: 0.5rem;
   }
-  
-  h1 { font-size: 1.25rem; }
-  h2 { font-size: 1.1rem; }
-  h3 { font-size: 1rem; }
-  
-  button, .btn {
+
+  h1 {
+    font-size: 1.25rem;
+  }
+
+  h2 {
+    font-size: 1.1rem;
+  }
+
+  h3 {
+    font-size: 1rem;
+  }
+
+  button,
+  .btn {
     padding: 0.5rem 0.875rem;
     font-size: 0.8125rem;
   }
@@ -1313,13 +1395,14 @@
   .header {
     height: 52px;
   }
-  
+
   .main-content {
     padding: 0.75rem;
   }
-  
+
   /* Optimize for landscape viewing */
-  .grid, .stats-grid {
+  .grid,
+  .stats-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -1333,9 +1416,9 @@
 /* CRITICAL: Multiple selectors to catch all cases */
 body:has(.app) .customer-dashboard,
 body:has([class*="CommandCenter"]) .customer-dashboard,
-.app ~ .customer-dashboard,
+.app~.customer-dashboard,
 .customer-dashboard:has(~ .app),
-[class*="CommandCenter"] ~ .customer-dashboard,
+[class*="CommandCenter"]~.customer-dashboard,
 .customer-dashboard:has(~ [class*="CommandCenter"]),
 .main-content:has(.app) .customer-dashboard,
 .view-container:has(.app) .customer-dashboard {

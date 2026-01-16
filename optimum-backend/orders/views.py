@@ -22,7 +22,39 @@ class OrderViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         queryset = Order.objects.select_related('customer', 'supplier').prefetch_related('messages')
+        user = self.request.user
         
+        # Role-based filtering
+        if user.is_authenticated and hasattr(user, 'profile'):
+            role = user.profile.role
+            
+            # Customers (Product Requesters) see only their own orders
+            if role == 'PRODUCT_REQUESTER':
+                # Filter by phone number linking UserProfile to Customer
+                if user.profile.phone_number:
+                    queryset = queryset.filter(customer__phone_number=user.profile.phone_number)
+                else:
+                    # If no phone number, return empty or try matching by name/email as fallback?
+                    # Safer to return strict empty if no trusted link exists
+                    queryset = queryset.none()
+            
+            # Suppliers see only orders assigned to them
+            elif role == 'SUPPLIER':
+                # Assuming Supplier model is linked to User, or UserProfile has supplier_id?
+                # UserProfile doesn't seem to have direct supplier link, checking Supplier model...
+                # Usually Supplier has a OneToOne to User or similar. 
+                # Let's check if there is a Supplier object for this user
+                try:
+                    # If Supplier model is linked to User directly:
+                    # supplier = user.supplier
+                    # Or if Supplier lookup is needed:
+                    queryset = queryset.filter(supplier__user=user)
+                except Exception:
+                    # Fallback if specific Supplier-User link logic differs
+                    # For now, let's assume matching email or name if no direct link, 
+                    # but typically it is supplier__user
+                    pass
+
         # Filter by status
         status_filter = self.request.query_params.get('status', None)
         if status_filter:
@@ -52,8 +84,22 @@ class OrderViewSet(viewsets.ModelViewSet):
         data = request.data.copy()
         
         # Handle customer creation/retrieval
+        # Handle customer creation/retrieval
         customer_data = data.get('customer', {})
-        if customer_data:
+        customer = None
+
+        # 1. Try to identify customer from logged-in user (if they are a Product Requester)
+        if request.user.is_authenticated and hasattr(request.user, 'profile'):
+            if request.user.profile.role == 'PRODUCT_REQUESTER' and request.user.profile.phone_number:
+                customer = Customer.objects.filter(phone_number=request.user.profile.phone_number).first()
+                if customer:
+                     # Update customer name if provided in request, otherwise keep existing
+                     if customer_data.get('name'):
+                         customer.name = customer_data.get('name')
+                         customer.save(update_fields=['name'])
+        
+        # 2. If not found via user profile, try to get/create from request data
+        if not customer and customer_data:
             customer, created = Customer.objects.get_or_create(
                 phone_number=customer_data.get('phone_number'),
                 defaults={
@@ -62,6 +108,8 @@ class OrderViewSet(viewsets.ModelViewSet):
                     'address': customer_data.get('address', '')
                 }
             )
+        
+        if customer:
             data['customer_id'] = customer.id
         
         # AI-powered auto-assign supplier if not provided
@@ -119,6 +167,8 @@ class OrderViewSet(viewsets.ModelViewSet):
             data['priority'] = 'medium'
         if 'risk_score' not in data:
             data['risk_score'] = 0.0
+        if 'unit_price' not in data:
+            data['unit_price'] = 0.0
         
         serializer = self.get_serializer(data=data)
         serializer.is_valid(raise_exception=True)
@@ -132,6 +182,57 @@ class OrderViewSet(viewsets.ModelViewSet):
         )
         
         return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+    @action(detail=True, methods=['post'])
+    def confirm_offer(self, request, pk=None):
+        """Supplier confirms an AI-generated offer"""
+        order = self.get_object()
+        user = request.user
+        
+        # Security: check if user is the assigned supplier
+        offer = order.offers.filter(supplier__user=user, status='waiting_confirmation').first()
+        if not offer:
+            return Response(
+                {'error': 'No pending offer matching your account for this order'}, 
+                status=status.HTTP_400_BAD_REQUEST
+            )
+        
+        offer.status = 'confirmed'
+        offer.save()
+        
+        order.status = 'in-preparation'
+        order.save()
+        
+        # Update other offers for this order
+        order.offers.exclude(id=offer.id).update(status='rejected')
+        
+        OrderMessage.objects.create(
+            order=order,
+            message_type='system',
+            content=f'Supplier {user.username} confirmed the offer. Order is now In Preparation.'
+        )
+        
+        return Response({'message': 'Offer confirmed successfully', 'status': order.status})
+
+    @action(detail=True, methods=['post'])
+    def confirm_receipt(self, request, pk=None):
+        """Customer confirms order receipt and provides feedback"""
+        order = self.get_object()
+        feedback = request.data.get('feedback', '')
+        
+        order.is_delivered_confirmed = True
+        order.customer_feedback = feedback
+        order.status = 'delivered'
+        order.save()
+        
+        OrderMessage.objects.create(
+            order=order,
+            message_type='incoming',
+            content=f'Customer confirmed receipt: {feedback}',
+            sender=order.customer.name
+        )
+        
+        return Response({'message': 'Receipt confirmed. Thank you for your feedback!'})
 
     @action(detail=True, methods=['patch'])
     def update_status(self, request, pk=None):

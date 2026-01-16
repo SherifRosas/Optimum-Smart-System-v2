@@ -91,16 +91,16 @@ interface MainAppProps {
 // Main App Content Component (separated for routing) - Memoized for performance
 const MainApp = memo<MainAppProps>(({ currentView, setCurrentView, orders, loading, error, handleNewOrder, handleStatusUpdate, renderView }) => {
     const auth = useAuth(); // Add useAuth hook to access auth context
-    
+
     // Check if CommandCenter is being rendered (it has its own header/sidebar)
-    const isCommandCenter = React.isValidElement(renderView) && 
-                           renderView.type && 
-                           (renderView.type as any).name === 'CommandCenter';
-    
+    const isCommandCenter = React.isValidElement(renderView) &&
+        renderView.type &&
+        (renderView.type as any).name === 'CommandCenter';
+
     // For admin users on dashboard, CommandCenter has its own structure, so hide MainApp's header/nav
     // BUT: Only hide MainApp's header/nav when currentView is 'dashboard' - allow other views to use MainApp structure
     const isAdminDashboard = auth.isAdmin() && currentView === 'dashboard';
-    
+
     // If CommandCenter is rendered, it has its own header/sidebar, so hide MainApp's
     if (isAdminDashboard) {
         return (
@@ -115,7 +115,7 @@ const MainApp = memo<MainAppProps>(({ currentView, setCurrentView, orders, loadi
             </div>
         );
     }
-    
+
     return (
         <div className="App">
             <Header onNavigate={setCurrentView} />
@@ -335,7 +335,7 @@ function App() {
     const handleNewOrder = useCallback(async (orderData: OrderFormData) => {
         try {
             console.log('📝 Creating order with data:', orderData);
-            
+
             // Ensure delivery_date is in the correct format (YYYY-MM-DD)
             let deliveryDate: string = orderData.deliveryDate;
             if (deliveryDate) {
@@ -345,34 +345,47 @@ function App() {
                     deliveryDate = dateObj.toISOString().split('T')[0];
                 }
             }
-            
-            const orderPayload = {
-                customer: {
-                    name: orderData.customerName.trim(),
-                    phone_number: orderData.phoneNumber.trim()
-                },
-                product_type: orderData.productType.trim(),
-                quantity: Number(orderData.quantity),
-                unit_price: 10000, // Default price, should be calculated
-                delivery_date: deliveryDate
-            };
-            
+
+            // Handle different data shapes (OrderReception vs NewOrderRequest)
+            let orderPayload;
+
+            // Check if data is already structured (from NewOrderRequest)
+            if (orderData.customer && typeof orderData.customer === 'object') {
+                orderPayload = {
+                    ...orderData,
+                    // Ensure unit_price is 0.0 if not provided (for pending quote)
+                    unit_price: orderData.unit_price || 0.0
+                };
+            } else {
+                // Construct from flat OrderFormData (OrderReception)
+                orderPayload = {
+                    customer: {
+                        name: orderData.customerName?.trim(),
+                        phone_number: orderData.phoneNumber?.trim()
+                    },
+                    product_type: orderData.productType?.trim(),
+                    quantity: Number(orderData.quantity),
+                    unit_price: 0.0, // Default to 0.0 for pending quote
+                    delivery_date: deliveryDate
+                };
+            }
+
             console.log('📤 Sending to API:', orderPayload);
-            
+
             const response = await ordersAPI.createOrder(orderPayload);
-            
+
             console.log('✅ Order created successfully:', response.data);
 
             // Transform the new order data
             const transformedOrder = transformOrderData(response.data);
             setOrders(prevOrders => [transformedOrder, ...prevOrders]);
             toast.success('Order created successfully!');
-            
+
             // Navigate to orders view to see the new order
             setCurrentView('orders');
         } catch (err: any) {
             console.error('❌ Error creating order:', err);
-            
+
             // Log full error details for debugging
             const errorDetails = {
                 message: err.message,
@@ -386,12 +399,12 @@ function App() {
                 }
             };
             console.error('Error details:', JSON.stringify(errorDetails, null, 2));
-            
+
             setError('Failed to create order');
-            
+
             // Extract error message from various possible locations
             let errorMessage = 'Failed to create order. Please check your input and try again.';
-            
+
             if (err.response?.data) {
                 // Handle Django REST Framework error format
                 if (err.response.data.detail) {
@@ -404,7 +417,7 @@ function App() {
                     errorMessage = err.response.data;
                 } else if (err.response.data.non_field_errors) {
                     // Handle non-field errors
-                    errorMessage = Array.isArray(err.response.data.non_field_errors) 
+                    errorMessage = Array.isArray(err.response.data.non_field_errors)
                         ? err.response.data.non_field_errors.join(', ')
                         : String(err.response.data.non_field_errors);
                 } else {
@@ -422,15 +435,15 @@ function App() {
             } else if (err.message) {
                 errorMessage = String(err.message);
             }
-            
+
             // Ensure errorMessage is always a string and not empty
             if (!errorMessage || typeof errorMessage !== 'string' || errorMessage.trim() === '') {
                 errorMessage = 'Failed to create order. Please check your input and try again.';
             }
-            
+
             // Ensure we have a valid string (handle edge cases)
             const safeErrorMessage = String(errorMessage).trim() || 'Failed to create order. Please check your input and try again.';
-            
+
             // Show error toast with safe string
             try {
                 toast.error(safeErrorMessage);
@@ -461,7 +474,7 @@ function App() {
     const renderView = useMemo(() => {
         // CRITICAL: Early check - if admin, never render CustomerDashboard
         const isAdmin = auth.isAdmin();
-        
+
         if (loading) {
             return <ListSkeleton count={6} />;
         }
@@ -488,7 +501,7 @@ function App() {
                 </Suspense>
             );
         }
-        
+
         // CRITICAL: Handle initial load - only when currentView is null AND we're on dashboard route
         // This prevents CustomerDashboard from rendering on initial load
         if (isAdmin && currentView === null && (location.pathname === '/dashboard' || location.pathname === '/app' || location.pathname === '/')) {
@@ -503,7 +516,7 @@ function App() {
 
         // Role-based component routing
         const userRole = auth.getUserRole();
-        
+
         // Debug: Log when we're about to use the switch statement (not forcing CommandCenter)
         if (isAdmin && currentView !== 'dashboard' && currentView !== null) {
             console.log('🔍 Using switch statement for admin - currentView:', currentView, 'pathname:', location.pathname);
@@ -684,7 +697,7 @@ function App() {
                 // This prevents CustomerDashboard from rendering for admin users
                 if (currentView === null && auth.isAuthenticated && auth.user) {
                     console.warn('⚠️ currentView is null but user is authenticated - forcing dashboard immediately');
-                    
+
                     // CRITICAL: For admin users, render CommandCenter immediately instead of waiting
                     if (auth.isAdmin()) {
                         console.log('✅ Null currentView for admin - rendering CommandCenter immediately');
@@ -698,7 +711,7 @@ function App() {
                         );
                     }
                 }
-                
+
                 // CRITICAL: Default to role-appropriate dashboard
                 // NEVER render CustomerDashboard for admin users - always CommandCenter
                 if (auth.isAdmin()) {
@@ -738,7 +751,7 @@ function App() {
     // Do not treat auth pages as role selection
     const isRoleSelection = !isAuthPage && (location.pathname === '/' || location.pathname === '' || !location.pathname || currentView === null);
     // #region agent log
-    fetch('http://127.0.0.1:7243/ingest/2f508c51-eb71-4984-ac85-c8d0748c9513',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'App.tsx:736',message:'route_flags',data:{pathname:location.pathname,isAuthPage,isRoleSelection,currentView,authIsAuthenticated:auth.isAuthenticated},timestamp:Date.now(),sessionId:'debug-session',runId:'pre-fix',hypothesisId:'H1'})}).catch(()=>{});
+    fetch('http://127.0.0.1:7243/ingest/2f508c51-eb71-4984-ac85-c8d0748c9513', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ location: 'App.tsx:736', message: 'route_flags', data: { pathname: location.pathname, isAuthPage, isRoleSelection, currentView, authIsAuthenticated: auth.isAuthenticated }, timestamp: Date.now(), sessionId: 'debug-session', runId: 'pre-fix', hypothesisId: 'H1' }) }).catch(() => { });
     // #endregion
 
     // Handle route-based navigation for profile/settings
@@ -764,7 +777,7 @@ function App() {
     // This early return ensures root path ALWAYS shows RoleSelection
     if (isRoleSelection) {
         // #region agent log
-        fetch('http://127.0.0.1:7243/ingest/2f508c51-eb71-4984-ac85-c8d0748c9513',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'App.tsx:761',message:'render_role_selection',data:{pathname:location.pathname,currentView},timestamp:Date.now(),sessionId:'debug-session',runId:'pre-fix',hypothesisId:'H1'})}).catch(()=>{});
+        fetch('http://127.0.0.1:7243/ingest/2f508c51-eb71-4984-ac85-c8d0748c9513', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ location: 'App.tsx:761', message: 'render_role_selection', data: { pathname: location.pathname, currentView }, timestamp: Date.now(), sessionId: 'debug-session', runId: 'pre-fix', hypothesisId: 'H1' }) }).catch(() => { });
         // #endregion
         // If authenticated, allow access but show role selection
         // If not authenticated, show role selection (required)
@@ -785,7 +798,7 @@ function App() {
     // If on auth page, show only auth component
     if (isAuthPage) {
         // #region agent log
-        fetch('http://127.0.0.1:7243/ingest/2f508c51-eb71-4984-ac85-c8d0748c9513',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'App.tsx:779',message:'render_auth_page',data:{pathname:location.pathname},timestamp:Date.now(),sessionId:'debug-session',runId:'pre-fix',hypothesisId:'H1'})}).catch(()=>{});
+        fetch('http://127.0.0.1:7243/ingest/2f508c51-eb71-4984-ac85-c8d0748c9513', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ location: 'App.tsx:779', message: 'render_auth_page', data: { pathname: location.pathname }, timestamp: Date.now(), sessionId: 'debug-session', runId: 'pre-fix', hypothesisId: 'H1' }) }).catch(() => { });
         // #endregion
         return (
             <ErrorBoundary>

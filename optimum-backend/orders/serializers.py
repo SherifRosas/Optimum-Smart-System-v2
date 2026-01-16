@@ -6,7 +6,7 @@ from customers.serializers import CustomerSerializer
 from suppliers.models import Supplier
 from suppliers.serializers import SupplierSerializer
 
-from .models import Order, OrderMessage
+from .models import Order, OrderMessage, SupplierOffer
 from .utils import sanitize_text
 
 
@@ -15,6 +15,14 @@ class OrderMessageSerializer(serializers.ModelSerializer):
         model = OrderMessage
         fields = ["id", "message_type", "content", "sender", "created_at"]
         read_only_fields = ["id", "created_at"]
+
+
+class SupplierOfferSerializer(serializers.ModelSerializer):
+    supplier_name = serializers.CharField(source="supplier.name", read_only=True)
+
+    class Meta:
+        model = SupplierOffer
+        fields = ["id", "supplier", "supplier_name", "unit_price", "total_amount", "status", "notes", "created_at"]
 
 
 class OrderSerializer(serializers.ModelSerializer):
@@ -35,6 +43,7 @@ class OrderSerializer(serializers.ModelSerializer):
     )
 
     messages = OrderMessageSerializer(many=True, read_only=True)
+    offers = SupplierOfferSerializer(many=True, read_only=True)
 
     class Meta:
         model = Order
@@ -51,9 +60,12 @@ class OrderSerializer(serializers.ModelSerializer):
             "delivery_date",
             "status",
             "notes",
+            "is_delivered_confirmed",
+            "customer_feedback",
             "created_at",
             "updated_at",
             "messages",
+            "offers",
         ]
         read_only_fields = ["id", "total_amount", "created_at", "updated_at"]
 
@@ -63,8 +75,8 @@ class OrderSerializer(serializers.ModelSerializer):
         return value
 
     def validate_unit_price(self, value):
-        if value <= 0:
-            raise serializers.ValidationError("Unit price must be greater than 0")
+        if value < 0:
+            raise serializers.ValidationError("Unit price cannot be negative")
         return value
 
     def validate_delivery_date(self, value):

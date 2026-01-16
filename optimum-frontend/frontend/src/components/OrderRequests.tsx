@@ -84,8 +84,15 @@ const OrderRequests: React.FC<OrderRequestsProps> = ({ orders = [] }) => {
     };
 
     const CreateOfferModal: React.FC<CreateOfferModalProps> = ({ request, onClose, onSubmit }) => {
-        const [price, setPrice] = useState<string | number>(request?.unit_price || '');
+        const [totalAmount, setTotalAmount] = useState<string | number>(request?.totalAmount || '');
         const [notes, setNotes] = useState<string>('');
+
+        const handleSubmit = () => {
+            const total = typeof totalAmount === 'string' ? parseFloat(totalAmount) : totalAmount;
+            const quantity = request.quantity || 1;
+            const unitPrice = (total / quantity).toFixed(2);
+            onSubmit(request.id, unitPrice, notes);
+        };
 
         return (
             <div className="request-modal-overlay" onClick={onClose}>
@@ -100,13 +107,13 @@ const OrderRequests: React.FC<OrderRequestsProps> = ({ orders = [] }) => {
                         <button className="modal-close" onClick={onClose}>×</button>
                     </div>
                     <div className="request-modal-body">
-                        <p>Set your price and add any specific terms for this order.</p>
+                        <p>Set the total price and add any specific terms for this order.</p>
                         <div className="form-group">
-                            <label>Unit Price ($)</label>
+                            <label>Total Order Amount ($)</label>
                             <input
                                 type="number"
-                                value={price}
-                                onChange={(e) => setPrice(e.target.value)}
+                                value={totalAmount}
+                                onChange={(e) => setTotalAmount(e.target.value)}
                                 placeholder="0.00"
                             />
                         </div>
@@ -123,7 +130,7 @@ const OrderRequests: React.FC<OrderRequestsProps> = ({ orders = [] }) => {
                         <button className="modal-action-btn secondary" onClick={onClose}>Cancel</button>
                         <button
                             className="modal-action-btn primary"
-                            onClick={() => onSubmit(request.id, price.toString(), notes)}
+                            onClick={handleSubmit}
                         >
                             Submit Offer & Accept
                         </button>
