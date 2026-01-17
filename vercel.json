@@ -1,0 +1,13 @@
+{
+    "version": 2,
+    "public": true,
+    "cleanUrls": true,
+    "buildCommand": null,
+    "outputDirectory": ".",
+    "rewrites": [
+        {
+            "source": "/",
+            "destination": "/SYSTEM_COMPARISON_ODOO_VS_OPTIMUM_AR.html"
+        }
+    ]
+}
