@@ -358,6 +358,20 @@ function CommandCenter({ orders = [], onNavigate, currentView }: CommandCenterPr
               <span className="user-role">{t('superAdmin')}</span>
             </div>
           </div>
+          <button
+            className="logout-btn"
+            onClick={async () => {
+              try {
+                await logout();
+                window.location.href = '/login';
+              } catch (e) {
+                console.error("Logout failed", e);
+              }
+            }}
+            title="Logout"
+          >
+            🚪
+          </button>
         </div>
       </header>
 

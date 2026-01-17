@@ -42,6 +42,10 @@ class OrderSerializer(serializers.ModelSerializer):
         allow_null=True,
     )
 
+    # Add flat customer fields for frontend compatibility
+    customer_name = serializers.CharField(source="customer.name", read_only=True)
+    customer_phone = serializers.CharField(source="customer.phone_number", read_only=True)
+
     messages = OrderMessageSerializer(many=True, read_only=True)
     offers = SupplierOfferSerializer(many=True, read_only=True)
 
@@ -51,6 +55,8 @@ class OrderSerializer(serializers.ModelSerializer):
             "id",
             "customer",
             "customer_id",
+            "customer_name",
+            "customer_phone",
             "supplier",
             "supplier_id",
             "product_type",
