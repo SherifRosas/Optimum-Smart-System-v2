@@ -374,39 +374,10 @@ function CommandCenter({ orders = [], onNavigate, currentView }: CommandCenterPr
                   <button className="user-dropdown-item">
                     <span>⚙️</span> {t('settings')}
                   </button>
-                  <div className="user-dropdown-divider"></div>
-                  <button
-                    className="user-dropdown-item text-red"
-                    onClick={async (e) => {
-                      e.stopPropagation();
-                      try {
-                        await logout();
-                        window.location.href = '/login';
-                      } catch (err) {
-                        console.error("Logout failed", err);
-                      }
-                    }}
-                  >
-                    <span>🚪</span> {t('logout')}
-                  </button>
                 </div>
               </div>
             )}
           </div>
-          <button
-            className="logout-btn"
-            onClick={async () => {
-              try {
-                await logout();
-                window.location.href = '/login';
-              } catch (e) {
-                console.error("Logout failed", e);
-              }
-            }}
-            title="Logout"
-          >
-            🚪
-          </button>
         </div>
       </header>
 
