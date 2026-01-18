@@ -28,7 +28,16 @@ const RoleSelection: React.FC = () => {
     const [selectedRole, setSelectedRole] = useState<string | null>(null);
     const [isNavigating, setIsNavigating] = useState<boolean>(false);
     const [currentTime, setCurrentTime] = useState<Date>(new Date());
-    const clickTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+    const [isLoading, setIsLoading] = useState<boolean>(true); // Splash screen state
+    const clickTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+    useEffect(() => {
+        // Show splash screen for 7 seconds
+        const timer = setTimeout(() => {
+            setIsLoading(false);
+        }, 7000);
+        return () => clearTimeout(timer);
+    }, []);
 
     // Update time every second
     useEffect(() => {
@@ -121,216 +130,243 @@ const RoleSelection: React.FC = () => {
     return (
         <div className="role-selection-page">
             {/* Command Center Style Header */}
-            <div className="role-selection-header">
-                <div className="role-selection-header-left">
-                    <button className="role-selection-menu-toggle">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
-                    <div className="role-selection-logo">
-                        <span className="role-selection-logo-icon">◈</span>
-                        <span className="role-selection-logo-text">OPTIMUM</span>
-                        <span className="role-selection-logo-version">v2.4.0</span>
-                    </div>
-                </div>
-                <div className="role-selection-header-right">
-                    <div className="role-selection-header-clock">
-                        <div className="role-selection-clock-time">
-                            {currentTime.toLocaleTimeString('en-US', {
-                                hour12: false,
-                                hour: '2-digit',
-                                minute: '2-digit',
-                                second: '2-digit'
-                            })}
-                        </div>
-                        <div className="role-selection-clock-date">
-                            {currentTime.toLocaleDateString('en-US', {
-                                weekday: 'short',
-                                month: 'short',
-                                day: 'numeric'
-                            })}
+            {!isLoading && (
+                <div className="role-selection-header">
+                    <div className="role-selection-header-left">
+                        <button className="role-selection-menu-toggle">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </button>
+                        <div className="role-selection-logo">
+                            <span className="role-selection-logo-icon">◈</span>
+                            <span className="role-selection-logo-text">OPTIMUM</span>
+                            <span className="role-selection-logo-version">v2.5.0</span>
                         </div>
                     </div>
+                    <div className="role-selection-header-right">
+                        <div className="role-selection-header-clock">
+                            <div className="role-selection-clock-time">
+                                {currentTime.toLocaleTimeString('en-US', {
+                                    hour12: false,
+                                    hour: '2-digit',
+                                    minute: '2-digit',
+                                    second: '2-digit'
+                                })}
+                            </div>
+                            <div className="role-selection-clock-date">
+                                {currentTime.toLocaleDateString('en-US', {
+                                    weekday: 'short',
+                                    month: 'short',
+                                    day: 'numeric'
+                                })}
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div className="role-selection-container">
-                {/* Main Content */}
-                <motion.div
-                    className="role-selection-content"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
-                >
-                    <h2>Select Your Role</h2>
-                    <p className="role-selection-subtitle">
-                        Choose your role to access the appropriate dashboard
-                    </p>
+            )}
 
-                    <div className="roles-grid-wrapper">
-                        <div className="roles-grid">
-                            {roles.map((role, index) => {
-                                const Icon = role.icon;
-                                return (
-                                    <motion.div
-                                        key={role.id}
-                                        className={`role-card ${selectedRole === role.id ? 'selected' : ''} ${isNavigating ? 'navigating' : ''}`}
-                                        initial={{ opacity: 0, scale: 0.5, y: 50, rotateX: -90 }}
-                                        animate={{
-                                            opacity: 1,
-                                            scale: 1,
-                                            y: [0, -8, 0],
-                                            rotateX: 0
-                                        }}
-                                        transition={{
-                                            opacity: { duration: 0.5, delay: index * 0.15 },
-                                            scale: { duration: 0.5, delay: index * 0.15, type: "spring", stiffness: 100, damping: 15 },
-                                            y: {
-                                                duration: 3,
-                                                repeat: Infinity,
-                                                ease: "easeInOut",
-                                                delay: index * 0.15 + 0.5
-                                            },
-                                            rotateX: { duration: 0.5, delay: index * 0.15 }
-                                        }}
-                                        whileHover={!isNavigating ? {
-                                            scale: 1.08,
-                                            y: -10,
-                                            rotateY: 5,
-                                            transition: { duration: 0.2 }
-                                        } : {}}
-                                        whileTap={!isNavigating ? {
-                                            scale: 0.92,
-                                            transition: { duration: 0.1 }
-                                        } : {}}
-                                        style={{
-                                            pointerEvents: isNavigating ? 'none' : 'auto',
-                                            cursor: 'pointer',
-                                            position: 'relative',
-                                            zIndex: 10
-                                        }}
-                                    >
-                                        <div
-                                            className="role-card-clickable"
-                                            onClick={(e) => {
-                                                console.log('Card clicked:', role.name, role.route);
-                                                console.log('Event:', e);
-                                                // Don't prevent default - let navigation happen
-                                                handleRoleSelect(role, e);
-                                            }}
-                                            onMouseDown={(e) => {
-                                                console.log('Mouse down on card:', role.name);
-                                            }}
-                                            role="button"
-                                            tabIndex={0}
-                                            aria-label={`Select ${role.name} role`}
-                                            onKeyDown={(e) => {
-                                                if (e.key === 'Enter' || e.key === ' ') {
-                                                    console.log('Key pressed on card:', role.name, e.key);
-                                                    e.preventDefault();
-                                                    handleRoleSelect(role, e);
-                                                }
-                                            }}
-                                            style={{
-                                                position: 'absolute',
-                                                top: 0,
-                                                left: 0,
-                                                right: 0,
-                                                bottom: 0,
-                                                width: '100%',
-                                                height: '100%',
-                                                background: 'transparent',
-                                                border: 'none',
-                                                cursor: 'pointer',
-                                                zIndex: 11,
-                                                padding: 0,
-                                                margin: 0
-                                            }}
-                                        />
+            {isLoading ? (
+                <motion.div
+                    className="splash-screen"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                >
+                    <div className="splash-content">
+                        <div className="splash-ai-avatar">
+                            <div className="ai-eye"></div>
+                        </div>
+                        <div className="loading-bar-container">
+                            <motion.div
+                                className="loading-bar-fill"
+                                initial={{ width: "0%" }}
+                                animate={{ width: "100%" }}
+                                transition={{ duration: 7, ease: "linear" }}
+                            />
+                        </div>
+                        <p className="splash-text">Initializing AI Core Systems...</p>
+                    </div>
+                </motion.div>
+            ) : (
+                <div className="role-selection-container">
+                    {/* Main Content */}
+                    <motion.div
+                        className="role-selection-content"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
+                    >
+                        <h2>Select Your Role</h2>
+                        <p className="role-selection-subtitle">
+                            Choose your role to access the appropriate dashboard
+                        </p>
+
+                        <div className="roles-grid-wrapper">
+                            <div className="roles-grid">
+                                {roles.map((role, index) => {
+                                    const Icon = role.icon;
+                                    return (
                                         <motion.div
-                                            className="role-icon-wrapper"
-                                            style={{ background: role.color, pointerEvents: 'none', position: 'relative', zIndex: 1 }}
+                                            key={role.id}
+                                            className={`role-card ${selectedRole === role.id ? 'selected' : ''} ${isNavigating ? 'navigating' : ''}`}
+                                            initial={{ opacity: 0, scale: 0.5, y: 50, rotateX: -90 }}
                                             animate={{
-                                                rotate: [0, 5, -5, 0],
-                                                scale: [1, 1.05, 1]
+                                                opacity: 1,
+                                                scale: 1,
+                                                y: [0, -8, 0],
+                                                rotateX: 0
                                             }}
                                             transition={{
-                                                duration: 4,
-                                                repeat: Infinity,
-                                                ease: "easeInOut"
+                                                opacity: { duration: 0.5, delay: index * 0.15 },
+                                                scale: { duration: 0.5, delay: index * 0.15, type: "spring", stiffness: 100, damping: 15 },
+                                                y: {
+                                                    duration: 3,
+                                                    repeat: Infinity,
+                                                    ease: "easeInOut",
+                                                    delay: index * 0.15 + 0.5
+                                                },
+                                                rotateX: { duration: 0.5, delay: index * 0.15 }
+                                            }}
+                                            whileHover={!isNavigating ? {
+                                                scale: 1.08,
+                                                y: -10,
+                                                rotateY: 5,
+                                                transition: { duration: 0.2 }
+                                            } : {}}
+                                            whileTap={!isNavigating ? {
+                                                scale: 0.92,
+                                                transition: { duration: 0.1 }
+                                            } : {}}
+                                            style={{
+                                                pointerEvents: isNavigating ? 'none' : 'auto',
+                                                cursor: 'pointer',
+                                                position: 'relative',
+                                                zIndex: 10
                                             }}
                                         >
+                                            <div
+                                                className="role-card-clickable"
+                                                onClick={(e) => {
+                                                    console.log('Card clicked:', role.name, role.route);
+                                                    console.log('Event:', e);
+                                                    // Don't prevent default - let navigation happen
+                                                    handleRoleSelect(role, e);
+                                                }}
+                                                onMouseDown={(e) => {
+                                                    console.log('Mouse down on card:', role.name);
+                                                }}
+                                                role="button"
+                                                tabIndex={0}
+                                                aria-label={`Select ${role.name} role`}
+                                                onKeyDown={(e) => {
+                                                    if (e.key === 'Enter' || e.key === ' ') {
+                                                        console.log('Key pressed on card:', role.name, e.key);
+                                                        e.preventDefault();
+                                                        handleRoleSelect(role, e);
+                                                    }
+                                                }}
+                                                style={{
+                                                    position: 'absolute',
+                                                    top: 0,
+                                                    left: 0,
+                                                    right: 0,
+                                                    bottom: 0,
+                                                    width: '100%',
+                                                    height: '100%',
+                                                    background: 'transparent',
+                                                    border: 'none',
+                                                    cursor: 'pointer',
+                                                    zIndex: 11,
+                                                    padding: 0,
+                                                    margin: 0
+                                                }}
+                                            />
                                             <motion.div
+                                                className="role-icon-wrapper"
+                                                style={{ background: role.color, pointerEvents: 'none', position: 'relative', zIndex: 1 }}
                                                 animate={{
-                                                    rotate: [0, 360]
+                                                    rotate: [0, 5, -5, 0],
+                                                    scale: [1, 1.05, 1]
                                                 }}
                                                 transition={{
-                                                    duration: 20,
-                                                    repeat: Infinity,
-                                                    ease: "linear"
-                                                }}
-                                                style={{ pointerEvents: 'none' }}
-                                            >
-                                                <Icon className="role-icon" style={{ pointerEvents: 'none' }} />
-                                            </motion.div>
-                                        </motion.div>
-                                        <div className="role-card-content">
-                                            <motion.h3
-                                                style={{ position: 'relative', zIndex: 1, pointerEvents: 'none' }}
-                                                animate={{
-                                                    textShadow: [
-                                                        "0 0 10px rgba(0, 255, 255, 0.4)",
-                                                        "0 0 20px rgba(0, 255, 255, 0.6)",
-                                                        "0 0 10px rgba(0, 255, 255, 0.4)"
-                                                    ]
-                                                }}
-                                                transition={{
-                                                    duration: 2,
+                                                    duration: 4,
                                                     repeat: Infinity,
                                                     ease: "easeInOut"
                                                 }}
                                             >
-                                                {role.name}
-                                            </motion.h3>
-                                            <p style={{ position: 'relative', zIndex: 1, pointerEvents: 'none' }}>{role.description}</p>
-                                        </div>
-                                        <motion.div
-                                            className="role-arrow"
-                                            style={{ position: 'relative', zIndex: 1, pointerEvents: 'none' }}
-                                            animate={{
-                                                x: [0, 5, 0]
-                                            }}
-                                            transition={{
-                                                duration: 1.5,
-                                                repeat: Infinity,
-                                                ease: "easeInOut"
-                                            }}
-                                        >
-                                            <HiArrowRight />
+                                                <motion.div
+                                                    animate={{
+                                                        rotate: [0, 360]
+                                                    }}
+                                                    transition={{
+                                                        duration: 20,
+                                                        repeat: Infinity,
+                                                        ease: "linear"
+                                                    }}
+                                                    style={{ pointerEvents: 'none' }}
+                                                >
+                                                    <Icon className="role-icon" style={{ pointerEvents: 'none' }} />
+                                                </motion.div>
+                                            </motion.div>
+                                            <div className="role-card-content">
+                                                <motion.h3
+                                                    style={{ position: 'relative', zIndex: 1, pointerEvents: 'none' }}
+                                                    animate={{
+                                                        textShadow: [
+                                                            "0 0 10px rgba(0, 255, 255, 0.4)",
+                                                            "0 0 20px rgba(0, 255, 255, 0.6)",
+                                                            "0 0 10px rgba(0, 255, 255, 0.4)"
+                                                        ]
+                                                    }}
+                                                    transition={{
+                                                        duration: 2,
+                                                        repeat: Infinity,
+                                                        ease: "easeInOut"
+                                                    }}
+                                                >
+                                                    {role.name}
+                                                </motion.h3>
+                                                <p style={{ position: 'relative', zIndex: 1, pointerEvents: 'none' }}>{role.description}</p>
+                                            </div>
+                                            <motion.div
+                                                className="role-arrow"
+                                                style={{ position: 'relative', zIndex: 1, pointerEvents: 'none' }}
+                                                animate={{
+                                                    x: [0, 5, 0]
+                                                }}
+                                                transition={{
+                                                    duration: 1.5,
+                                                    repeat: Infinity,
+                                                    ease: "easeInOut"
+                                                }}
+                                            >
+                                                <HiArrowRight />
+                                            </motion.div>
                                         </motion.div>
-                                    </motion.div>
-                                );
-                            })}
+                                    );
+                                })}
+                            </div>
+                            {/* AI Chat Widget - Floating beside cards */}
+                            <div className="chat-widget-side">
+                                <Suspense fallback={null}>
+                                    <AIChatWidget />
+                                </Suspense>
+                            </div>
                         </div>
-                        {/* AI Chat Widget - Floating beside cards */}
-                        <div className="chat-widget-side">
-                            <Suspense fallback={null}>
-                                <AIChatWidget />
-                            </Suspense>
-                        </div>
-                    </div>
 
-                    {/* Footer */}
-                    <motion.div
-                        className="role-selection-footer"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 0.5, delay: 0.6 }}
-                    >
-                        <p>Need help? Contact support at <a href="mailto:support@optimum.com">support@optimum.com</a></p>
+                        {/* Footer */}
+                        <motion.div
+                            className="role-selection-footer"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 0.5, delay: 0.6 }}
+                        >
+                            <p>Need help? Contact support at <a href="mailto:support@optimum.com">support@optimum.com</a></p>
+                        </motion.div>
                     </motion.div>
-                </motion.div>
-            </div>
+                </div>
+            )}
         </div>
     );
 };

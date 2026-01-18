@@ -1,12 +1,15 @@
-import React, { useState, memo, useCallback } from 'react';
+import React, { useState, memo, useCallback, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { HiUser, HiPhone, HiCube, HiHashtag, HiCalendar, HiSparkles, HiQuestionMarkCircle } from 'react-icons/hi';
+import { HiUser, HiPhone, HiCube, HiHashtag, HiCalendar, HiSparkles, HiQuestionMarkCircle, HiLockClosed } from 'react-icons/hi';
 import { aiAPI } from '../services/api';
+import { useAuth } from '../contexts/AuthContext';
 import { useToast } from '../hooks/useToast';
 import Tooltip from './Tooltip';
 import './OrderReception.css';
 
 const OrderReception = ({ onSubmit }) => {
+  const { user, isAdmin } = useAuth();
+
   const [formData, setFormData] = useState({
     customerName: '',
     phoneNumber: '',
@@ -14,6 +17,18 @@ const OrderReception = ({ onSubmit }) => {
     quantity: '',
     deliveryDate: ''
   });
+
+  // Pre-fill for admins
+  useEffect(() => {
+    if (isAdmin()) {
+      setFormData(prev => ({
+        ...prev,
+        customerName: 'Optimum',
+        phoneNumber: '+20 2 1234 5678'
+      }));
+    }
+  }, [isAdmin]);
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState({});
   const [aiText, setAiText] = useState('');
@@ -23,6 +38,12 @@ const OrderReception = ({ onSubmit }) => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+
+    // Prevent admins from changing restricted fields
+    if (isAdmin() && (name === 'customerName' || name === 'phoneNumber')) {
+      return;
+    }
+
     setFormData(prev => ({
       ...prev,
       [name]: value
@@ -38,31 +59,31 @@ const OrderReception = ({ onSubmit }) => {
 
   const validateForm = () => {
     const newErrors = {};
-    
+
     if (!formData.customerName.trim()) {
       newErrors.customerName = 'Customer name is required';
     }
-    
+
     if (!formData.phoneNumber.trim()) {
       newErrors.phoneNumber = 'Phone number is required';
     } else if (!/^[+]?[0-9\s\-()]{10,}$/.test(formData.phoneNumber)) {
       newErrors.phoneNumber = 'Please enter a valid phone number';
     }
-    
+
     if (!formData.productType.trim()) {
       newErrors.productType = 'Product type is required';
     }
-    
+
     if (!formData.quantity || formData.quantity < 1) {
       newErrors.quantity = 'Quantity must be at least 1';
     }
-    
+
     if (!formData.deliveryDate) {
       newErrors.deliveryDate = 'Delivery date is required';
     } else if (new Date(formData.deliveryDate) < new Date()) {
       newErrors.deliveryDate = 'Delivery date cannot be in the past';
     }
-    
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -105,13 +126,13 @@ const OrderReception = ({ onSubmit }) => {
 
   const handleSubmit = useCallback(async (e) => {
     e.preventDefault();
-    
+
     if (!validateForm()) {
       return;
     }
-    
+
     setIsSubmitting(true);
-    
+
     try {
       // Simulate API call delay
       // Use requestIdleCallback for non-blocking delay
@@ -122,7 +143,7 @@ const OrderReception = ({ onSubmit }) => {
           setTimeout(resolve, 1000);
         }
       });
-      
+
       onSubmit({
         customerName: formData.customerName.trim(),
         phoneNumber: formData.phoneNumber.trim(),
@@ -130,7 +151,7 @@ const OrderReception = ({ onSubmit }) => {
         quantity: parseInt(formData.quantity),
         deliveryDate: formData.deliveryDate
       });
-      
+
       // Reset form
       setFormData({
         customerName: '',
@@ -139,7 +160,7 @@ const OrderReception = ({ onSubmit }) => {
         quantity: '',
         deliveryDate: ''
       });
-      
+
     } catch (error) {
       console.error('Error submitting order:', error);
     } finally {
@@ -200,23 +221,28 @@ const OrderReception = ({ onSubmit }) => {
           </motion.div>
         )}
       </motion.div>
-      
+
       <div className="card">
         <form onSubmit={handleSubmit} className="order-form">
           <div className="form-row">
-            <motion.div 
+            <motion.div
               className="form-group"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.1 }}
             >
-            <label htmlFor="customerName">
-              <HiUser className="input-icon" />
-              Customer Name *
-              <Tooltip content="Enter the full name of the customer placing the order">
-                <HiQuestionMarkCircle className="help-icon-small" />
-              </Tooltip>
-            </label>
+              <label htmlFor="customerName">
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <HiUser className="input-icon" />
+                  Customer Name *
+                  {isAdmin() && <HiLockClosed className="lock-icon" style={{ color: '#ef4444' }} />}
+                </div>
+                {!isAdmin() && (
+                  <Tooltip content="Enter the full name of the customer placing the order">
+                    <HiQuestionMarkCircle className="help-icon-small" />
+                  </Tooltip>
+                )}
+              </label>
               <input
                 type="text"
                 id="customerName"
@@ -227,23 +253,28 @@ const OrderReception = ({ onSubmit }) => {
                 placeholder="Enter customer full name"
                 aria-invalid={!!errors.customerName}
                 aria-describedby={errors.customerName ? 'customerName-error' : undefined}
+                disabled={isAdmin()}
               />
+              {isAdmin() && <span className="field-hint" style={{ color: '#ef4444', fontSize: '0.8rem', marginTop: '4px' }}>⚠️ Internal Order Only (Restricted)</span>}
               {errors.customerName && (
                 <span id="customerName-error" className="error-message" role="alert">
                   {errors.customerName}
                 </span>
               )}
             </motion.div>
-            
-            <motion.div 
+
+            <motion.div
               className="form-group"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2 }}
             >
               <label htmlFor="phoneNumber">
-                <HiPhone className="input-icon" />
-                Phone Number *
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <HiPhone className="input-icon" />
+                  Phone Number *
+                  {isAdmin() && <HiLockClosed className="lock-icon" style={{ color: '#ef4444' }} />}
+                </div>
               </label>
               <input
                 type="tel"
@@ -255,7 +286,9 @@ const OrderReception = ({ onSubmit }) => {
                 placeholder="+20 100 123 4567"
                 aria-invalid={!!errors.phoneNumber}
                 aria-describedby={errors.phoneNumber ? 'phoneNumber-error' : undefined}
+                disabled={isAdmin()}
               />
+              {isAdmin() && <span className="field-hint" style={{ color: '#ef4444', fontSize: '0.8rem', marginTop: '4px' }}>⚠️ Company Line (Locked)</span>}
               {errors.phoneNumber && (
                 <span id="phoneNumber-error" className="error-message" role="alert">
                   {errors.phoneNumber}
@@ -263,8 +296,8 @@ const OrderReception = ({ onSubmit }) => {
               )}
             </motion.div>
           </div>
-          
-          <motion.div 
+
+          <motion.div
             className="form-group"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -287,9 +320,9 @@ const OrderReception = ({ onSubmit }) => {
             />
             {errors.productType && <span className="error-message">{errors.productType}</span>}
           </motion.div>
-          
+
           <div className="form-row">
-            <motion.div 
+            <motion.div
               className="form-group"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -311,8 +344,8 @@ const OrderReception = ({ onSubmit }) => {
               />
               {errors.quantity && <span className="error-message">{errors.quantity}</span>}
             </motion.div>
-            
-            <motion.div 
+
+            <motion.div
               className="form-group"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -334,7 +367,7 @@ const OrderReception = ({ onSubmit }) => {
               {errors.deliveryDate && <span className="error-message">{errors.deliveryDate}</span>}
             </motion.div>
           </div>
-          
+
           <div className="form-actions">
             <button
               type="submit"
