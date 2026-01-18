@@ -141,7 +141,7 @@ const RoleSelection: React.FC = () => {
                         <div className="role-selection-logo">
                             <span className="role-selection-logo-icon">◈</span>
                             <span className="role-selection-logo-text">OPTIMUM</span>
-                            <span className="role-selection-logo-version">v2.5.0</span>
+                            <span className="role-selection-logo-version">v2.5.0-AI-Integrated</span>
                         </div>
                     </div>
                     <div className="role-selection-header-right">

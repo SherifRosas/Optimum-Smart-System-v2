@@ -45,7 +45,7 @@ const About: React.FC = () => {
                     >
                         <div className="section-header">
                             <HiSparkles className="section-icon milestone-icon" />
-                            <h2>Recent Milestones (V2.4.0)</h2>
+                            <h2>Recent Milestones (V2.5.0-AI-Integrated)</h2>
                         </div>
                         <div className="section-content">
                             <div className="milestone-list">

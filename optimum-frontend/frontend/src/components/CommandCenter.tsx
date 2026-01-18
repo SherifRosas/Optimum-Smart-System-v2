@@ -327,7 +327,7 @@ function CommandCenter({ orders = [], onNavigate, currentView }: CommandCenterPr
           <div className="logo">
             <span className="logo-icon">◈</span>
             <span className="logo-text">OPTIMUM</span>
-            <span className="logo-version">v2.4.0</span>
+            <span className="logo-version">v2.5.0-AI-Integrated</span>
           </div>
         </div>
 
@@ -595,7 +595,7 @@ function CommandCenter({ orders = [], onNavigate, currentView }: CommandCenterPr
         </div>
         <div className="status-bar-center">
           <span className="version-info font-mono">
-            OPTIMUM SMART SYSTEM v2.4.0 ADVANCED
+            OPTIMUM SMART SYSTEM v2.5.0-AI-Integrated
           </span>
         </div>
         <div className="status-bar-right">

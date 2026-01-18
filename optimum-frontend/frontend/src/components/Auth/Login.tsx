@@ -58,7 +58,7 @@ export function Login() {
             Sign in to your account
           </h2>
           <p className="mt-2 text-center text-sm text-gray-600">
-            Optimum Smart System v2.4.0
+            Optimum Smart System v2.5.0-AI-Integrated
           </p>
         </div>
 
