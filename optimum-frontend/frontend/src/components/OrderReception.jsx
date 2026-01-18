@@ -8,13 +8,8 @@ import Tooltip from './Tooltip';
 import './OrderReception.css';
 
 const OrderReception = ({ onSubmit }) => {
-<<<<<<< HEAD
-  const auth = useAuth();
-  const isAdmin = auth.isAdmin && auth.isAdmin();
+  const { isAdmin } = useAuth();
   const toast = useToast();
-=======
-  const { user, isAdmin } = useAuth();
->>>>>>> 688dbdd6
 
   const [formData, setFormData] = useState({
     customerName: isAdmin ? 'Optimum' : '',
@@ -237,13 +232,6 @@ const OrderReception = ({ onSubmit }) => {
               transition={{ delay: 0.1 }}
             >
               <label htmlFor="customerName">
-<<<<<<< HEAD
-                <HiUser className="input-icon" />
-                Customer Name *
-                <Tooltip content="Enter the full name of the customer placing the order">
-                  <HiQuestionMarkCircle className="help-icon-small" />
-                </Tooltip>
-=======
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <HiUser className="input-icon" />
                   Customer Name *
@@ -254,7 +242,6 @@ const OrderReception = ({ onSubmit }) => {
                     <HiQuestionMarkCircle className="help-icon-small" />
                   </Tooltip>
                 )}
->>>>>>> 688dbdd6
               </label>
               <input
                 type="text"
@@ -264,16 +251,11 @@ const OrderReception = ({ onSubmit }) => {
                 onChange={handleInputChange}
                 className={errors.customerName ? 'error' : ''}
                 placeholder="Enter customer full name"
-                disabled={isAdmin}
                 aria-invalid={!!errors.customerName}
                 aria-describedby={errors.customerName ? 'customerName-error' : undefined}
                 disabled={isAdmin()}
               />
-<<<<<<< HEAD
-              {isAdmin && <p className="field-hint">Admins can only create internal orders for "Optimum".</p>}
-=======
               {isAdmin() && <span className="field-hint" style={{ color: '#ef4444', fontSize: '0.8rem', marginTop: '4px' }}>⚠️ Internal Order Only (Restricted)</span>}
->>>>>>> 688dbdd6
               {errors.customerName && (
                 <span id="customerName-error" className="error-message" role="alert">
                   {errors.customerName}
@@ -302,7 +284,6 @@ const OrderReception = ({ onSubmit }) => {
                 onChange={handleInputChange}
                 className={errors.phoneNumber ? 'error' : ''}
                 placeholder="+20 100 123 4567"
-                disabled={isAdmin}
                 aria-invalid={!!errors.phoneNumber}
                 aria-describedby={errors.phoneNumber ? 'phoneNumber-error' : undefined}
                 disabled={isAdmin()}
