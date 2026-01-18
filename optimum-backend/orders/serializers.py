@@ -49,6 +49,10 @@ class OrderSerializer(serializers.ModelSerializer):
     messages = OrderMessageSerializer(many=True, read_only=True)
     offers = SupplierOfferSerializer(many=True, read_only=True)
 
+    # Added to fix "N/A" customer display issue
+    customer_name = serializers.CharField(source="customer.name", read_only=True)
+    customer_phone = serializers.CharField(source="customer.phone_number", read_only=True)
+
     class Meta:
         model = Order
         fields = [

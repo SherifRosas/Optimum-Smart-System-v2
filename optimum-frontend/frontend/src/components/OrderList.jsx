@@ -43,16 +43,16 @@ const OrderList = ({ orders, onStatusUpdate }) => {
   const filteredOrders = useMemo(() => {
     return orders.filter(order => {
       const matchesStatus = filterStatus === 'all' || order.status === filterStatus;
-      
-      const matchesSearch = debouncedSearch === '' || 
+
+      const matchesSearch = debouncedSearch === '' ||
         order.customerName?.toLowerCase().includes(debouncedSearch.toLowerCase()) ||
         order.productType?.toLowerCase().includes(debouncedSearch.toLowerCase()) ||
         order.phoneNumber?.includes(debouncedSearch) ||
         order.id?.toString().includes(debouncedSearch);
-      
+
       const matchesDateRange = (!dateRange.start || new Date(order.createdAt) >= new Date(dateRange.start)) &&
-                               (!dateRange.end || new Date(order.createdAt) <= new Date(dateRange.end));
-      
+        (!dateRange.end || new Date(order.createdAt) <= new Date(dateRange.end));
+
       return matchesStatus && matchesSearch && matchesDateRange;
     });
   }, [orders, filterStatus, debouncedSearch, dateRange]);
@@ -61,17 +61,17 @@ const OrderList = ({ orders, onStatusUpdate }) => {
     return [...filteredOrders].sort((a, b) => {
       let aValue = a[sortBy];
       let bValue = b[sortBy];
-      
+
       if (sortBy === 'createdAt' || sortBy === 'deliveryDate') {
         aValue = new Date(aValue || 0);
         bValue = new Date(bValue || 0);
       }
-      
+
       if (sortBy === 'totalAmount' || sortBy === 'quantity') {
         aValue = Number(aValue) || 0;
         bValue = Number(bValue) || 0;
       }
-      
+
       if (sortOrder === 'asc') {
         return aValue > bValue ? 1 : -1;
       } else {
@@ -248,7 +248,7 @@ const OrderList = ({ orders, onStatusUpdate }) => {
         </div>
 
         <div className="filter-group">
-          <button 
+          <button
             onClick={() => exportToCSV(sortedOrders)}
             className="export-btn"
             title="Export orders to CSV"
@@ -275,56 +275,62 @@ const OrderList = ({ orders, onStatusUpdate }) => {
                   exit={{ opacity: 0, scale: 0.9 }}
                   transition={{ delay: index * 0.05 }}
                 >
-                <div className="order-header">
-                  <div className="order-id">Order #{order.id}</div>
-                  <span className={getStatusClass(order.status)}>
-                    {statusLabels[order.status]}
-                  </span>
-                </div>
-                
-                <div className="order-details">
-                  <div className="detail-row">
-                    <span className="label">{t('customerName')}:</span>
-                    <span className="value">{order.customerName || t('nA')}</span>
+                  <div className="order-header">
+                    <div className="order-id">Order #{order.id}</div>
+                    <span className={getStatusClass(order.status)}>
+                      {statusLabels[order.status]}
+                    </span>
                   </div>
-                  <div className="detail-row">
-                    <span className="label">{t('phone')}:</span>
-                    <span className="value">{order.phoneNumber || t('nA')}</span>
-                  </div>
-                  <div className="detail-row">
-                    <span className="label">{t('product')}:</span>
-                    <span className="value">{order.productType || t('nA')}</span>
-                  </div>
-                  <div className="detail-row">
-                    <span className="label">{t('quantity')}:</span>
-                    <span className="value">{order.quantity || 0}</span>
-                  </div>
-                  <div className="detail-row">
-                    <span className="label">{t('deliveryDate')}:</span>
-                    <span className="value">{formatDate(order.deliveryDate)}</span>
-                  </div>
-                  <div className="detail-row">
-                    <span className="label">{t('created')}:</span>
-                    <span className="value">{formatDate(order.createdAt)}</span>
-                  </div>
-                </div>
 
-                <div className="order-actions">
-                  <div className="status-selector">
-                    <label htmlFor={`status-${order.id}`}>{t('updateStatus')}:</label>
-                    <select
-                      id={`status-${order.id}`}
-                      value={order.status}
-                      onChange={(e) => handleStatusChange(order.id, e.target.value)}
-                      className="status-select"
-                    >
-                      <option value="pending">Pending</option>
-                      <option value="in-preparation">In Preparation</option>
-                      <option value="ready">Ready</option>
-                      <option value="delivered">Delivered</option>
-                    </select>
+                  <div className="order-details">
+                    <div className="detail-row">
+                      <span className="label">{t('customerName')}:</span>
+                      <span className="value">{order.customerName || t('nA')}</span>
+                    </div>
+                    <div className="detail-row">
+                      <span className="label">{t('phone')}:</span>
+                      <span className="value">{order.phoneNumber || t('nA')}</span>
+                    </div>
+                    <div className="detail-row">
+                      <span className="label">{t('product')}:</span>
+                      <span className="value">{order.productType || t('nA')}</span>
+                    </div>
+                    <div className="detail-row">
+                      <span className="label">{t('supplier') || "Supplier"}:</span>
+                      <span className="value" style={{ color: order.supplier?.name ? '#00ffff' : '#aaa' }}>
+                        {order.supplier?.name || "Unassigned"}
+                      </span>
+                    </div>
+                    <div className="detail-row">
+                      <span className="label">{t('quantity')}:</span>
+                      <span className="value">{order.quantity || 0}</span>
+                    </div>
+                    <div className="detail-row">
+                      <span className="label">{t('deliveryDate')}:</span>
+                      <span className="value">{formatDate(order.deliveryDate)}</span>
+                    </div>
+                    <div className="detail-row">
+                      <span className="label">{t('created')}:</span>
+                      <span className="value">{formatDate(order.createdAt)}</span>
+                    </div>
                   </div>
-                </div>
+
+                  <div className="order-actions">
+                    <div className="status-selector">
+                      <label htmlFor={`status-${order.id}`}>{t('updateStatus')}:</label>
+                      <select
+                        id={`status-${order.id}`}
+                        value={order.status}
+                        onChange={(e) => handleStatusChange(order.id, e.target.value)}
+                        className="status-select"
+                      >
+                        <option value="pending">Pending</option>
+                        <option value="in-preparation">In Preparation</option>
+                        <option value="ready">Ready</option>
+                        <option value="delivered">Delivered</option>
+                      </select>
+                    </div>
+                  </div>
                 </motion.div>
               ))}
             </AnimatePresence>
@@ -343,11 +349,11 @@ const OrderList = ({ orders, onStatusUpdate }) => {
           >
             {t('previous')}
           </button>
-          
+
           <div className="pagination-info">
             {t('page')} {currentPage} {t('of')} {totalPages}
           </div>
-          
+
           {Array.from({ length: Math.min(5, totalPages) }, (_, i) => {
             let pageNum;
             if (totalPages <= 5) {
@@ -359,7 +365,7 @@ const OrderList = ({ orders, onStatusUpdate }) => {
             } else {
               pageNum = currentPage - 2 + i;
             }
-            
+
             return (
               <button
                 key={pageNum}
@@ -371,7 +377,7 @@ const OrderList = ({ orders, onStatusUpdate }) => {
               </button>
             );
           })}
-          
+
           <button
             onClick={() => goToPage(currentPage + 1)}
             disabled={currentPage === totalPages}

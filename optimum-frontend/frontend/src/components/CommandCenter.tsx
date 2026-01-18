@@ -218,6 +218,7 @@ function CommandCenter({ orders = [], onNavigate, currentView }: CommandCenterPr
   const [activeNav, setActiveNav] = useState<string>('dashboard');
   const [currentTime, setCurrentTime] = useState<Date>(new Date());
   const [sidebarCollapsed, setSidebarCollapsed] = useState<boolean>(false);
+  const [isUserMenuOpen, setIsUserMenuOpen] = useState<boolean>(false);
   const { setLanguage, language, t } = useLanguage();
   const { logout } = useAuth();
 
@@ -349,7 +350,7 @@ function CommandCenter({ orders = [], onNavigate, currentView }: CommandCenterPr
               <span className="notification-badge">3</span>
             </button>
           </div>
-          <div className="header-user">
+          <div className="header-user" onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}>
             <div className="user-avatar">
               <span>A</span>
             </div>
@@ -357,6 +358,40 @@ function CommandCenter({ orders = [], onNavigate, currentView }: CommandCenterPr
               <span className="user-name">{t('admin')}</span>
               <span className="user-role">{t('superAdmin')}</span>
             </div>
+            {isUserMenuOpen && (
+              <div className="user-dropdown">
+                <div className="user-dropdown-header">
+                  <div className="user-avatar small"><span>A</span></div>
+                  <div className="user-details">
+                    <span className="name">{t('admin')}</span>
+                    <span className="email">admin@optimum.com</span>
+                  </div>
+                </div>
+                <div className="user-dropdown-items">
+                  <button className="user-dropdown-item">
+                    <span>👤</span> {t('profile')}
+                  </button>
+                  <button className="user-dropdown-item">
+                    <span>⚙️</span> {t('settings')}
+                  </button>
+                  <div className="user-dropdown-divider"></div>
+                  <button
+                    className="user-dropdown-item text-red"
+                    onClick={async (e) => {
+                      e.stopPropagation();
+                      try {
+                        await logout();
+                        window.location.href = '/login';
+                      } catch (err) {
+                        console.error("Logout failed", err);
+                      }
+                    }}
+                  >
+                    <span>🚪</span> {t('logout')}
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
           <button
             className="logout-btn"
@@ -390,7 +425,7 @@ function CommandCenter({ orders = [], onNavigate, currentView }: CommandCenterPr
               label={t('orders')}
               active={activeNav === 'orders'}
               onClick={() => handleNavClick('orders')}
-              badge="12"
+              badge={orders?.length?.toString()}
             />
             <NavItem
               icon="👥"

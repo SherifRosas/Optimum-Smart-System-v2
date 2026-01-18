@@ -143,7 +143,7 @@ SIMPLE_JWT = {
 SPECTACULAR_SETTINGS = {
     'TITLE': 'Optimum Smart System API',
     'DESCRIPTION': 'AI-powered order management platform API documentation',
-    'VERSION': '2.4.0',
+    'VERSION': '2.5.0',
     'SERVE_INCLUDE_SCHEMA': False,
     'COMPONENT_SPLIT_REQUEST': True,
     'COMPONENT_NO_READ_ONLY_REQUIRED': True,

@@ -1,6 +1,6 @@
-import React, { useState, memo, useCallback } from 'react';
+import React, { useState, memo, useCallback, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { HiUser, HiPhone, HiCube, HiHashtag, HiCalendar, HiSparkles, HiQuestionMarkCircle } from 'react-icons/hi';
+import { HiUser, HiPhone, HiCube, HiHashtag, HiCalendar, HiSparkles, HiQuestionMarkCircle, HiLockClosed } from 'react-icons/hi';
 import { aiAPI } from '../services/api';
 import { useAuth } from '../contexts/AuthContext';
 import { useToast } from '../hooks/useToast';
@@ -8,9 +8,13 @@ import Tooltip from './Tooltip';
 import './OrderReception.css';
 
 const OrderReception = ({ onSubmit }) => {
+<<<<<<< HEAD
   const auth = useAuth();
   const isAdmin = auth.isAdmin && auth.isAdmin();
   const toast = useToast();
+=======
+  const { user, isAdmin } = useAuth();
+>>>>>>> 688dbdd6
 
   const [formData, setFormData] = useState({
     customerName: isAdmin ? 'Optimum' : '',
@@ -19,6 +23,18 @@ const OrderReception = ({ onSubmit }) => {
     quantity: '',
     deliveryDate: ''
   });
+
+  // Pre-fill for admins
+  useEffect(() => {
+    if (isAdmin()) {
+      setFormData(prev => ({
+        ...prev,
+        customerName: 'Optimum',
+        phoneNumber: '+20 2 1234 5678'
+      }));
+    }
+  }, [isAdmin]);
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState({});
   const [aiText, setAiText] = useState('');
@@ -27,6 +43,12 @@ const OrderReception = ({ onSubmit }) => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+
+    // Prevent admins from changing restricted fields
+    if (isAdmin() && (name === 'customerName' || name === 'phoneNumber')) {
+      return;
+    }
+
     setFormData(prev => ({
       ...prev,
       [name]: value
@@ -215,11 +237,24 @@ const OrderReception = ({ onSubmit }) => {
               transition={{ delay: 0.1 }}
             >
               <label htmlFor="customerName">
+<<<<<<< HEAD
                 <HiUser className="input-icon" />
                 Customer Name *
                 <Tooltip content="Enter the full name of the customer placing the order">
                   <HiQuestionMarkCircle className="help-icon-small" />
                 </Tooltip>
+=======
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <HiUser className="input-icon" />
+                  Customer Name *
+                  {isAdmin() && <HiLockClosed className="lock-icon" style={{ color: '#ef4444' }} />}
+                </div>
+                {!isAdmin() && (
+                  <Tooltip content="Enter the full name of the customer placing the order">
+                    <HiQuestionMarkCircle className="help-icon-small" />
+                  </Tooltip>
+                )}
+>>>>>>> 688dbdd6
               </label>
               <input
                 type="text"
@@ -232,8 +267,13 @@ const OrderReception = ({ onSubmit }) => {
                 disabled={isAdmin}
                 aria-invalid={!!errors.customerName}
                 aria-describedby={errors.customerName ? 'customerName-error' : undefined}
+                disabled={isAdmin()}
               />
+<<<<<<< HEAD
               {isAdmin && <p className="field-hint">Admins can only create internal orders for "Optimum".</p>}
+=======
+              {isAdmin() && <span className="field-hint" style={{ color: '#ef4444', fontSize: '0.8rem', marginTop: '4px' }}>⚠️ Internal Order Only (Restricted)</span>}
+>>>>>>> 688dbdd6
               {errors.customerName && (
                 <span id="customerName-error" className="error-message" role="alert">
                   {errors.customerName}
@@ -248,8 +288,11 @@ const OrderReception = ({ onSubmit }) => {
               transition={{ delay: 0.2 }}
             >
               <label htmlFor="phoneNumber">
-                <HiPhone className="input-icon" />
-                Phone Number *
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <HiPhone className="input-icon" />
+                  Phone Number *
+                  {isAdmin() && <HiLockClosed className="lock-icon" style={{ color: '#ef4444' }} />}
+                </div>
               </label>
               <input
                 type="tel"
@@ -262,7 +305,9 @@ const OrderReception = ({ onSubmit }) => {
                 disabled={isAdmin}
                 aria-invalid={!!errors.phoneNumber}
                 aria-describedby={errors.phoneNumber ? 'phoneNumber-error' : undefined}
+                disabled={isAdmin()}
               />
+              {isAdmin() && <span className="field-hint" style={{ color: '#ef4444', fontSize: '0.8rem', marginTop: '4px' }}>⚠️ Company Line (Locked)</span>}
               {errors.phoneNumber && (
                 <span id="phoneNumber-error" className="error-message" role="alert">
                   {errors.phoneNumber}
